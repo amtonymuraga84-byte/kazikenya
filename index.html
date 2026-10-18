@@ -121,7 +121,6 @@ function render(){
 ["q","fl","fc","ft"].forEach(i=>$(i).addEventListener("input",()=>{SHOW=20;render()}));
 $("list").addEventListener("click",e=>{if(e.target.id==="more"){SHOW+=20;render();return}const p=e.target.closest(".job p");if(p)p.classList.toggle("o")});
 $("reset").onclick=()=>{SHOW=20;["q","fl","fc","ft"].forEach(i=>$(i).value="");render()};
-$("y").textContent=new Date().getFullYear();
 fetch("jobs.json?v="+Date.now()).then(r=>r.json()).then(d=>{JOBS=d.filter(j=>j.src!=="Sample");render()})
  .catch(()=>{$("list").innerHTML='<div class="card">Jobs are loading slowly or unavailable. Please refresh in a moment.</div>'});
 </script>
