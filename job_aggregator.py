@@ -86,6 +86,15 @@ def fetch_jvn():
     print("[jvn] no feed found; check the site's job feed URL")
 
 
+def fetch_remotive():
+    """Remotive public API. Check their terms: link back and credit the source (done automatically)."""
+    r = requests.get("https://remotive.com/api/remote-jobs?limit=60", headers=HEADERS, timeout=30)
+    for j in r.json().get("jobs", []):
+        yield {"src": "Remotive", "title": j.get("title", ""), "company": j.get("company_name", ""),
+               "location": j.get("candidate_required_location") or "Remote", "text": strip(j.get("description")),
+               "url": j.get("url", "")}
+
+
 # Kenyan employers / NGOs / boards that allow reuse of their feed. Add as ("Name", "https://.../feed").
 EMPLOYER_FEEDS = []
 
@@ -98,7 +107,7 @@ def fetch_employer_feeds():
 
 
 # Add employer RSS feeds or career pages here after checking each site's robots.txt and terms.
-SOURCES = [fetch_jvn, fetch_employer_feeds, fetch_jooble, fetch_remoteok, fetch_wwr]  # Kenya sources first
+SOURCES = [fetch_jvn, fetch_employer_feeds, fetch_jooble, fetch_remoteok, fetch_wwr, fetch_remotive]  # Kenya sources first
 
 PROMPT = """You clean job listings for a Kenyan job board. Return ONLY JSON, no markdown.
 
@@ -112,13 +121,17 @@ JSON keys:
   false if remote but restricted to US/EU/other regions.
 - scam_risk: "low", "medium" or "high". Raise it for fees/deposits, personal-email or WhatsApp-only contact,
   unrealistic pay, or a vague employer.
+- detail: "good" if the text states duties or requirements, "basic" if it only names the role and employer,
+  "none" if it says almost nothing beyond the title.
 - title, company: cleaned
-- location: one of "Nairobi", "Mombasa", "Kisumu", "Other Kenya", "Remote"
-- type: "Full-time", "Part-time", "Contract" or "Internship"
+- location: "Nairobi", "Mombasa" or "Kisumu" only if the text says so; otherwise "Other Kenya" for Kenyan jobs, or "Remote".
+- type: "Full-time", "Part-time", "Contract" or "Internship" only if stated; otherwise "Not stated"
 - category: one of "Tech", "Finance", "Health", "Education", "Sales", "Logistics", "Other"
 - pay: as stated, or ""
 - deadline: YYYY-MM-DD or ""
-- summary: 2-3 sentences in YOUR OWN words on the role and key requirements (never copy the text)
+- summary: 1-3 sentences in YOUR OWN words using only facts stated in the text. Never guess or assume. Never use
+  the words assumed, likely, appears, truncated or excerpt, and never comment on missing information.
+  If little is stated, write one short factual sentence.
 """
 
 
@@ -133,6 +146,14 @@ def main():
     jobs = load(OUT, [])
     seen = set(load(SEEN, []))
     today = date.today()
+    by_id = {}
+    for j in jobs:                      # remove duplicates (keep the latest copy of each job)
+        by_id[j["id"]] = j
+    jobs = list(by_id.values())
+    bad = re.compile(r"truncat|excerpt|assum", re.I)   # old low-quality summaries get redone with the new prompt
+    stale = {j["id"] for j in jobs if bad.search(j.get("x", ""))}
+    jobs = [j for j in jobs if j["id"] not in stale]
+    seen -= stale
 
     # drop expired / old listings (manual edits such as "f": 1 for featured are preserved)
     def alive(j):
@@ -166,7 +187,7 @@ def main():
             except Exception as e:
                 print(f"Cleanup failed for {url}: {e}")
                 continue
-            if not c.get("keep"):
+            if not c.get("keep") or c.get("detail") == "none":
                 skipped += 1
                 continue
             if c.get("scam_risk") not in ALLOWED_RISK:
