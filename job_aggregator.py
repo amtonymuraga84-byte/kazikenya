@@ -150,7 +150,7 @@ def main():
     for j in jobs:                      # remove duplicates (keep the latest copy of each job)
         by_id[j["id"]] = j
     jobs = list(by_id.values())
-    bad = re.compile(r"truncat|excerpt|assum", re.I)   # old low-quality summaries get redone with the new prompt
+    bad = re.compile(r"truncat|excerpt|assum|appears|likely|not stated|not named|unclear|not given", re.I)   # old low-quality summaries get redone with the new prompt
     stale = {j["id"] for j in jobs if bad.search(j.get("x", ""))}
     jobs = [j for j in jobs if j["id"] not in stale]
     seen -= stale
