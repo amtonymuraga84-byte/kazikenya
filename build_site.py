@@ -1,5 +1,5 @@
 """
-build_site.py: builds the indexable parts of KaziKE from jobs.json.
+build_site.py: builds the indexable parts of RemoteKazi from jobs.json.
 Creates: jobs/<slug>.html (with Google JobPosting data), guides/, about/contact/privacy/terms pages,
 style.css, sitemap.xml, robots.txt, and refreshes the nav/footer/head inside index.html.
 Run after job_aggregator.py (the GitHub Action does both).
@@ -17,6 +17,7 @@ CONTACT_EMAIL = "hello@remotekazi.com"                      # a real inbox you r
 WHATSAPP_URL = ""      # e.g. https://whatsapp.com/channel/XXXX   (leave empty to hide)
 TELEGRAM_URL = ""      # e.g. https://t.me/yourchannel            (leave empty to hide)
 CF_BEACON_TOKEN = ""   # Cloudflare > Web Analytics > your site > token (leave empty to disable)
+SHOW_AD_PLACEHOLDERS = False   # keep False until you paste real ad code into the ad boxes
 # ======================
 
 E = lambda s: html.escape(str(s if s is not None else ""), quote=True)
@@ -33,16 +34,17 @@ def slugify(s):
 def head_extra(path="/"):
     beacon = (f'<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
               f'data-cf-beacon=\'{{"token": "{E(CF_BEACON_TOKEN)}"}}\'></script>') if CF_BEACON_TOKEN else ""
+    adcss = '' if SHOW_AD_PLACEHOLDERS else '<style>.ad,aside{display:none!important}.main{grid-template-columns:minmax(0,1fr)!important}</style>'
     font = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap">')
-    return (f'{font}<link rel="canonical" href="{SITE_URL}{path}"><link rel="icon" href="{FAV}">'
-            f'<meta property="og:site_name" content="KaziKE"><meta property="og:type" content="website">'
+    return (f'{adcss}{font}<link rel="canonical" href="{SITE_URL}{path}"><link rel="icon" href="{FAV}">'
+            f'<meta property="og:site_name" content="RemoteKazi"><meta property="og:type" content="website">'
             f'<meta property="og:url" content="{SITE_URL}{path}"><meta name="twitter:card" content="summary">{beacon}')
 
 
 _cta = TELEGRAM_URL or WHATSAPP_URL
 NAV = '<a href="/#jobs">Jobs</a>' + (f'<a class="cta" href="{E(_cta)}" rel="noopener">Job alerts</a>' if _cta else "")
-HEADER = f'<header><div class="w"><a class="logo" href="/">Kazi<b>KE</b></a><nav>{NAV}</nav></div></header>'
+HEADER = f'<header><div class="w"><a class="logo" href="/">Remote<b>Kazi</b></a><nav>{NAV}</nav></div></header>'
 
 
 def alerts_box():
@@ -65,7 +67,7 @@ def footer():
     alerts = f'<p>{btns}</p>' if btns else ""
     return (f'<footer><div class="w">{alerts}<p><a href="/about.html">About</a> · <a href="/contact.html">Contact</a> · '
             f'<a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/guides/">Guides</a></p>'
-            f'<p>© {date.today().year} KaziKE. Listings come from public feeds and are checked automatically, so details '
+            f'<p>© {date.today().year} RemoteKazi. Listings come from public feeds and are checked automatically, so details '
             f'can be wrong or out of date. Verify the employer, and never pay to get a job. '
             f'<a href="mailto:{E(CONTACT_EMAIL)}">Report a scam</a></p></div></footer>')
 
@@ -85,6 +87,21 @@ def write(path, text):
     p.write_text(text, encoding="utf-8")
 
 
+def tag_y(j):
+    return f'<span class="tag">{E(j["y"])}</span>' if j["y"] != "Not stated" else ""
+
+
+def card_html(j):
+    d = (date.today() - datetime.fromisoformat(j["posted"]).date()).days
+    when = "today" if d <= 0 else "1 day ago" if d == 1 else f"{d} days ago"
+    pay = f'<span class="tag">{E(j["p"])}</span>' if j.get("p") else ""
+    return (f'<article class="job{" f" if j.get("f") else ""}"><h3><a href="/jobs/{j["slug"]}.html">{E(j["t"])}</a></h3>'
+            f'<div class="meta">{E(j["c"])} · {E(j["l"])} · {when}</div>{tag_y(j)}<span class="tag">{E(j["k"])}</span>{pay}'
+            f'<p>{E(j["x"])}</p><div class="row"><a class="btn" href="{E(j["u"])}" target="_blank" rel="nofollow noopener">'
+            f'Apply on employer site</a><a class="meta" href="/contact.html">Report</a>'
+            f'<span class="meta">Source: {E(j.get("src", "Direct"))}</span></div></article>')
+
+
 # ---------- job pages ----------
 def job_page(j, all_jobs):
     path = f"/jobs/{j['slug']}.html"
@@ -94,7 +111,9 @@ def job_page(j, all_jobs):
     ld = {"@context": "https://schema.org", "@type": "JobPosting", "title": j["t"], "description": j["x"],
           "datePosted": posted, "validThrough": valid, "employmentType": EMP.get(j["y"], "OTHER"),
           "hiringOrganization": {"@type": "Organization", "name": j["c"]}, "directApply": False,
-          "url": SITE_URL + path, "identifier": {"@type": "PropertyValue", "name": j.get("src", "KaziKE"), "value": j["id"]}}
+          "url": SITE_URL + path, "identifier": {"@type": "PropertyValue", "name": j.get("src", "RemoteKazi"), "value": j["id"]}}
+    if j["y"] == "Not stated":
+        ld.pop("employmentType")
     if remote:
         ld["jobLocationType"] = "TELECOMMUTE"
         ld["applicantLocationRequirements"] = {"@type": "Country", "name": "Kenya"}
@@ -106,7 +125,7 @@ def job_page(j, all_jobs):
     body = (f'<p class="crumbs"><a href="/">Jobs</a> › {E(j["k"])}</p><h1>{E(j["t"])}</h1>'
             f'<p class="meta">{E(j["c"])} · {E(j["l"])} · Posted {E(posted)}'
             f'{" · Closes " + E(j["deadline"]) if j.get("deadline") else ""}</p>'
-            f'<p><span class="tag">{E(j["y"])}</span><span class="tag">{E(j["k"])}</span>'
+            f'<p>{tag_y(j)}<span class="tag">{E(j["k"])}</span>'
             f'{"<span class=tag>" + E(j["p"]) + "</span>" if j.get("p") else ""}</p>'
             f'{AD.format("Top banner")}<h2>About the role</h2><p>{E(j["x"])}</p>'
             f'<p><a class="btn" href="{E(j["u"])}" target="_blank" rel="nofollow noopener">Apply on the original page</a></p>'
@@ -116,7 +135,7 @@ def job_page(j, all_jobs):
             f'{alerts_box()}{AD.format("In-content 300×250 / responsive")}'
             + (f'<h2>More {E(j["k"])} jobs</h2><ul>{relh}</ul>' if rel else "")
             + '<p><a href="/#jobs">← Back to all jobs</a></p>')
-    write(path, page(f'{j["t"]} at {j["c"]} ({j["l"]}) | KaziKE', j["x"][:155], path, body,
+    write(path, page(f'{j["t"]} at {j["c"]} ({j["l"]}) | RemoteKazi', j["x"][:155], path, body,
                      f'<script type="application/ld+json">{json.dumps(ld).replace("</", "<\\/")}</script>'))
 
 
@@ -146,7 +165,7 @@ GUIDES = {
         "<h2>Check before you apply</h2><p>Search the company name, look for an official website and social pages, and find the "
         "vacancy on the employer’s own careers page. Call the office using a number you found yourself.</p>"
         "<h2>If you suspect a scam</h2><p>Stop contact and do not send money. Report it to the platform that showed the advert, "
-        "and to the police or the Communications Authority if you lost money. You can also report any listing on KaziKE using the link on its page.</p>"),
+        "and to the police or the Communications Authority if you lost money. You can also report any listing on RemoteKazi using the link on its page.</p>"),
     "interview-tips-kenya": ("Interview Preparation: 10 Questions to Practise",
         "A simple preparation routine and common interview questions for job seekers in Kenya.",
         "<p>Good preparation matters more than natural confidence. Spend an hour on the steps below before any interview.</p>"
@@ -160,19 +179,49 @@ GUIDES = {
         "<li>What are your salary expectations?</li></ol>"
         "<h2>Answer with a story</h2><p>For behavioural questions, describe the situation, what you did, and the result. "
         "Finish by asking one or two thoughtful questions about the role.</p>"),
+    "remote-work-from-kenya": ("Remote Work From Kenya: How to Start and Get Paid",
+        "A beginner’s guide to finding remote work from Kenya, building trust with employers and receiving payments.",
+        "<p>Remote work lets you earn from employers anywhere, but it rewards preparation. These steps work for most people starting out.</p>"
+        "<h2>Check that you are eligible</h2><p>Read each advert for location rules. Some remote roles are open worldwide, some only to specific countries or time zones. "
+        "Apply only where Kenya or Africa is allowed, and make sure you can work the hours required.</p>"
+        "<h2>Set up your basics</h2><ul><li>Reliable internet and a backup, such as a mobile data bundle</li><li>A quiet workspace, headphones and a working laptop</li>"
+        "<li>A professional email address and an up-to-date LinkedIn profile</li></ul>"
+        "<h2>Build proof of your skills</h2><p>Employers abroad cannot visit your office, so show your work: a portfolio, writing samples, a GitHub page or a short "
+        "video introduction. Start with smaller contracts to collect reviews.</p>"
+        "<h2>Plan how you will be paid</h2><p>Ask the employer how they pay: bank transfer, a payment platform or mobile money. Compare the fees and exchange rates of "
+        "each option before you agree, and keep records for tax purposes. Never pay to receive work or “unlock” earnings.</p>"),
+    "cover-letter-tips-kenya": ("How to Write a Cover Letter That Gets Read",
+        "A simple structure for a short, convincing cover letter for jobs in Kenya and remote roles.",
+        "<p>A good cover letter is short, specific and addressed to the person hiring. Aim for one page, or about 250 to 350 words.</p>"
+        "<h2>Use a simple structure</h2><ol><li><b>Opening:</b> name the job, and say in one sentence why you are a strong fit.</li>"
+        "<li><b>Middle:</b> give two or three examples of results that match the advert, with numbers where you can.</li>"
+        "<li><b>Close:</b> say you would welcome an interview, and thank the reader.</li></ol>"
+        "<h2>Make it specific</h2><p>Mention the employer by name and say what attracts you to the role. Copying a template word for word is easy to spot.</p>"
+        "<h2>Avoid common mistakes</h2><ul><li>Repeating your CV line by line</li><li>Spelling errors or the wrong company name</li>"
+        "<li>Over-long paragraphs and vague claims such as “hardworking team player”</li></ul>"),
+    "negotiate-salary-kenya": ("Salary Negotiation Basics for Job Seekers",
+        "How to research pay, handle the salary question and negotiate an offer calmly.",
+        "<p>Many people accept the first offer because negotiating feels uncomfortable. A calm, prepared conversation can make a real difference.</p>"
+        "<h2>Do your research first</h2><p>Look at pay for similar roles in your county and industry, using job adverts, salary surveys and people you trust. "
+        "Decide the lowest offer you would accept and the figure you would be happy with.</p>"
+        "<h2>When asked for your expectation</h2><p>Give a range based on your research, and say it depends on the full package and responsibilities. "
+        "Avoid stating your current pay unless it helps you.</p>"
+        "<h2>Look at the whole offer</h2><ul><li>Basic pay, allowances and any bonus</li><li>Medical cover, leave days and pension</li>"
+        "<li>Contract length, probation period and notice terms</li></ul>"
+        "<h2>Get it in writing</h2><p>Ask for the offer letter and read it carefully before you resign from your current job. If something differs from what you discussed, raise it politely.</p>"),
 }
 
 
 def static_pages():
     for slug, (t, d, b) in GUIDES.items():
-        write(f"/guides/{slug}.html", page(f"{t} | KaziKE", d, f"/guides/{slug}.html",
+        write(f"/guides/{slug}.html", page(f"{t} | RemoteKazi", d, f"/guides/{slug}.html",
                                            f"<h1>{E(t)}</h1>{b}{AD.format('In-content ad')}<p><a href='/guides/'>← All guides</a></p>"))
     items = "".join(f'<li><a href="/guides/{s}.html"><b>{E(t)}</b></a><br><span class="meta">{E(d)}</span></li>'
                     for s, (t, d, _) in GUIDES.items())
-    write("/guides/index.html", page("Career Guides | KaziKE", "CV, interview and job-scam guides for Kenyan job seekers.",
+    write("/guides/index.html", page("Career Guides | RemoteKazi", "CV, interview and job-scam guides for Kenyan job seekers.",
                                      "/guides/", f"<h1>Career guides</h1><ul>{items}</ul>"))
-    write("/about.html", page("About KaziKE", "KaziKE lists jobs in Kenya and remote roles open to Kenyans.", "/about.html",
-        "<h1>About KaziKE</h1><p>KaziKE helps people in Kenya find jobs in Nairobi, Mombasa, Kisumu and beyond, plus remote roles "
+    write("/about.html", page("About RemoteKazi", "RemoteKazi lists jobs in Kenya and remote roles open to Kenyans.", "/about.html",
+        "<h1>About RemoteKazi</h1><p>RemoteKazi helps people in Kenya find jobs in Nairobi, Mombasa, Kisumu and beyond, plus remote roles "
         "open to applicants in Kenya. Browsing is free.</p><h2>How listings are collected</h2>"
         "<p>We gather vacancies from public job feeds and partner sources. Software summarises each listing in plain language, "
         "keeps only jobs relevant to Kenya, and flags adverts that look like scams. Every listing links to the original page, "
@@ -180,14 +229,14 @@ def static_pages():
         "<h2>How we make money</h2><p>The site shows advertising and may carry sponsored listings, which are labelled. "
         "We never charge job seekers.</p>"
         f'<h2>Contact</h2><p><a href="mailto:{E(CONTACT_EMAIL)}">{E(CONTACT_EMAIL)}</a></p>'))
-    write("/contact.html", page("Contact KaziKE", "Contact KaziKE to report a job, an error or to advertise.", "/contact.html",
+    write("/contact.html", page("Contact RemoteKazi", "Contact RemoteKazi to report a job, an error or to advertise.", "/contact.html",
         f'<h1>Contact us</h1><p>Email <a href="mailto:{E(CONTACT_EMAIL)}">{E(CONTACT_EMAIL)}</a>.</p>'
         "<ul><li><b>Report a scam or expired job:</b> include the page link.</li>"
         "<li><b>Employers:</b> ask about featured listings and advertising.</li>"
         "<li><b>Remove a listing:</b> tell us the link and we will take it down.</li></ul>"))
-    write("/privacy.html", page("Privacy Policy | KaziKE", "How KaziKE handles visitor data, cookies and advertising.", "/privacy.html",
+    write("/privacy.html", page("Privacy Policy | RemoteKazi", "How RemoteKazi handles visitor data, cookies and advertising.", "/privacy.html",
         f"<h1>Privacy Policy</h1><p class='meta'>Last updated {date.today().isoformat()}</p>"
-        "<p>This policy explains what information KaziKE collects and how it is used, in line with the Kenya Data Protection Act, 2019.</p>"
+        "<p>This policy explains what information RemoteKazi collects and how it is used, in line with the Kenya Data Protection Act, 2019.</p>"
         "<h2>What we collect</h2><p>We do not ask visitors to create accounts. We collect basic, aggregated visit data "
         "(pages viewed, device type, approximate location) through privacy-friendly analytics. If you email us, we keep your message and address to reply.</p>"
         "<h2>Cookies and advertising</h2><p>Third parties, including Google, may show ads on this site and use cookies to serve ads based on your "
@@ -197,12 +246,12 @@ def static_pages():
         "Do not share sensitive details until you have verified the employer.</p>"
         "<h2>Your rights</h2><p>You may ask what data we hold about you, and request correction or deletion, by emailing "
         f"<a href='mailto:{E(CONTACT_EMAIL)}'>{E(CONTACT_EMAIL)}</a>.</p>"))
-    write("/terms.html", page("Terms of Use | KaziKE", "Terms for using KaziKE.", "/terms.html",
+    write("/terms.html", page("Terms of Use | RemoteKazi", "Terms for using RemoteKazi.", "/terms.html",
         f"<h1>Terms of Use</h1><p class='meta'>Last updated {date.today().isoformat()}</p>"
-        "<p>KaziKE is an information service. Listings come from third parties, we are not the employer, and we cannot guarantee "
+        "<p>RemoteKazi is an information service. Listings come from third parties, we are not the employer, and we cannot guarantee "
         "that any job is genuine, available or accurate.</p><ul><li>Verify each employer before sharing personal information or applying.</li>"
         "<li>Never pay money to get a job or interview.</li><li>Sponsored listings and ads are labelled.</li>"
-        "<li>We may remove any listing at any time.</li><li>To the extent allowed by law, KaziKE is not liable for losses arising from use of the site.</li></ul>"))
+        "<li>We may remove any listing at any time.</li><li>To the extent allowed by law, RemoteKazi is not liable for losses arising from use of the site.</li></ul>"))
 
 
 def patch(text, tag, content):
@@ -216,7 +265,11 @@ def main():
             ".crumbs{font-size:14px;color:var(--muted)}footer a{margin-right:4px}.alerts{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;background:var(--soft);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:14px 0}.row{display:flex;gap:8px;flex-wrap:wrap}footer p{margin:8px 0}.prose{font-size:18px;line-height:1.65}.prose h1{font-size:clamp(28px,5vw,42px);line-height:1.15}")
     write("/style.css", css)
 
-    jobs = [j for j in json.loads(Path("jobs.json").read_text(encoding="utf-8")) if j.get("src") != "Sample"]
+    by_id = {}
+    for j in json.loads(Path("jobs.json").read_text(encoding="utf-8")):
+        if j.get("src") != "Sample":
+            by_id[j["id"]] = j          # one entry per job (latest copy wins)
+    jobs = list(by_id.values())
     shutil.rmtree("jobs", ignore_errors=True)
     for j in jobs:
         j["slug"] = f"{slugify(j['t'] + '-' + j['c'])}-{j['id'][:6]}"
@@ -232,6 +285,15 @@ def main():
           + "".join(f"<url><loc>{SITE_URL}{u}</loc><lastmod>{today}</lastmod></url>" for u in urls) + "</urlset>")
     write("/robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
 
+    ordered = sorted(jobs, key=lambda j: (not j.get("f"), -datetime.fromisoformat(j["posted"]).toordinal()))
+    if jobs:  # write the first jobs into the HTML so search engines and AdSense can read them
+        idx = patch(idx, "JOBS", "".join(card_html(j) for j in ordered[:20]))
+        week = sum(1 for j in jobs if (date.today() - datetime.fromisoformat(j["posted"]).date()).days <= 7)
+        vals = {"s1": len(jobs), "s2": sum(j["l"] == "Remote" for j in jobs), "s3": week,
+                "s4": len({j.get("src", "Direct") for j in jobs})}
+        for k, v in vals.items():
+            idx = re.sub(rf'(<b id="{k}">)[^<]*(</b>)', rf'\g<1>{v}\g<2>', idx)
+        idx = re.sub(r'(<span id="count">)[^<]*(</span>)', rf'\g<1>{len(jobs)} jobs found\g<2>', idx)
     for tag, content in (("NAV", NAV), ("HEAD", head_extra("/")), ("ALERTS", alerts_box()), ("FOOT", footer())):
         idx = patch(idx, tag, content)
     Path("index.html").write_text(idx, encoding="utf-8")
