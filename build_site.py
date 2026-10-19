@@ -12,7 +12,7 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 # ===== EDIT THESE =====
-SITE_URL = "https://kazikenya.amtonymuraga84.workers.dev"  # change to your own domain, no trailing slash
+SITE_URL = "https://remotekazi.com"  # change to your own domain, no trailing slash
 CONTACT_EMAIL = "hello@remotekazi.com"                      # a real inbox you read
 WHATSAPP_URL = ""      # e.g. https://whatsapp.com/channel/XXXX   (leave empty to hide)
 TELEGRAM_URL = ""      # e.g. https://t.me/yourchannel            (leave empty to hide)
