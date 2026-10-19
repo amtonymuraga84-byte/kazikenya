@@ -265,7 +265,11 @@ def patch(text, tag, content):
 
 def main():
     idx = Path("index.html").read_text(encoding="utf-8")
-    css = re.search(r"<style>(.*?)</style>", idx, re.S).group(1)
+    # take the main stylesheet from index.html, ignoring the small <style> that the HEAD block injects
+    base = re.sub(r"<!--HEAD-->.*?<!--/HEAD-->", "", idx, flags=re.S)
+    css = max(re.findall(r"<style>(.*?)</style>", base, re.S), key=len)
+    if not SHOW_AD_PLACEHOLDERS:
+        css += ".ad,aside{display:none!important}.main{grid-template-columns:minmax(0,1fr)!important}"
     css += (".w.prose{max-width:780px;padding-block:24px}.prose h2{margin:22px 0 8px}.prose li{margin:5px 0}"
             ".crumbs{font-size:14px;color:var(--muted)}footer a{margin-right:4px}.alerts{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;background:var(--soft);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:14px 0}.row{display:flex;gap:8px;flex-wrap:wrap}footer p{margin:8px 0}.prose{font-size:18px;line-height:1.65}.prose h1{font-size:clamp(28px,5vw,42px);line-height:1.15}")
     write("/style.css", css)
