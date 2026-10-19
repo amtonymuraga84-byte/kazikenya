@@ -1,18 +1,131 @@
 [
  {
-  "id": "sample0",
-  "t": "Customer Success Associate",
-  "c": "Sample Fintech Ltd",
+  "id": "7ae0b630b1895cbf",
+  "t": "Receptionist, Cancer Centre",
+  "c": "Aga Khan University Hospital",
   "l": "Nairobi",
-  "k": "Finance",
+  "k": "Health",
   "y": "Full-time",
-  "p": "KES 70,000–90,000",
-  "x": "Support merchants using a mobile payments platform. Strong communication and basic SQL helpful.",
-  "u": "https://example.com",
-  "src": "Sample",
+  "p": "",
+  "x": "Front-desk receptionist position at the Cancer Centre of Aga Khan University Hospital, Nairobi, a well-known private not-for-profit teaching hospital. The listing excerpt is truncated and gives no detailed duties or qualifications, so applicants should check the full posting on the hospital's careers page. Type and deadline are not stated; full-time is assumed.",
+  "u": "https://jobvacanciesnow.com/job/receptionist-cancer-centre-aga-khan-university-hospital/",
+  "src": "JobVacanciesNow",
   "deadline": "",
-  "posted": "2026-10-16",
-  "f": 1
+  "posted": "2026-10-19",
+  "f": 0,
+  "slug": "receptionist-cancer-centre-aga-khan-university-hospital-7ae0b6"
+ },
+ {
+  "id": "2a87142b913357f3",
+  "t": "Contact Centre Assistant (1 Year Fixed-Term Contract)",
+  "c": "Britam",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "y": "Contract",
+  "p": "",
+  "x": "Britam, a Nairobi Securities Exchange-listed financial services group offering insurance, asset management and banking products, is hiring a Contact Centre Assistant on a one-year fixed-term contract. The role appears to involve handling customer inquiries in a medical contact centre. The listing is truncated, so specific qualifications and the exact work location are not stated.",
+  "u": "https://jobvacanciesnow.com/job/medical-contact-centre-assistant-britam/",
+  "src": "JobVacanciesNow",
+  "deadline": "",
+  "posted": "2026-10-19",
+  "f": 0,
+  "slug": "contact-centre-assistant-1-year-fixed-term-contract-britam-2a8714"
+ },
+ {
+  "id": "e00fcfa4e9dccd1f",
+  "t": "Team Leaders",
+  "c": "Jubilee Insurance",
+  "l": "Nairobi",
+  "k": "Sales",
+  "y": "Full-time",
+  "p": "",
+  "x": "Jubilee Insurance is hiring Team Leaders for its Nairobi operations. Applicants should hold a relevant degree or diploma. The posting is truncated, so the full duties and further requirements are not listed. The employer is a well-known insurer covering life, pensions, general and medical cover across East Africa.",
+  "u": "https://jobvacanciesnow.com/job/tl-jubilee/",
+  "src": "JobVacanciesNow",
+  "deadline": "",
+  "posted": "2026-10-19",
+  "f": 0,
+  "slug": "team-leaders-jubilee-insurance-e00fcf"
+ },
+ {
+  "id": "f01689774de217ad",
+  "t": "Quality Assurance Officer (2 Positions)",
+  "c": "Biodeal Laboratories Limited",
+  "l": "Nairobi",
+  "k": "Health",
+  "y": "Full-time",
+  "p": "",
+  "x": "Biodeal Laboratories, a family-owned Nairobi pharmaceutical manufacturer of human and veterinary medicines, is hiring two Quality Assurance Officers. The listing excerpt is truncated and gives no duties or qualifications, though the role would normally involve upholding quality standards in drug manufacturing. Applicants should check the full advert for requirements, the deadline and how to apply.",
+  "u": "https://jobvacanciesnow.com/job/qa-biodeal/",
+  "src": "JobVacanciesNow",
+  "deadline": "",
+  "posted": "2026-10-19",
+  "f": 0,
+  "slug": "quality-assurance-officer-2-positions-biodeal-laboratories-l-f01689"
+ },
+ {
+  "id": "5fbd9d3a9c3f648a",
+  "t": "ICT Intern",
+  "c": "Micro Enterprises Support Programme Trust (MESPT)",
+  "l": "Other Kenya",
+  "k": "Tech",
+  "y": "Internship",
+  "p": "",
+  "x": "MESPT is a Kenyan trust that supports enterprise growth, job creation and poverty reduction by working with financial and business service providers. It is offering an internship in ICT, though the posting is truncated and gives few details on duties. Applicants should check the full advert for qualifications, the exact work location and the application deadline.",
+  "u": "https://jobvacanciesnow.com/job/ict-mespt/",
+  "src": "JobVacanciesNow",
+  "deadline": "",
+  "posted": "2026-10-19",
+  "f": 0,
+  "slug": "ict-intern-micro-enterprises-support-programme-trust-mespt-5fbd9d"
+ },
+ {
+  "id": "d5c139b6a6c30c78",
+  "t": "Direct Sales Representative",
+  "c": "KCB Bank Kenya",
+  "l": "Other Kenya",
+  "k": "Sales",
+  "y": "Full-time",
+  "p": "",
+  "x": "KCB Bank Kenya is hiring a Direct Sales Representative to promote and sell the bank's products and services to customers. The posting gives no details on duties, qualifications or pay, and the text supplied is only a general company background that is cut off. Applicants should check the official KCB careers page for the full requirements and the specific work location.",
+  "u": "https://jobvacanciesnow.com/job/dsr-kcb/",
+  "src": "JobVacanciesNow",
+  "deadline": "",
+  "posted": "2026-10-19",
+  "f": 0,
+  "slug": "direct-sales-representative-kcb-bank-kenya-d5c139"
+ },
+ {
+  "id": "04c05bc665167077",
+  "t": "Warehouse Worker (Truck Driver)",
+  "c": "U.S. Embassy to Kenya",
+  "l": "Nairobi",
+  "k": "Logistics",
+  "y": "Full-time",
+  "p": "",
+  "x": "The U.S. Embassy in Kenya is hiring a warehouse worker who will also drive trucks, supporting the Embassy's storage and delivery operations. The listing excerpt gives no duties, qualifications, pay or closing date, so applicants should check the full advert. The Embassy is a well-known employer, and its Nairobi base is assumed from its location.",
+  "u": "https://jobvacanciesnow.com/job/driver-us-emb/",
+  "src": "JobVacanciesNow",
+  "deadline": "",
+  "posted": "2026-10-19",
+  "f": 0,
+  "slug": "warehouse-worker-truck-driver-u-s-embassy-to-kenya-04c05b"
+ },
+ {
+  "id": "1f3e721081478c58",
+  "t": "Senior Platform Engineer",
+  "c": "Proxify AB",
+  "l": "Remote",
+  "k": "Tech",
+  "y": "Contract",
+  "p": "",
+  "x": "Proxify is recruiting a Senior Platform Engineer for one of its clients to build and run an internal developer platform that lets product teams deploy and manage infrastructure on their own. The role calls for 5+ years in platform engineering, SRE or DevOps, with strong Kubernetes, GitOps (ArgoCD/Flux), Terraform-style infrastructure as code, and Go or Python skills. Experience with developer portals like Backstage and with observability tools such as Prometheus, Grafana and OpenTelemetry is also expected. The listing says the position is remote with no stated region restriction, so it appears open to applicants in Kenya, though the client is not named.",
+  "u": "https://weworkremotely.com/remote-jobs/proxify-ab-senior-platform-engineer-1",
+  "src": "WeWorkRemotely",
+  "deadline": "",
+  "posted": "2026-10-19",
+  "f": 0,
+  "slug": "senior-platform-engineer-proxify-ab-1f3e72"
  },
  {
   "id": "7d99f099b3ebc019",
@@ -27,7 +140,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "administrative-assistant-receptionist-summit-recruitment-and-7d99f0"
  },
  {
   "id": "612a9c9b3beac22f",
@@ -42,7 +156,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "station-manager-luqman-petroleum-612a9c"
  },
  {
   "id": "6aa01977912a8ea2",
@@ -57,7 +172,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "distribution-assistant-unga-holding-6aa019"
  },
  {
   "id": "ce3f2fa32b36c292",
@@ -72,7 +188,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "remote-guest-services-executive-styeverz-ltd-ce3f2f"
  },
  {
   "id": "9bb3411adf9bac9b",
@@ -87,7 +204,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "care-giver-nyumbani-village-9bb341"
  },
  {
   "id": "01e534937d1a909f",
@@ -102,7 +220,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "contact-centre-officer-prime-bank-kenya-01e534"
  },
  {
   "id": "bc44275e3764e27a",
@@ -117,7 +236,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "virtual-assistant-operations-marketing-coordinator-remote-ra-bc4427"
  },
  {
   "id": "7d99f099b3ebc019",
@@ -132,7 +252,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "administrative-assistant-receptionist-summit-recruitment-and-7d99f0"
  },
  {
   "id": "612a9c9b3beac22f",
@@ -147,7 +268,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "station-manager-luqman-petroleum-612a9c"
  },
  {
   "id": "6aa01977912a8ea2",
@@ -162,7 +284,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "distribution-assistant-unga-holding-6aa019"
  },
  {
   "id": "ce3f2fa32b36c292",
@@ -177,7 +300,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "remote-guest-services-executive-styeverz-ltd-ce3f2f"
  },
  {
   "id": "9bb3411adf9bac9b",
@@ -192,7 +316,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "care-giver-nyumbani-village-9bb341"
  },
  {
   "id": "01e534937d1a909f",
@@ -207,7 +332,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "contact-centre-officer-prime-bank-kenya-01e534"
  },
  {
   "id": "7d99f099b3ebc019",
@@ -222,7 +348,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "administrative-assistant-receptionist-summit-recruitment-and-7d99f0"
  },
  {
   "id": "612a9c9b3beac22f",
@@ -237,7 +364,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "station-manager-luqman-petroleum-612a9c"
  },
  {
   "id": "6aa01977912a8ea2",
@@ -252,7 +380,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "distribution-assistant-unga-holding-6aa019"
  },
  {
   "id": "ce3f2fa32b36c292",
@@ -267,7 +396,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "remote-guest-services-executive-styeverz-ltd-ce3f2f"
  },
  {
   "id": "9bb3411adf9bac9b",
@@ -282,7 +412,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "care-giver-nyumbani-village-9bb341"
  },
  {
   "id": "01e534937d1a909f",
@@ -297,7 +428,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "contact-centre-officer-prime-bank-kenya-01e534"
  },
  {
   "id": "7d99f099b3ebc019",
@@ -312,7 +444,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "administrative-assistant-receptionist-summit-recruitment-and-7d99f0"
  },
  {
   "id": "612a9c9b3beac22f",
@@ -327,7 +460,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "station-manager-luqman-petroleum-612a9c"
  },
  {
   "id": "6aa01977912a8ea2",
@@ -342,7 +476,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "distribution-assistant-unga-holding-6aa019"
  },
  {
   "id": "ce3f2fa32b36c292",
@@ -357,7 +492,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "remote-guest-services-executive-styeverz-ltd-ce3f2f"
  },
  {
   "id": "9bb3411adf9bac9b",
@@ -372,7 +508,8 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
+  "f": 0,
+  "slug": "care-giver-nyumbani-village-9bb341"
  },
  {
   "id": "01e534937d1a909f",
@@ -387,141 +524,7 @@
   "src": "JobVacanciesNow",
   "deadline": "",
   "posted": "2026-10-18",
-  "f": 0
- },
- {
-  "id": "sample1",
-  "t": "Junior Frontend Developer",
-  "c": "Sample Studio",
-  "l": "Remote",
-  "k": "Tech",
-  "y": "Contract",
-  "p": "USD 1,200–1,800",
-  "x": "Build React interfaces for international clients. Open to applicants in Africa.",
-  "u": "https://example.com",
-  "src": "Sample",
-  "deadline": "",
-  "posted": "2026-10-17",
-  "f": 1
- },
- {
-  "id": "sample2",
-  "t": "Registered Nurse",
-  "c": "Sample County Hospital",
-  "l": "Mombasa",
-  "k": "Health",
-  "y": "Full-time",
-  "p": "Per scale",
-  "x": "Ward duties and patient care. Valid KMPDC registration required.",
-  "u": "https://example.com",
-  "src": "Sample",
-  "deadline": "",
-  "posted": "2026-10-14",
-  "f": 0
- },
- {
-  "id": "sample3",
-  "t": "Sales Representative",
-  "c": "Sample Foods",
-  "l": "Kisumu",
-  "k": "Sales",
-  "y": "Full-time",
-  "p": "KES 40,000 + commission",
-  "x": "Grow accounts with retailers across the lakeside region. Own motorbike an advantage.",
-  "u": "https://example.com",
-  "src": "Sample",
-  "deadline": "",
-  "posted": "2026-10-15",
-  "f": 0
- },
- {
-  "id": "sample4",
-  "t": "Data Analyst Intern",
-  "c": "Sample Analytics",
-  "l": "Nairobi",
-  "k": "Tech",
-  "y": "Internship",
-  "p": "KES 25,000",
-  "x": "Clean datasets and build dashboards. Recent graduates in statistics or IT.",
-  "u": "https://example.com",
-  "src": "Sample",
-  "deadline": "",
-  "posted": "2026-10-13",
-  "f": 0
- },
- {
-  "id": "sample5",
-  "t": "Secondary School Teacher (Maths)",
-  "c": "Sample Academy",
-  "l": "Nairobi",
-  "k": "Education",
-  "y": "Full-time",
-  "p": "KES 55,000",
-  "x": "TSC registration preferred. Co-curricular involvement is a plus.",
-  "u": "https://example.com",
-  "src": "Sample",
-  "deadline": "",
-  "posted": "2026-10-12",
-  "f": 0
- },
- {
-  "id": "sample6",
-  "t": "Logistics Coordinator",
-  "c": "Sample Freight",
-  "l": "Mombasa",
-  "k": "Logistics",
-  "y": "Full-time",
-  "p": "KES 80,000",
-  "x": "Coordinate port clearing and trucking. Experience with KRA iCMS preferred.",
-  "u": "https://example.com",
-  "src": "Sample",
-  "deadline": "",
-  "posted": "2026-10-11",
-  "f": 0
- },
- {
-  "id": "sample7",
-  "t": "Virtual Assistant",
-  "c": "Sample Agency",
-  "l": "Remote",
-  "k": "Sales",
-  "y": "Part-time",
-  "p": "USD 4–6/hr",
-  "x": "Inbox, scheduling and CRM updates for overseas clients. Reliable internet required.",
-  "u": "https://example.com",
-  "src": "Sample",
-  "deadline": "",
-  "posted": "2026-10-16",
-  "f": 0
- },
- {
-  "id": "sample8",
-  "t": "Accounts Assistant",
-  "c": "Sample Traders",
-  "l": "Nairobi",
-  "k": "Finance",
-  "y": "Contract",
-  "p": "KES 60,000",
-  "x": "Reconcile accounts and manage invoicing. CPA part-qualified.",
-  "u": "https://example.com",
-  "src": "Sample",
-  "deadline": "",
-  "posted": "2026-10-10",
-  "f": 0
- },
- {
-  "id": "sample9",
-  "t": "Community Health Promoter",
-  "c": "Sample NGO",
-  "l": "Kisumu",
-  "k": "Health",
-  "y": "Contract",
-  "p": "KES 35,000",
-  "x": "Run outreach and record household data. Local language fluency needed.",
-  "u": "https://example.com",
-  "src": "Sample",
-  "deadline": "",
-  "posted": "2026-10-09",
-  "f": 0
+  "f": 0,
+  "slug": "contact-centre-officer-prime-bank-kenya-01e534"
  }
 ]

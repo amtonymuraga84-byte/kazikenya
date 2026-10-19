@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kazikenya.amtonymuraga84.workers.dev/sitemap.xml
