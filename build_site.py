@@ -32,7 +32,8 @@ def slugify(s):
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")[:60]
 
 
-def head_extra(path="/"):
+def head_extra(path="/", image=None):
+    img = image or f"{SITE_URL}/og-image.png"
     beacon = (f'<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
               f'data-cf-beacon=\'{{"token": "{E(CF_BEACON_TOKEN)}"}}\'></script>') if CF_BEACON_TOKEN else ""
     adcss = '' if SHOW_AD_PLACEHOLDERS else '<style>.ad,aside{display:none!important}.main{grid-template-columns:minmax(0,1fr)!important}</style>'
@@ -40,14 +41,14 @@ def head_extra(path="/"):
             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap">')
     return (f'{adcss}{font}<link rel="canonical" href="{SITE_URL}{path}"><link rel="icon" href="{FAV}">'
             f'<meta property="og:site_name" content="RemoteKazi"><meta property="og:type" content="website">'
-            f'<meta property="og:url" content="{SITE_URL}{path}"><meta property="og:image" content="{SITE_URL}/og-image.png">'
+            f'<meta property="og:url" content="{SITE_URL}{path}"><meta property="og:image" content="{img}">'
             f'<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">'
             f'<meta property="og:image:alt" content="RemoteKazi – jobs in Kenya and remote roles">'
-            f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{SITE_URL}/og-image.png">{beacon}')
+            f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{img}">{beacon}')
 
 
 _cta = TELEGRAM_URL or WHATSAPP_URL
-NAV = '<a href="/#jobs">Jobs</a>' + (f'<a class="cta" href="{E(_cta)}" rel="noopener">Job alerts</a>' if _cta else "")
+NAV = '<a href="/#jobs">Jobs</a><a href="/blog/">Blog</a>' + (f'<a class="cta" href="{E(_cta)}" rel="noopener">Job alerts</a>' if _cta else "")
 HEADER = f'<header><div class="w"><a class="logo" href="/">Remote<b>Kazi</b></a><nav>{NAV}</nav></div></header>'
 
 
@@ -70,18 +71,18 @@ def footer():
         btns += f'<a class="btn o" href="{E(TELEGRAM_URL)}" rel="noopener">Telegram channel</a>'
     alerts = f'<p>{btns}</p>' if btns else ""
     return (f'<footer><div class="w">{alerts}<p><a href="/about.html">About</a> · <a href="/contact.html">Contact</a> · '
-            f'<a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/guides/">Guides</a></p>'
+            f'<a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/guides/">Guides</a> · <a href="/blog/">Blog</a></p>'
             f'<p>© {date.today().year} RemoteKazi. Listings come from public feeds and are checked automatically, so details '
             f'can be wrong or out of date. Verify the employer, and never pay to get a job. '
             f'<a href="mailto:{E(CONTACT_EMAIL)}">Report a scam</a></p></div></footer>')
 
 
-def page(title, desc, path, body, extra=""):
+def page(title, desc, path, body, extra="", image=None):
     return (f'<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
             f'<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">'
             f'<title>{E(title)}</title><meta name="description" content="{E(desc)}">'
             f'<meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}">'
-            f'{head_extra(path)}<link rel="stylesheet" href="/style.css">{extra}</head><body>{HEADER}'
+            f'{head_extra(path, image)}<link rel="stylesheet" href="/style.css">{extra}</head><body>{HEADER}'
             f'<main><div class="w prose">{body}</div></main>{footer()}</body></html>')
 
 
@@ -259,6 +260,186 @@ def static_pages():
         "<li>We may remove any listing at any time.</li><li>To the extent allowed by law, RemoteKazi is not liable for losses arising from use of the site.</li></ul>"))
 
 
+# ---------- blog: write posts as .md files in /posts ----------
+def _link(m):
+    text, url = m.group(1), m.group(2).strip()
+    ok = url.startswith(("http://", "https://", "mailto:", "/", "#"))
+    return f'<a href="{url}"' + (' rel="noopener"' if url.startswith("http") else "") + f'>{text}</a>' if ok else text
+
+
+def _img(m):
+    alt, url = m.group(1), m.group(2).strip()
+    return f'<img src="{url}" alt="{alt}" loading="lazy" style="max-width:100%;height:auto;border-radius:12px">' \
+        if url.startswith(("http://", "https://", "/")) else ""
+
+
+def inline(s):
+    s = html.escape(s, quote=False)
+    s = re.sub(r"!\[([^\]]*)\]\(([^)\s]+)\)", _img, s)
+    s = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", _link, s)
+    s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
+    s = re.sub(r"(?<![*\w])\*(?!\s)(.+?)(?<!\s)\*(?![*\w])", r"<em>\1</em>", s)
+    return re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
+
+
+def md_to_html(text):
+    out, para, items, kind, tbl = [], [], [], None, []
+
+    def flush_p():
+        if para:
+            joined = " ".join(para)
+            fig = re.fullmatch(r"!\[([^\]]*)\]\(([^)\s]+)\)", joined.strip())
+            if fig and fig.group(2).startswith(("http://", "https://", "/")):
+                cap = f"<figcaption>{html.escape(fig.group(1), quote=False)}</figcaption>" if fig.group(1) else ""
+                out.append(f'<figure><img src="{html.escape(fig.group(2))}" alt="{html.escape(fig.group(1))}" loading="lazy">{cap}</figure>')
+            else:
+                out.append("<p>" + inline(joined) + "</p>")
+            para.clear()
+
+    def flush_t():
+        if tbl:
+            rows = [[c.strip() for c in r.strip().strip("|").split("|")] for r in tbl]
+            rows = [r for r in rows if not all(re.fullmatch(r":?-{2,}:?", c) for c in r)]
+            if rows:
+                head = "".join(f"<th>{inline(c)}</th>" for c in rows[0])
+                body = "".join("<tr>" + "".join(f"<td>{inline(c)}</td>" for c in r) + "</tr>" for r in rows[1:])
+                out.append(f'<div class="tablewrap"><table><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>')
+            tbl.clear()
+
+    def flush_l():
+        nonlocal kind
+        if items:
+            out.append(f"<{kind}>" + "".join(f"<li>{inline(i)}</li>" for i in items) + f"</{kind}>")
+            items.clear()
+            kind = None
+
+    for raw in text.splitlines():
+        ln = raw.rstrip()
+        if ln.strip().startswith("|"):
+            flush_p(); flush_l(); tbl.append(ln)
+            continue
+        flush_t()
+        m = re.match(r"^(#{1,3})\s+(.*)", ln)
+        ul = re.match(r"^\s*[-*]\s+(.*)", ln)
+        ol = re.match(r"^\s*\d+[.)]\s+(.*)", ln)
+        if not ln.strip():
+            flush_p(); flush_l()
+        elif m:
+            flush_p(); flush_l()
+            lvl = max(2, len(m.group(1)))        # # and ## become h2, ### becomes h3 (the page title is the h1)
+            out.append(f"<h{lvl}>{inline(m.group(2))}</h{lvl}>")
+        elif ul or ol:
+            flush_p()
+            want = "ul" if ul else "ol"
+            if kind and kind != want:
+                flush_l()
+            kind = want
+            items.append((ul or ol).group(1))
+        elif ln.startswith(">"):
+            flush_p(); flush_l()
+            out.append("<blockquote>" + inline(ln.lstrip("> ")) + "</blockquote>")
+        elif re.match(r"^-{3,}$", ln.strip()):
+            flush_p(); flush_l(); out.append("<hr>")
+        else:
+            flush_l(); para.append(ln.strip())
+    flush_p(); flush_l(); flush_t()
+    return "\n".join(out)
+
+
+def load_posts():
+    posts = []
+    for f in sorted(Path("posts").glob("*.md")):
+        if f.name.startswith("_"):
+            continue
+        raw = f.read_text(encoding="utf-8")
+        meta, body = {}, raw
+        m = re.match(r"^---\s*\n(.*?)\n---\s*\n(.*)$", raw, re.S)
+        if m:
+            for ln in m.group(1).splitlines():
+                if ":" in ln:
+                    k, v = ln.split(":", 1)
+                    meta[k.strip().lower()] = v.strip().strip('"').strip("'")
+            body = m.group(2)
+        try:
+            when = date.fromisoformat(meta.get("date", ""))
+        except ValueError:
+            when = date.today()
+        if when > date.today():                # scheduled posts go live on their date
+            continue
+        title = meta.get("title") or f.stem.replace("-", " ").title()
+        words = len(re.findall(r"\w+", body))
+        img = meta.get("image", "")
+        if img.startswith("/"):
+            img = SITE_URL + img
+        try:
+            upd = date.fromisoformat(meta.get("updated", ""))
+        except ValueError:
+            upd = None
+        posts.append({"slug": slugify(f.stem), "title": title, "date": when, "updated": upd,
+                      "author": meta.get("author", "RemoteKazi Team"), "summary": meta.get("summary", ""),
+                      "caption": meta.get("image_caption", ""),
+                      "desc": meta.get("description") or re.sub(r"\s+", " ", re.sub(r"[#*\[\]()>`]", "", body)).strip()[:155],
+                      "tag": meta.get("tag", "Career tips"), "image": img if img.startswith("http") else "",
+                      "mins": max(1, round(words / 200)), "html": md_to_html(body)})
+    return sorted(posts, key=lambda p: p["date"], reverse=True)
+
+
+def share_bar(title, url):
+    u, t = quote(url, safe=""), quote(title, safe="")
+    links = [("WhatsApp", f"https://wa.me/?text={t}%20{u}"), ("Telegram", f"https://t.me/share/url?url={u}&text={t}"),
+             ("X", f"https://twitter.com/intent/tweet?text={t}&url={u}"),
+             ("Facebook", f"https://www.facebook.com/sharer/sharer.php?u={u}"),
+             ("LinkedIn", f"https://www.linkedin.com/sharing/share-offsite/?url={u}")]
+    return ('<div class="share"><b>Share:</b> ' +
+            "".join(f'<a class="btn o" href="{l}" target="_blank" rel="noopener">{n}</a>' for n, l in links) + "</div>")
+
+
+def post_card(p):
+    thumb = f'<img class="thumb" src="{E(p["image"])}" alt="" loading="lazy">' if p["image"] else ""
+    return (f'<a class="card post" href="/blog/{p["slug"]}.html">{thumb}<span class="tag">{E(p["tag"])}</span>'
+            f'<b>{E(p["title"])}</b><p class="meta">{E(p["desc"])}</p>'
+            f'<span class="meta">{p["date"].strftime("%d %b %Y")} · {p["mins"]} min read</span></a>')
+
+
+def build_blog(posts):
+    for p in posts:
+        path = f"/blog/{p['slug']}.html"
+        url = SITE_URL + path
+        ld = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": p["title"], "description": p["desc"],
+              "datePublished": p["date"].isoformat(), "dateModified": (p["updated"] or p["date"]).isoformat(),
+              "mainEntityOfPage": url, "author": {"@type": "Person", "name": p["author"]},
+              "publisher": {"@type": "Organization", "name": "RemoteKazi"}}
+        if p["image"]:
+            ld["image"] = p["image"]
+        others = [o for o in posts if o["slug"] != p["slug"]][:3]
+        body = (f'<p class="crumbs"><a href="/blog/">Blog</a> › {E(p["tag"])}</p><h1>{E(p["title"])}</h1>'
+                f'<p class="meta byline">Published {p["date"].strftime("%d %b %Y")}'
+                + (f' · Updated {p["updated"].strftime("%d %b %Y")}' if p["updated"] else "")
+                + f' · By {E(p["author"])} · {p["mins"]} min read</p>'
+                + f'<p class="lead">{inline(p["summary"] or p["desc"])}</p>'
+                + (f'<figure class="hero"><img src="{E(p["image"])}" alt="{E(p["caption"] or p["title"])}">'
+                   + (f'<figcaption>{E(p["caption"])}</figcaption>' if p["caption"] else "") + '</figure>' if p["image"] else "")
+                + f'{p["html"]}{share_bar(p["title"], url)}{alerts_box()}'
+                + (f'<h2>More from the blog</h2><div class="g3">{"".join(post_card(o) for o in others)}</div>' if others else "")
+                + '<p><a class="btn" href="/#jobs">Browse latest jobs →</a></p>')
+        write(path, page(f'{p["title"]} | RemoteKazi', p["desc"], path, body,
+                         f'<script type="application/ld+json">{json.dumps(ld).replace("</", "<\\/")}</script>', p["image"] or None))
+    cards = "".join(post_card(p) for p in posts) or "<p>New posts are coming soon.</p>"
+    write("/blog/index.html", page("Blog: Job Search Tips for Kenya | RemoteKazi",
+          "Career advice, CV tips and remote work guides for job seekers in Kenya.", "/blog/",
+          f'<h1>Blog</h1><p class="meta">Career advice, CV tips and remote work guides.</p><div class="g3 posts">{cards}</div>'))
+    items = "".join(f'<item><title>{E(p["title"])}</title><link>{SITE_URL}/blog/{p["slug"]}.html</link>'
+                    f'<guid>{SITE_URL}/blog/{p["slug"]}.html</guid><pubDate>{p["date"].strftime("%a, %d %b %Y 00:00:00 +0300")}</pubDate>'
+                    f'<description>{E(p["desc"])}</description></item>' for p in posts[:20])
+    write("/feed.xml", f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>RemoteKazi Blog</title>'
+                       f'<link>{SITE_URL}/blog/</link><description>Career advice for job seekers in Kenya</description>{items}</channel></rss>')
+    # social post text for each of the newest articles, ready to copy
+    lines = []
+    for p in posts[:5]:
+        lines += [f"📝 {p['title']}", p["desc"], f"{SITE_URL}/blog/{p['slug']}.html", "#KenyaJobs #RemoteJobs #CareerTips", "", "---", ""]
+    write("/social-posts.txt", "\n".join(lines))
+
+
 def patch(text, tag, content):
     return re.sub(rf"<!--{tag}-->.*?<!--/{tag}-->", lambda _: f"<!--{tag}-->{content}<!--/{tag}-->", text, flags=re.S)
 
@@ -271,7 +452,7 @@ def main():
     if not SHOW_AD_PLACEHOLDERS:
         css += ".ad,aside{display:none!important}.main{grid-template-columns:minmax(0,1fr)!important}"
     css += (".w.prose{max-width:780px;padding-block:24px}.prose h2{margin:22px 0 8px}.prose li{margin:5px 0}"
-            ".crumbs{font-size:14px;color:var(--muted)}footer a{margin-right:4px}.alerts{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;background:var(--soft);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:14px 0}.row{display:flex;gap:8px;flex-wrap:wrap}footer p{margin:8px 0}.prose{font-size:18px;line-height:1.65}.prose h1{font-size:clamp(28px,5vw,42px);line-height:1.15}")
+            ".crumbs{font-size:14px;color:var(--muted)}footer a{margin-right:4px}.alerts{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;background:var(--soft);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:14px 0}.row{display:flex;gap:8px;flex-wrap:wrap}footer p{margin:8px 0}.prose{font-size:18px;line-height:1.65}.byline{font-size:15px}.lead{font-size:clamp(19px,2.6vw,22px);line-height:1.55;font-weight:600;margin:14px 0 18px}figure{margin:18px 0}figure img{width:100%;height:auto;border-radius:14px;display:block}figcaption{font-size:14px;color:var(--muted);margin-top:8px}.tablewrap{overflow-x:auto;margin:16px 0}table{border-collapse:collapse;width:100%;font-size:16px}th,td{border:1px solid var(--bd);padding:10px 12px;text-align:left;vertical-align:top}th{background:var(--soft);color:var(--ac)}img.thumb{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;margin-bottom:10px;display:block}.share{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:24px 0}.share .btn{padding:8px 14px;font-size:15px}a.card.post{display:block;color:inherit;text-decoration:none}a.card.post b{display:block;font-size:19px;margin:8px 0 4px}blockquote{border-left:4px solid var(--ac);margin:16px 0;padding:4px 16px;color:var(--muted)}.prose img{margin:12px 0}.g3.posts{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}.prose h1{font-size:clamp(28px,5vw,42px);line-height:1.15}")
     write("/style.css", css)
 
     by_id = {}
@@ -287,13 +468,16 @@ def main():
         job_page(j, jobs)
     Path("jobs.json").write_text(json.dumps(jobs, ensure_ascii=False, indent=1), encoding="utf-8")
     static_pages()
+    shutil.rmtree("blog", ignore_errors=True)
+    posts = load_posts()
+    build_blog(posts)
 
     today = date.today().isoformat()
-    urls = ["/", "/guides/", "/about.html", "/contact.html", "/privacy.html", "/terms.html"]
-    urls += [f"/guides/{s}.html" for s in GUIDES] + [f"/jobs/{j['slug']}.html" for j in jobs]
+    urls = ["/", "/blog/", "/guides/", "/about.html", "/contact.html", "/privacy.html", "/terms.html"]
+    urls += [f"/guides/{s}.html" for s in GUIDES] + [f"/jobs/{j['slug']}.html" for j in jobs] + [f"/blog/{p['slug']}.html" for p in posts]
     write("/sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
           + "".join(f"<url><loc>{SITE_URL}{u}</loc><lastmod>{today}</lastmod></url>" for u in urls) + "</urlset>")
-    write("/robots.txt", f"User-agent: *\nAllow: /\nDisallow: /whatsapp-post.txt\nSitemap: {SITE_URL}/sitemap.xml\n")
+    write("/robots.txt", f"User-agent: *\nAllow: /\nDisallow: /whatsapp-post.txt\nDisallow: /social-posts.txt\nDisallow: /publish.html\nSitemap: {SITE_URL}/sitemap.xml\n")
     fresh = [j for j in ordered if j["posted"] == today][:8] or ordered[:8]
     lines = ["🔔 *New jobs on RemoteKazi*", ""]
     for j in fresh:
@@ -309,6 +493,8 @@ def main():
         for k, v in vals.items():
             idx = re.sub(rf'(<b id="{k}">)[^<]*(</b>)', rf'\g<1>{v}\g<2>', idx)
         idx = re.sub(r'(<span id="count">)[^<]*(</span>)', rf'\g<1>{len(jobs)} jobs found\g<2>', idx)
+    if posts:
+        idx = patch(idx, "BLOG", "".join(post_card(p) for p in posts[:3]))
     for tag, content in (("NAV", NAV), ("HEAD", head_extra("/")), ("ALERTS", alerts_box()), ("FOOT", footer())):
         idx = patch(idx, tag, content)
     Path("index.html").write_text(idx, encoding="utf-8")
