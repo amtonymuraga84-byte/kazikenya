@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Publish a post | RemoteKazi</title>
+<style>
+:root{--bg:#f6f8f5;--fg:#14201a;--muted:#5b6a60;--card:#fff;--bd:#d9e1da;--ac:#08863f;--acfg:#fff;--red:#e30613;--soft:#e6f3ec}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1713;--fg:#e7efe9;--muted:#9bab9f;--card:#17221c;--bd:#26362d;--ac:#3fbf86;--acfg:#06130c;--red:#ff4d57;--soft:#1b2e24}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:780px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:28px;margin:6px 0 4px}h2{font-size:20px;margin:0 0 10px}
+.sub,.hint{color:var(--muted);font-size:15px;margin:2px 0 8px}
+.box{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;margin:14px 0}
+label{display:block;font-weight:700;font-size:15px;margin:12px 0 4px}
+input,select,textarea{width:100%;font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:10px 12px}
+textarea{min-height:260px;resize:vertical;line-height:1.5}
+textarea.short{min-height:84px}
+.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:1;min-width:150px}
+button{font:inherit;font-weight:700;cursor:pointer;border:0;border-radius:10px;padding:11px 18px;background:var(--ac);color:var(--acfg)}
+button.o{background:transparent;color:var(--ac);border:1px solid var(--ac)}
+button.sm{padding:7px 12px;font-size:15px}
+.tools{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+#status{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--soft);display:none;white-space:pre-line}
+#status.err{background:#fde8e8;color:#8a1111}
+details summary{cursor:pointer;font-weight:700}
+img.prev{max-width:100%;border-radius:12px;margin-top:8px;display:none}
+.lock{color:var(--red);font-weight:700}
+</style>
+</head>
+<body>
+<div class="w">
+<h1>Publish a post</h1>
+<p class="sub">Fill the form, add a photo and click Publish. Your post goes live in about 1 to 2 minutes.</p>
+
+<details class="box" id="setup" open>
+<summary>1. One-time setup (your GitHub key)</summary>
+<p class="hint">Create a key once: GitHub → your profile picture → Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token. Pick <b>only this repository</b>, and set <b>Contents: Read and write</b> and <b>Actions: Read and write</b>. Paste it below. It stays in this browser only and is never sent anywhere except GitHub. <span class="lock">Never share this key with anyone, including me.</span></p>
+<label for="repo">Repository (owner/name)</label>
+<input id="repo" value="amtonymuraga84-byte/kazikenya" autocomplete="off">
+<div class="row">
+<div><label for="branch">Branch</label><input id="branch" value="main" autocomplete="off"></div>
+<div><label for="site">Your website</label><input id="site" value="https://remotekazi.com" autocomplete="off"></div>
+</div>
+<label for="token">GitHub token</label>
+<input id="token" type="password" placeholder="github_pat_..." autocomplete="off">
+<p><button id="saveset" type="button" class="sm">Save settings</button> <button id="clearset" type="button" class="o sm">Forget my key</button></p>
+</details>
+
+<div class="box">
+<h2>2. Write your post</h2>
+<div class="row">
+<div><label for="existing">Edit an existing post (optional)</label>
+<select id="existing"><option value="">New post</option></select></div>
+<div style="flex:0 0 auto;align-self:flex-end"><button id="load" type="button" class="o">Load</button></div>
+</div>
+
+<label for="title">Title</label>
+<input id="title" placeholder="Diploma Courses at KMTC and Fees in 2026">
+<div class="row">
+<div><label for="tag">Category</label>
+<select id="tag"><option>Education</option><option>Career tips</option><option>Remote work</option><option>Jobs news</option><option>Scholarships</option><option>CV and interviews</option></select></div>
+<div><label for="author">Author</label><input id="author" value="RemoteKazi Team"></div>
+<div><label for="date">Publish date</label><input id="date" type="date"></div>
+</div>
+<p class="hint">A future date schedules the post. It appears on that day after the daily update.</p>
+
+<label for="summary">Summary (the bold opening)</label>
+<textarea id="summary" class="short" placeholder="**KMTC offers over 20 diploma programmes.** Most need a KCSE mean grade of C- and cost between KES X and KES Y. Intakes run in January, May and September."></textarea>
+<p class="hint">Two or three short sentences. Put **two stars** around words to make them bold.</p>
+
+<label for="photo">Photo</label>
+<input id="photo" type="file" accept="image/*">
+<img id="prev" class="prev" alt="">
+<p class="hint">Use your own photo or a free one from Unsplash or Pexels. It is shrunk automatically to load fast.</p>
+<label for="caption">Photo caption and credit</label>
+<input id="caption" placeholder="Students at the campus gate. Photo: own photo">
+
+<label for="body">Post text</label>
+<div class="tools">
+<button type="button" class="o sm" data-t="h">Heading</button>
+<button type="button" class="o sm" data-t="b">Bold</button>
+<button type="button" class="o sm" data-t="ul">Bullets</button>
+<button type="button" class="o sm" data-t="ol">Numbers</button>
+<button type="button" class="o sm" data-t="a">Link</button>
+<button type="button" class="o sm" data-t="q">Tip box</button>
+<button type="button" class="o sm" data-t="tb">Quick-facts table</button>
+</div>
+<textarea id="body" placeholder="## Quick facts&#10;&#10;| Item | Details |&#10;| --- | --- |&#10;| Entry | KCSE mean grade C- |&#10;&#10;## How to apply&#10;&#10;1. Visit the official website&#10;2. Submit your documents"></textarea>
+<p class="hint">Keep it short and easy to scan: aim for 300 to 500 words. Check every fee and date on the official website first.</p>
+
+<p><button id="publish" type="button">Publish</button></p>
+<div id="status"></div>
+</div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const S = {get(k){try{return localStorage.getItem(k)||""}catch(e){return ""}}, set(k,v){try{localStorage.setItem(k,v)}catch(e){}}, del(k){try{localStorage.removeItem(k)}catch(e){}}};
+let editingSlug = "", editingImage = "";
+
+const slugify = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60);
+const today = () => { const d = new Date(), p = n => String(n).padStart(2, "0"); return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()); };
+const one = s => String(s || "").replace(/\s*\n\s*/g, " ").trim();
+const b64 = s => btoa(unescape(encodeURIComponent(s)));
+const unb64 = s => decodeURIComponent(escape(atob(s.replace(/\s/g, ""))));
+
+function status(msg, err) { const e = $("status"); e.style.display = "block"; e.className = err ? "err" : ""; e.textContent = msg; }
+
+function settings() {
+  return { repo: $("repo").value.trim(), branch: $("branch").value.trim() || "main", token: $("token").value.trim(), site: $("site").value.trim().replace(/\/$/, "") };
+}
+
+async function api(path, opts) {
+  const s = settings();
+  const r = await fetch("https://api.github.com/repos/" + s.repo + path, Object.assign({
+    headers: { Authorization: "Bearer " + s.token, Accept: "application/vnd.github+json", "Content-Type": "application/json" }
+  }, opts || {}));
+  return r;
+}
+
+async function putFile(path, contentB64, message) {
+  const s = settings();
+  let sha;
+  const g = await api("/contents/" + path + "?ref=" + encodeURIComponent(s.branch));
+  if (g.ok) sha = (await g.json()).sha;
+  const body = { message, content: contentB64, branch: s.branch };
+  if (sha) body.sha = sha;
+  const r = await api("/contents/" + path, { method: "PUT", body: JSON.stringify(body) });
+  if (!r.ok) throw new Error("Could not save " + path + " (" + r.status + "). " + (r.status === 401 || r.status === 403 ? "Check that your key is correct and has Contents: Read and write." : r.status === 404 ? "Check the repository name and that the key covers it." : ""));
+}
+
+function frontMatter(f) {
+  const lines = ["---", "title: " + one(f.title), "date: " + f.date];
+  if (f.updated) lines.push("updated: " + f.updated);
+  lines.push("author: " + one(f.author), "tag: " + one(f.tag), "description: " + one(f.description), "summary: " + one(f.summary));
+  if (f.image) lines.push("image: " + f.image, "image_caption: " + one(f.caption));
+  lines.push("---", "");
+  return lines.join("\n");
+}
+
+function parsePost(raw) {
+  const m = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
+  const meta = {};
+  let body = raw;
+  if (m) {
+    m[1].split("\n").forEach(l => { const i = l.indexOf(":"); if (i > 0) meta[l.slice(0, i).trim().toLowerCase()] = l.slice(i + 1).trim(); });
+    body = m[2];
+  }
+  return { meta, body: body.trim() };
+}
+
+function plain(s) { return one(s).replace(/\*\*|\*|`|\[|\]|\(.*?\)/g, "").slice(0, 155); }
+
+function shrink(file) {
+  return new Promise((res, rej) => {
+    const img = new Image(), url = URL.createObjectURL(file);
+    img.onload = () => {
+      const w = Math.min(1200, img.width), h = Math.round(img.height * w / img.width);
+      const c = document.createElement("canvas"); c.width = w; c.height = h;
+      const x = c.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, w, h); x.drawImage(img, 0, 0, w, h);
+      URL.revokeObjectURL(url);
+      res(c.toDataURL("image/jpeg", 0.82).split(",")[1]);
+    };
+    img.onerror = () => rej(new Error("That photo could not be read. Try a JPG or PNG."));
+    img.src = url;
+  });
+}
+
+async function publish() {
+  const s = settings();
+  if (!s.repo || !s.token) { $("setup").open = true; return status("Add your repository and GitHub key in step 1 first.", true); }
+  const title = $("title").value.trim(), summary = $("summary").value.trim(), body = $("body").value.trim();
+  if (!title || !summary || !body) return status("Please fill in the title, summary and post text.", true);
+  $("publish").disabled = true;
+  try {
+    const slug = editingSlug || slugify(title);
+    if (!slug) throw new Error("The title needs some letters or numbers.");
+    let image = editingImage;
+    const file = $("photo").files[0];
+    if (file) {
+      status("Preparing and uploading your photo...");
+      const data = await shrink(file);
+      await putFile("images/" + slug + ".jpg", data, "Add photo for " + slug);
+      image = "/images/" + slug + ".jpg";
+    }
+    status("Saving your post...");
+    const md = frontMatter({
+      title, date: $("date").value || today(), updated: editingSlug ? today() : "", author: $("author").value || "RemoteKazi Team",
+      tag: $("tag").value, description: plain(summary), summary, image, caption: $("caption").value
+    }) + body + "\n";
+    await putFile("posts/" + slug + ".md", b64(md), (editingSlug ? "Update post: " : "New post: ") + title);
+    status("Post saved. Starting the website update...");
+    const d = await api("/actions/workflows/update-jobs.yml/dispatches", { method: "POST", body: JSON.stringify({ ref: s.branch }) });
+    const link = s.site + "/blog/" + slug + ".html";
+    status(d.ok
+      ? "Published! The website is updating. Your post will be live in 1 to 2 minutes at:\n" + link
+      : "Your post is saved, but the automatic update could not start (" + d.status + "). Go to GitHub → Actions → Update jobs → Run workflow. It will then appear at:\n" + link);
+    if (!editingSlug) { editingSlug = slug; editingImage = image; }
+  } catch (e) {
+    status(e.message || String(e), true);
+  } finally {
+    $("publish").disabled = false;
+  }
+}
+
+async function listPosts() {
+  const s = settings();
+  if (!s.repo || !s.token) return;
+  try {
+    const r = await api("/contents/posts?ref=" + encodeURIComponent(s.branch));
+    if (!r.ok) return;
+    const sel = $("existing");
+    sel.innerHTML = '<option value="">New post</option>';
+    (await r.json()).filter(f => /\.md$/.test(f.name) && f.name[0] !== "_").forEach(f => {
+      const o = document.createElement("option"); o.value = f.name.replace(/\.md$/, ""); o.textContent = o.value; sel.appendChild(o);
+    });
+  } catch (e) {}
+}
+
+async function loadPost() {
+  const slug = $("existing").value;
+  if (!slug) { editingSlug = ""; editingImage = ""; return status("Starting a new post."); }
+  const r = await api("/contents/posts/" + slug + ".md?ref=" + encodeURIComponent(settings().branch));
+  if (!r.ok) return status("Could not load that post (" + r.status + ").", true);
+  const p = parsePost(unb64((await r.json()).content));
+  $("title").value = p.meta.title || ""; $("summary").value = p.meta.summary || "";
+  $("author").value = p.meta.author || "RemoteKazi Team"; $("date").value = p.meta.date || today();
+  $("caption").value = p.meta.image_caption || ""; $("body").value = p.body;
+  if (p.meta.tag) { const sel = $("tag"); if (![...sel.options].some(o => o.text === p.meta.tag)) sel.add(new Option(p.meta.tag)); sel.value = p.meta.tag; }
+  editingSlug = slug; editingImage = p.meta.image || "";
+  status("Loaded. Edit it, then click Publish. Choose a new photo only if you want to replace the old one.");
+}
+
+function insert(kind) {
+  const t = $("body"), a = t.selectionStart, z = t.selectionEnd, sel = t.value.slice(a, z);
+  const T = {
+    h: ["\n\n## ", sel || "Heading", "\n\n"], b: ["**", sel || "bold text", "**"], ul: ["\n\n- ", sel || "First point", "\n- Second point\n\n"],
+    ol: ["\n\n1. ", sel || "First step", "\n2. Second step\n\n"], a: ["[", sel || "link text", "](https://)"],
+    q: ["\n\n> ", sel || "Check the official website before you pay.", "\n\n"],
+    tb: ["\n\n| Item | Details |\n| --- | --- |\n| Entry requirement | ", sel || "KCSE mean grade C-", " |\n| Duration | 2 years |\n| Fees | KES ... |\n| Intakes | January, May, September |\n\n"]
+  }[kind];
+  t.setRangeText(T.join(""), a, z, "end"); t.focus();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  $("repo").value = S.get("rk_repo") || $("repo").value; $("branch").value = S.get("rk_branch") || $("branch").value;
+  $("site").value = S.get("rk_site") || $("site").value; $("token").value = S.get("rk_token");
+  $("date").value = today();
+  if (S.get("rk_token")) { $("setup").open = false; listPosts(); }
+  $("saveset").onclick = () => { S.set("rk_repo", $("repo").value.trim()); S.set("rk_branch", $("branch").value.trim()); S.set("rk_site", $("site").value.trim()); S.set("rk_token", $("token").value.trim()); status("Settings saved in this browser."); listPosts(); };
+  $("clearset").onclick = () => { ["rk_token"].forEach(S.del); $("token").value = ""; status("Your key was removed from this browser."); };
+  $("publish").onclick = publish; $("load").onclick = loadPost;
+  document.querySelectorAll(".tools button").forEach(b => b.onclick = () => insert(b.dataset.t));
+  $("photo").onchange = () => { const f = $("photo").files[0], p = $("prev"); if (f) { p.src = URL.createObjectURL(f); p.style.display = "block"; } else p.style.display = "none"; };
+});
+</script>
+</body>
+</html>
