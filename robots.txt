@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /whatsapp-post.txt
+Disallow: /social-posts.txt
+Disallow: /publish.html
 Sitemap: https://remotekazi.com/sitemap.xml
