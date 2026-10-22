@@ -176,8 +176,16 @@ async function publish() {
   if (!title || !summary || !body) return status("Please fill in the title, summary and post text.", true);
   $("publish").disabled = true;
   try {
-    const slug = editingSlug || slugify(title);
+    let slug = editingSlug || slugify(title), renamed = false;
     if (!slug) throw new Error("The title needs some letters or numbers.");
+    if (!editingSlug) {
+      // never overwrite another post: if the address is taken, add -2, -3 ...
+      const base = slug;
+      for (let n = 2; (await api("/contents/posts/" + slug + ".md?ref=" + encodeURIComponent(s.branch))).ok; n++) {
+        if (n > 50) throw new Error("Too many posts with a similar title. Please change the title.");
+        slug = base.slice(0, 57) + "-" + n; renamed = true;
+      }
+    }
     let image = editingImage;
     const file = $("photo").files[0];
     if (file) {
@@ -195,9 +203,10 @@ async function publish() {
     status("Post saved. Starting the website update...");
     const d = await api("/actions/workflows/update-jobs.yml/dispatches", { method: "POST", body: JSON.stringify({ ref: s.branch }) });
     const link = s.site + "/blog/" + slug + ".html";
-    status(d.ok
+    const note = renamed ? "A post with a very similar title already exists, so yours was saved as a new post and the old one was left untouched.\n" : "";
+    status(note + (d.ok
       ? "Published! The website is updating. Your post will be live in 1 to 2 minutes at:\n" + link
-      : "Your post is saved, but the automatic update could not start (" + d.status + "). Go to GitHub → Actions → Update jobs → Run workflow. It will then appear at:\n" + link);
+      : "Your post is saved, but the automatic update could not start (" + d.status + "). Go to GitHub → Actions → Update jobs → Run workflow. It will then appear at:\n" + link));
     if (!editingSlug) { editingSlug = slug; editingImage = image; }
   } catch (e) {
     status(e.message || String(e), true);
