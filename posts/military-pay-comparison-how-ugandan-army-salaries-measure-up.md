@@ -1,17 +1,20 @@
 ---
-title: Buffalo Milk for Visitors
-date: 2026-10-21
-updated: 2026-10-21
+title: Military Pay Comparison: How Ugandan Army Salaries Measure Up Against Kenya’s KDF
+date: 2026-10-22
 author: RemoteKazi Team
 tag: Education
-description: Former Deputy President Rigathi Gachagua has mocked President William Ruto’s proposal to explore buffalo milk production, converting the idea into a humoro
-summary: Former Deputy President Rigathi Gachagua has mocked President William Ruto’s proposal to explore buffalo milk production, converting the idea into a humorous political punchline.
+description: Recent pay adjustments in Uganda have narrowed the compensation gap between low-ranking soldiers in the Uganda People's Defence Forces  and those in the Ke
+summary: Recent pay adjustments in Uganda have narrowed the compensation gap between low-ranking soldiers in the Uganda People's Defence Forces (UPDF) and those in the Kenya Defence Forces (KDF). While entry-level pay is now more comparable, differences in allowances and cost of living continue to set the two forces apart.
 image: /images/military-pay-comparison-how-ugandan-army-salaries-measure-up.jpg
-image_caption: Gachagua meets Sifuna to plot 2027 strategy
+image_caption: KENYA-UGANDA MILITARY RELATIONS
 ---
-Addressing attendees at his Wamunyoro home in Nyeri on Wednesday, October 21, 2026, Rigathi Gachagua poked fun at President William Ruto's suggestion that Kenyans consider milking buffaloes. He lightheartedly shared that he had tasked local youth with retrieving buffalo milk from nearby Hombe Forest to serve distinguished guests arriving at his residence.
-"I came back home and found that you have been told to start taking buffalo milk. I am at my home, Wamunyoro. Because there are so many buffaloes at Hombe Forest, I have sent young men to see if they can get some milk so that I can get enough to prepare for my visitors."
+Following a major overhaul of Uganda’s defense pay structure, a UPDF private now takes home a base salary of roughly KSh 26,100 per month (equivalent to about 704,000 Ugandan shillings). This is a substantial increase from the previous financial year's base pay of approximately KSh 17,303. Although this marks considerable progress, it remains lower than the parliamentary recommendation of KSh 41,500 due to budget limits cited by Uganda's Ministry of Defence for the 2026/27 fiscal period. 
 
-Gachagua’s comments followed his return from an extended tour in the United States and a high-profile meeting at his Nyeri residence with Nairobi Senator Edwin Sifuna and key figures from the Linda Mwananchi movement.
+In Kenya, base salaries for a KDF private range between KSh 19,941 and KSh 30,000 monthly, according to pay scales published in August 2026. As soldiers advance in rank, compensation figures present a nuanced picture across both nations:
 
-Source: https://www.the-star.co.ke/news/2026-10-21-rigathi-ridicules-buffalo-milk-solution-to-kenyans
+Corporals & Sergeants: A UPDF sergeant earns a monthly base salary of about KSh 41,000, whereas a KDF corporal receives between KSh 32,250 and KSh 70,000.   
+
+Captains: At the officer level, a UPDF captain earns approximately KSh 97,600 per month, compared to KSh 73,182 to KSh 110,000 earned by a KDF captain.
+
+Kenya continues to implement periodic salary reviews for its security forces, ensuring phased pay increases for lower-tier officers as part of public sector compensation updates.   
+Source:(Tuko.co.ke / Opera News Hub)
