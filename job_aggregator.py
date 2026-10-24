@@ -6,6 +6,7 @@ Env vars: ANTHROPIC_API_KEY (required), JOOBLE_KEY (optional)
 Run:      python job_aggregator.py     (the GitHub Action in .github/workflows runs it daily)
 """
 import hashlib
+import html
 import json
 import os
 import re
@@ -19,7 +20,9 @@ OUT, SEEN = "jobs.json", "seen.json"
 JOOBLE_KEY = os.environ.get("JOOBLE_KEY")
 MODEL = "claude-sonnet-5-5"
 MAX_PER_SOURCE = 25       # max listings checked per source per run (caps cost)
-MAX_AGE_DAYS = 45         # drop listings older than this
+MAX_PER_SOURCE_BOARDS = 60
+PURGE_EVERY_DAYS = 2      # old listings are only removed on every 2nd day; new jobs are added every run
+MAX_AGE_DAYS = 2          # automatically remove listings older than this many days (change to keep jobs longer)
 ALLOWED_RISK = {"low"}    # no human review step, so only publish low-risk jobs
 HEADERS = {"User-Agent": "RemoteKaziBot/1.0 (+https://remotekazi.com/about.html)"}
 
@@ -106,8 +109,66 @@ def fetch_employer_feeds():
                    "text": strip(e.get("summary")), "url": e.link}
 
 
+RELIEFWEB_APPNAME = os.environ.get("RELIEFWEB_APPNAME")   # register a free app name at apidoc.reliefweb.int
+
+
+def fetch_reliefweb():
+    """UN / NGO / humanitarian jobs in Kenya from the ReliefWeb API (long descriptions, real deadlines)."""
+    if not RELIEFWEB_APPNAME:
+        print("[fetch_reliefweb] skipped: RELIEFWEB_APPNAME secret is not set")
+        return
+    body = {"limit": 30, "sort": ["date.created:desc"],
+            "filter": {"field": "country.iso3", "value": "KEN"},
+            "fields": {"include": ["title", "url", "body", "date.closing", "source.name"]}}
+    r = requests.post(f"https://api.reliefweb.int/v2/jobs?appname={RELIEFWEB_APPNAME}", json=body, headers=HEADERS, timeout=30)
+    r.raise_for_status()
+    for it in r.json().get("data", []):
+        f = it.get("fields", {})
+        yield {"src": "ReliefWeb", "title": f.get("title", ""), "company": (f.get("source") or [{}])[0].get("name", ""),
+               "location": "Kenya", "text": strip(f.get("body")) + " Closing date: " + (f.get("date", {}).get("closing", "") or "")[:10],
+               "url": f.get("url", "")}
+
+
+# Employer job boards that publish public JSON feeds. Add the board name from the careers-page address:
+#   Greenhouse: boards.greenhouse.io/<name>   Lever: jobs.lever.co/<name>   Workable: apply.workable.com/<name>
+# Format: ("Display name", "<board name>"). Only Kenya / Africa-eligible roles pass the Claude filter.
+GREENHOUSE = []
+LEVER = []
+WORKABLE = []
+
+
+def fetch_boards():
+    for name, tok in GREENHOUSE:
+        try:
+            d = requests.get(f"https://boards-api.greenhouse.io/v1/boards/{tok}/jobs?content=true", headers=HEADERS, timeout=30).json()
+            for j in d.get("jobs", []):
+                yield {"src": name, "title": j.get("title", ""), "company": name,
+                       "location": (j.get("location") or {}).get("name", ""),
+                       "text": strip(html.unescape(j.get("content", ""))), "url": j.get("absolute_url", "")}
+        except Exception as e:
+            print(f"[greenhouse:{tok}] {e}")
+    for name, tok in LEVER:
+        try:
+            for j in requests.get(f"https://api.lever.co/v0/postings/{tok}?mode=json", headers=HEADERS, timeout=30).json():
+                yield {"src": name, "title": j.get("text", ""), "company": name,
+                       "location": (j.get("categories") or {}).get("location", ""),
+                       "text": j.get("descriptionPlain", ""), "url": j.get("hostedUrl", "")}
+        except Exception as e:
+            print(f"[lever:{tok}] {e}")
+    for name, tok in WORKABLE:
+        try:
+            d = requests.get(f"https://apply.workable.com/api/v1/widget/accounts/{tok}?details=true", headers=HEADERS, timeout=30).json()
+            for j in d.get("jobs", []):
+                yield {"src": name, "title": j.get("title", ""), "company": name,
+                       "location": ", ".join(x for x in (j.get("city"), j.get("country")) if x),
+                       "text": strip(j.get("description")), "url": j.get("url", "")}
+        except Exception as e:
+            print(f"[workable:{tok}] {e}")
+
+
+
 # Add employer RSS feeds or career pages here after checking each site's robots.txt and terms.
-SOURCES = [fetch_jvn, fetch_employer_feeds, fetch_jooble, fetch_remoteok, fetch_wwr, fetch_remotive]  # Kenya sources first
+SOURCES = [fetch_reliefweb, fetch_boards, fetch_jvn, fetch_employer_feeds, fetch_jooble, fetch_remoteok, fetch_wwr, fetch_remotive]  # Kenya sources first
 
 PROMPT = """You clean job listings for a Kenyan job board. Return ONLY JSON, no markdown.
 
@@ -159,6 +220,10 @@ def main():
     def alive(j):
         if j.get("deadline") and j["deadline"] < today.isoformat():
             return False
+        if j.get("src") == "Direct":     # jobs you add by hand last until their deadline
+            return True
+        if today.toordinal() % PURGE_EVERY_DAYS:   # not a clean-up day: keep everything, new jobs are still added
+            return True
         return datetime.fromisoformat(j["posted"]).date() >= today - timedelta(days=MAX_AGE_DAYS)
     jobs = [j for j in jobs if alive(j)]
 
@@ -172,7 +237,7 @@ def main():
         n_src = 0
         k0, s0, r0 = new, skipped, risky
         for job in batch:
-            if n_src >= MAX_PER_SOURCE:
+            if n_src >= (MAX_PER_SOURCE_BOARDS if fetch is fetch_boards else MAX_PER_SOURCE):
                 break
             url = job["url"]
             if not url.startswith("http"):
