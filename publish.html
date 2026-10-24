@@ -94,6 +94,33 @@ img.prev{max-width:100%;border-radius:12px;margin-top:8px;display:none}
 <p><button id="publish" type="button">Publish</button></p>
 <div id="status"></div>
 </div>
+
+<div class="box" id="jobbox">
+<h2>3. Add a job by hand</h2>
+<p class="hint">For jobs you find or that employers send you. The Apply button on your site goes to the link you enter, so use the employer's own page whenever you can.</p>
+<div class="row">
+<div><label for="jtitle">Job title</label><input id="jtitle" placeholder="Software Engineer, Nairobi"></div>
+<div><label for="jcompany">Employer</label><input id="jcompany" placeholder="Google"></div>
+</div>
+<div class="row">
+<div><label for="jloc">Location</label><select id="jloc"><option>Nairobi</option><option>Mombasa</option><option>Kisumu</option><option>Other Kenya</option><option>Remote</option></select></div>
+<div><label for="jcat">Category</label><select id="jcat"><option>Tech</option><option>Finance</option><option>Health</option><option>Education</option><option>Sales</option><option>Logistics</option><option>Other</option></select></div>
+<div><label for="jtype">Job type</label><select id="jtype"><option>Full-time</option><option>Part-time</option><option>Contract</option><option>Internship</option><option>Not stated</option></select></div>
+</div>
+<div class="row">
+<div><label for="jpay">Pay (optional)</label><input id="jpay" placeholder="KES 80,000 a month"></div>
+<div><label for="jdeadline">Deadline (optional)</label><input id="jdeadline" type="date"></div>
+</div>
+<label for="jlink">Apply link</label>
+<input id="jlink" placeholder="https://careers.example.com/job/123  (or mailto:jobs@example.com)">
+<label for="jdesc">Description</label>
+<textarea id="jdesc" class="short" style="min-height:140px" placeholder="What the job involves, the main requirements and how to apply. Write it in your own words, or paste text the employer gave you permission to use."></textarea>
+<label><input id="jfeat" type="checkbox" style="width:auto"> Feature this job (pinned to the top)</label>
+<p><button id="addjob" type="button">Add job</button></p>
+<div id="jstatus" style="display:none;margin-top:10px;padding:12px 14px;border-radius:10px;background:var(--soft);white-space:pre-line"></div>
+<h2 style="margin-top:20px">Jobs you added</h2>
+<div id="myjobs" class="hint">Save your settings in step 1 to see them here.</div>
+</div>
 </div>
 
 <script>
@@ -264,6 +291,93 @@ document.addEventListener("DOMContentLoaded", () => {
   $("publish").onclick = publish; $("load").onclick = loadPost;
   document.querySelectorAll(".tools button").forEach(b => b.onclick = () => insert(b.dataset.t));
   $("photo").onchange = () => { const f = $("photo").files[0], p = $("prev"); if (f) { p.src = URL.createObjectURL(f); p.style.display = "block"; } else p.style.display = "none"; };
+});
+
+// ---------- add a job by hand (stored in manual_jobs.json) ----------
+function jstatus(msg, err) { const e = $("jstatus"); e.style.display = "block"; e.style.background = err ? "#fde8e8" : ""; e.style.color = err ? "#8a1111" : ""; e.textContent = msg; }
+
+async function getManual() {
+  const r = await api("/contents/manual_jobs.json?ref=" + encodeURIComponent(settings().branch));
+  if (r.status === 404) return { list: [], sha: undefined };
+  if (!r.ok) throw new Error("Could not read your job list (" + r.status + "). Check your key in step 1.");
+  const j = await r.json();
+  let list = [];
+  try { list = JSON.parse(unb64(j.content)); } catch (e) {}
+  return { list: Array.isArray(list) ? list : [], sha: j.sha };
+}
+
+async function saveManual(list, sha, message) {
+  const body = { message, content: b64(JSON.stringify(list, null, 1)), branch: settings().branch };
+  if (sha) body.sha = sha;
+  const r = await api("/contents/manual_jobs.json", { method: "PUT", body: JSON.stringify(body) });
+  if (!r.ok) throw new Error("Could not save the job (" + r.status + "). " + (r.status === 409 ? "The list changed while saving. Please try again." : "Check your key and its Contents permission."));
+}
+
+async function runUpdate() {
+  const d = await api("/actions/workflows/update-jobs.yml/dispatches", { method: "POST", body: JSON.stringify({ ref: settings().branch }) });
+  return d.ok;
+}
+
+function renderMine(list) {
+  const box = $("myjobs");
+  if (!list.length) { box.textContent = "No jobs added by hand yet."; return; }
+  box.innerHTML = "";
+  list.forEach(j => {
+    const row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;align-items:center;justify-content:space-between;border-top:1px solid var(--bd);padding:8px 0";
+    const t = document.createElement("span");
+    t.textContent = j.t + " · " + j.c + " · " + j.l + (j.f ? " · featured" : "");
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "o sm"; b.textContent = "Remove";
+    b.onclick = () => removeJob(j.id);
+    row.appendChild(t); row.appendChild(b); box.appendChild(row);
+  });
+}
+
+async function refreshMine() {
+  const s = settings();
+  if (!s.repo || !s.token) return;
+  try { renderMine((await getManual()).list); } catch (e) { $("myjobs").textContent = e.message; }
+}
+
+async function addJob() {
+  const s = settings();
+  if (!s.repo || !s.token) { $("setup").open = true; return jstatus("Add your repository and GitHub key in step 1 first.", true); }
+  const t = $("jtitle").value.trim(), c = $("jcompany").value.trim(), u = $("jlink").value.trim(), x = $("jdesc").value.trim();
+  if (!t || !c) return jstatus("Please enter the job title and the employer.", true);
+  if (!/^(https:\/\/|http:\/\/|mailto:)/i.test(u)) return jstatus("The apply link must start with https:// (or mailto: for an email address).", true);
+  if (x.length < 40) return jstatus("Please write a short description of at least a couple of sentences.", true);
+  $("addjob").disabled = true;
+  try {
+    const m = await getManual();
+    const job = { id: "d" + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), t, c, l: $("jloc").value, k: $("jcat").value,
+      y: $("jtype").value, p: $("jpay").value.trim(), x, u, src: "Direct", deadline: $("jdeadline").value || "", posted: today(), f: $("jfeat").checked ? 1 : 0 };
+    m.list.unshift(job);
+    jstatus("Saving the job...");
+    await saveManual(m.list, m.sha, "Add job: " + t);
+    const ok = await runUpdate();
+    jstatus(ok ? "Job added! It will appear on your site in 1 to 2 minutes." : "Job saved, but the automatic update could not start. Go to GitHub → Actions → Update jobs → Run workflow.");
+    renderMine(m.list);
+    ["jtitle", "jcompany", "jpay", "jlink", "jdesc", "jdeadline"].forEach(id => $(id).value = ""); $("jfeat").checked = false;
+  } catch (e) { jstatus(e.message || String(e), true); }
+  finally { $("addjob").disabled = false; }
+}
+
+async function removeJob(id) {
+  try {
+    const m = await getManual();
+    const list = m.list.filter(j => j.id !== id);
+    await saveManual(list, m.sha, "Remove a job");
+    const ok = await runUpdate();
+    jstatus(ok ? "Job removed. The site is updating." : "Job removed. Run Update jobs in GitHub to refresh the site.");
+    renderMine(list);
+  } catch (e) { jstatus(e.message || String(e), true); }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  $("addjob").onclick = addJob;
+  if (S.get("rk_token")) refreshMine();
+  const sv = $("saveset"); const old = sv.onclick; sv.onclick = () => { old && old(); refreshMine(); };
 });
 </script>
 </body>
