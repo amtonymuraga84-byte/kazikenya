@@ -21,8 +21,7 @@ JOOBLE_KEY = os.environ.get("JOOBLE_KEY")
 MODEL = "claude-sonnet-5-5"
 MAX_PER_SOURCE = 25       # max listings checked per source per run (caps cost)
 MAX_PER_SOURCE_BOARDS = 60
-PURGE_EVERY_DAYS = 2      # old listings are only removed on every 2nd day; new jobs are added every run
-MAX_AGE_DAYS = 2          # automatically remove listings older than this many days (change to keep jobs longer)
+MAX_AGE_DAYS = 2          # a listing is removed as soon as it would show "2 days ago" (checked on every daily run)
 ALLOWED_RISK = {"low"}    # no human review step, so only publish low-risk jobs
 HEADERS = {"User-Agent": "RemoteKaziBot/1.0 (+https://remotekazi.com/about.html)"}
 
@@ -222,9 +221,7 @@ def main():
             return False
         if j.get("src") == "Direct":     # jobs you add by hand last until their deadline
             return True
-        if today.toordinal() % PURGE_EVERY_DAYS:   # not a clean-up day: keep everything, new jobs are still added
-            return True
-        return datetime.fromisoformat(j["posted"]).date() >= today - timedelta(days=MAX_AGE_DAYS)
+        return (today - datetime.fromisoformat(j["posted"]).date()).days < MAX_AGE_DAYS
     jobs = [j for j in jobs if alive(j)]
 
     new = skipped = risky = 0
