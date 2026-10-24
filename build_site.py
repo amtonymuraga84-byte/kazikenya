@@ -69,7 +69,6 @@ def alerts_box():
         btns += f'<a class="btn o" href="{E(TELEGRAM_URL)}" rel="noopener">Telegram</a>'
     if not btns:
         return ""
-    btns += ' <a class="btn o" href="https://www.google.com/alerts?q=site%3Aremotekazi.com%2Fjobs" target="_blank" rel="noopener">Google Alert</a>'
     return f'<div class="alerts"><span><b>🔔 Get new jobs on your phone</b><br><span class="meta">Free daily job alerts</span></span><span class="row">{btns}</span></div>'
 
 
@@ -79,8 +78,6 @@ def footer():
         btns += f'<a class="btn" href="{E(WHATSAPP_URL)}" rel="noopener">Job alerts on WhatsApp</a> '
     if TELEGRAM_URL:
         btns += f'<a class="btn o" href="{E(TELEGRAM_URL)}" rel="noopener">Telegram channel</a>'
-    btns += (' <a class="btn o" href="https://www.google.com/alerts?q=site%3Aremotekazi.com%2Fjobs" target="_blank" rel="noopener">Google Alert</a>'
-             ' <a class="btn o" href="/jobs.xml">Jobs RSS</a>')
     alerts = f'<p>{btns}</p>' if btns else ""
     return (f'<footer><div class="w">{alerts}<p><a href="/about.html">About</a> · <a href="/contact.html">Contact</a> · '
             f'<a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/guides/">Guides</a> · <a href="/blog/">Blog</a></p>'
@@ -131,13 +128,12 @@ def card_html(j):
 def job_page(j, all_jobs):
     path = f"/jobs/{j['slug']}.html"
     posted = j["posted"]
+    valid = j.get("deadline") or (datetime.fromisoformat(posted) + timedelta(days=30)).date().isoformat()
     remote = j["l"] == "Remote"
     ld = {"@context": "https://schema.org", "@type": "JobPosting", "title": j["t"], "description": j["x"],
-          "datePosted": posted, "employmentType": EMP.get(j["y"], "OTHER"),
+          "datePosted": posted, "validThrough": valid, "employmentType": EMP.get(j["y"], "OTHER"),
           "hiringOrganization": {"@type": "Organization", "name": j["c"]}, "directApply": False,
           "url": SITE_URL + path, "identifier": {"@type": "PropertyValue", "name": j.get("src", "RemoteKazi"), "value": j["id"]}}
-    if j.get("deadline"):
-        ld["validThrough"] = j["deadline"]            # only a real deadline; Google says to omit it otherwise
     if j["y"] == "Not stated":
         ld.pop("employmentType")
     if remote:
@@ -163,8 +159,7 @@ def job_page(j, all_jobs):
             + (f'<h2>More {E(j["k"])} jobs</h2><ul>{relh}</ul>' if rel else "")
             + '<p><a href="/#jobs">← Back to all jobs</a></p>')
     write(path, page(f'{j["t"]} at {j["c"]} ({j["l"]}) | RemoteKazi', j["x"][:155], path, body,
-                     (f'<script type="application/ld+json">{json.dumps(ld).replace("</", "<\\/")}</script>'
-                      if len(j["x"]) >= 150 else "")))     # Google needs a complete description
+                     f'<script type="application/ld+json">{json.dumps(ld).replace("</", "<\\/")}</script>'))
 
 
 # ---------- guides & legal ----------
@@ -517,11 +512,6 @@ def main():
     write("/sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
           + "".join(f"<url><loc>{SITE_URL}{u}</loc><lastmod>{today}</lastmod></url>" for u in urls) + "</urlset>")
     write("/robots.txt", f"User-agent: *\nAllow: /\nDisallow: /whatsapp-post.txt\nDisallow: /social-posts.txt\nDisallow: /publish.html\nSitemap: {SITE_URL}/sitemap.xml\n")
-    ji = "".join(f'<item><title>{E(j["t"])} - {E(j["c"])} ({E(j["l"])})</title><link>{SITE_URL}/jobs/{j["slug"]}.html</link>'
-                 f'<guid>{SITE_URL}/jobs/{j["slug"]}.html</guid><pubDate>{datetime.fromisoformat(j["posted"]).strftime("%a, %d %b %Y 00:00:00 +0300")}</pubDate>'
-                 f'<description>{E(j["x"][:300])}</description></item>' for j in ordered[:50])
-    write("/jobs.xml", '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>RemoteKazi Jobs</title>'
-                       f'<link>{SITE_URL}/</link><description>Latest jobs in Kenya and remote jobs open to Kenyans</description>{ji}</channel></rss>')
     fresh = [j for j in ordered if j["posted"] == today][:8] or ordered[:8]
     lines = ["🔔 *New jobs on RemoteKazi*", ""]
     for j in fresh:
@@ -539,7 +529,7 @@ def main():
         idx = re.sub(r'(<span id="count">)[^<]*(</span>)', rf'\g<1>{len(jobs)} jobs found\g<2>', idx)
     idx = patch(idx, "FEATURED", featured_html())
     if posts:
-        idx = patch(idx, "BLOG", "".join(post_card(p) for p in posts[:6]))
+        idx = patch(idx, "BLOG", "".join(post_card(p) for p in posts[:3]))
     for tag, content in (("NAV", NAV), ("HEAD", head_extra("/")), ("ALERTS", alerts_box()), ("FOOT", footer())):
         idx = patch(idx, tag, content)
     Path("index.html").write_text(idx, encoding="utf-8")
