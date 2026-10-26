@@ -6,7 +6,9 @@ author: RemoteKazi Team
 tag: Careers
 description: The National Police Service is investigating Senator Karen Nyamu's remarks about helping a supporter join the police. What was said, and how genuine police recruitment works.
 summary: The National Police Service has opened an investigation after Nominated Senator Karen Nyamu described trying to help a supporter join the police despite him not meeting the requirements. Here is what was said, what the police said, and how to join the service honestly and safely.
-image: /images/covers/under-scrutiny-again-karen-nyamu-faces-police-investigation.jpg
+image: /images/illustrations/under-scrutiny-again-karen-nyamu-faces-police-investigation.jpg
+image_caption: Police recruitment is free, and certificates are checked
+image_credit: Illustration: RemoteKazi
 ---
 The National Police Service (NPS) has opened an investigation into comments made by Nominated Senator Karen Nyamu about police recruitment.
 

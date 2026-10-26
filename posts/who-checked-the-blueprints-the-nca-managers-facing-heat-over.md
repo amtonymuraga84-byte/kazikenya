@@ -6,7 +6,9 @@ author: RemoteKazi Team
 tag: Careers
 description: A 16-storey building under construction collapsed in Eastleigh, Nairobi. What the National Construction Authority is responsible for, and the careers that keep buildings safe.
 summary: The collapse of a partially built 16-storey building in Eastleigh, Nairobi, on October 20, 2026, has put the National Construction Authority (NCA) under scrutiny and triggered a multi-agency investigation. Here is what the NCA is responsible for, how building approval works, and the construction careers that keep Kenyans safe.
-image: /images/covers/who-checked-the-blueprints-the-nca-managers-facing-heat-over.jpg
+image: /images/illustrations/who-checked-the-blueprints-the-nca-managers-facing-heat-over.jpg
+image_caption: Inspection keeps construction sites safe
+image_credit: Illustration: RemoteKazi
 ---
 A partially built 16-storey building collapsed in Eastleigh, Nairobi, on October 20, 2026. Interior Cabinet Secretary Kipchumba Murkomen has announced a multi-agency investigation, and police have warned that anyone found to have approved or supervised the project negligently could face criminal charges.
 

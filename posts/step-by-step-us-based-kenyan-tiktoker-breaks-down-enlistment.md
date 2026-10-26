@@ -6,7 +6,9 @@ author: RemoteKazi Team
 tag: Careers
 description: A Kenyan nurse in the US military shared how she enlisted. Who is eligible, the step-by-step process, the ASVAB test, signing bonuses and the path to citizenship.
 summary: A Kenyan-born member of the US military has gone viral after explaining how she enlisted, from failing her first fitness check to earning a large signing bonus. Here is who can actually join, the steps involved, and what Kenyans living in the US should know before speaking to a recruiter.
-image: /images/covers/step-by-step-us-based-kenyan-tiktoker-breaks-down-enlistment.jpg
+image: /images/illustrations/step-by-step-us-based-kenyan-tiktoker-breaks-down-enlistment.jpg
+image_caption: From Kenya to the US armed forces
+image_credit: Illustration: RemoteKazi
 ---
 A US-based Kenyan has gone viral on TikTok after sharing how she joined the American military. In a video posted on October 21, 2026, the creator, known as @puremorigan, said she moved to the United States for nursing school and joined the armed forces to help pay for her studies and to speed up her path to US citizenship.
 

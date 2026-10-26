@@ -6,7 +6,9 @@ author: RemoteKazi Team
 tag: Money & Law
 description: David Ndii says affordable housing is middle-class housing. With Boma Yangu prices up 20%, here is what a unit costs now and how it compares with a typical worker's budget.
 summary: President Ruto's chief economic adviser, David Ndii, says the Affordable Housing Programme was designed to grow the middle class, not as welfare for the poor. His comments come weeks after Boma Yangu unit prices rose by up to 20%. Here is what the new prices mean for salaried workers.
-image: /images/covers/not-built-for-the-poor-economic-advisor-david-ndii-reframes.jpg
+image: /images/illustrations/not-built-for-the-poor-economic-advisor-david-ndii-reframes.jpg
+image_caption: Affordable housing prices rose by up to 20%
+image_credit: Illustration: RemoteKazi
 ---
 David Ndii, President William Ruto's chief economic adviser, has sparked debate with a blunt description of the government's flagship housing project. "Affordable housing is not for the poor," he wrote on October 24, 2026, describing it instead as middle-class housing that lets lower-income families live to the same standard as everyone else. He summed up the idea of equality behind it with the phrase "Usawa ni sawa".
 

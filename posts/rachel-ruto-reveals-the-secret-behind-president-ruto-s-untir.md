@@ -6,7 +6,9 @@ author: RemoteKazi Team
 tag: Careers
 description: The First Lady credits faith for President Ruto's energy. For the rest of us, long hours carry real burnout risks. Practical ways to keep your energy up at work.
 summary: First Lady Rachel Ruto says the President's tireless schedule comes from faith and a sense of service. Most Kenyans also work long hours, often with long commutes and side hustles. Here is what she said, and practical, evidence-based ways to keep your energy up without burning out.
-image: /images/covers/rachel-ruto-reveals-the-secret-behind-president-ruto-s-untir.jpg
+image: /images/illustrations/rachel-ruto-reveals-the-secret-behind-president-ruto-s-untir.jpg
+image_caption: Keeping your energy up in a demanding job
+image_credit: Illustration: RemoteKazi
 ---
 At a national prayer and thanksgiving service on Tuesday, October 20, 2026, First Lady Rachel Ruto answered a question many Kenyans have asked: how does President William Ruto keep up such a punishing schedule?
 

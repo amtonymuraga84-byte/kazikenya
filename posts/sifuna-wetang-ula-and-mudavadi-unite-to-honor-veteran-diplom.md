@@ -6,7 +6,9 @@ author: RemoteKazi Team
 tag: Kenya News
 description: Sifuna, Wetang'ula and Mudavadi set aside differences to honour veteran diplomat Burudi Nabwera. His career, the farewell plans, and how to build a career in Kenya's foreign service.
 summary: Political rivals Edwin Sifuna, Moses Wetang'ula and Musalia Mudavadi came together at a requiem mass for veteran diplomat Mzee Burudi Nabwera, Kenya's first ambassador to the United States. We look back at his career and at how young Kenyans can build a career in diplomacy today.
-image: /images/covers/sifuna-wetang-ula-and-mudavadi-unite-to-honor-veteran-diplom.jpg
+image: /images/illustrations/sifuna-wetang-ula-and-mudavadi-unite-to-honor-veteran-diplom.jpg
+image_caption: A career in diplomacy
+image_credit: Illustration: RemoteKazi
 ---
 In a rare show of unity, Nairobi Senator Edwin Sifuna, National Assembly Speaker Moses Wetang'ula and Prime Cabinet Secretary Musalia Mudavadi attended the requiem mass of veteran diplomat and former Cabinet Minister Mzee Burudi Nabwera on Wednesday. The service was held at Friends Church on Ngong Road, Nairobi, and Senator Sifuna later shared photos from the gathering on social media.
 

@@ -6,7 +6,9 @@ author: RemoteKazi Team
 tag: Kenya News
 description: The Kenya Meteorological Department says storms over the northern Indian Ocean delayed the short rains. Here is the science in plain words and what it means for farmers and farm jobs.
 summary: The Kenya Meteorological Department says low-pressure storm systems over the northern Indian Ocean have held back the October–December short rains. Here is what that means in plain language, and how a late season affects farmers, casual farm workers and food prices.
-image: /images/covers/kenya-met-clarifies-cause-behind-delayed-el-ni-o-short-rains.jpg
+image: /images/illustrations/kenya-met-clarifies-cause-behind-delayed-el-ni-o-short-rains.jpg
+image_caption: Dry fields waiting for the short rains
+image_credit: Illustration: RemoteKazi
 ---
 Many parts of Kenya expected the October–December short rains to arrive weeks ago, especially after months of talk about a wet El Niño season. Instead, several regions have stayed dry. The Kenya Meteorological Department has now explained why.
 

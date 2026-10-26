@@ -6,7 +6,9 @@ author: RemoteKazi Team
 tag: Kenya News
 description: Kiharu MP Ndindi Nyoro says the opposition should accept anyone who wants to join it, even President Ruto's son. What he said, how people reacted, and what it tells us about 2027.
 summary: Kiharu MP Ndindi Nyoro has told a political rally that the opposition should welcome anyone willing to join it, even President William Ruto's own son. The remark has drawn mixed reactions and adds to the shifting alliances shaping the road to the 2027 General Election.
-image: /images/covers/even-if-ruto-s-son-joins-opposition-he-should-be-welcomed-sa.jpg
+image: /images/illustrations/even-if-ruto-s-son-joins-opposition-he-should-be-welcomed-sa.jpg
+image_caption: Building alliances ahead of 2027
+image_credit: Illustration: RemoteKazi
 ---
 Kiharu MP Ndindi Nyoro has stirred fresh debate after telling a rally that the opposition should be open to anyone willing to join its effort to unseat the current government. To make his point, he said that even President William Ruto's own son would deserve a chance if he crossed over.
 

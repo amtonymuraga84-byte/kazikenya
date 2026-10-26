@@ -6,7 +6,9 @@ author: RemoteKazi Team
 tag: Money & Law
 description: A Dandora man pleaded guilty after spending Ksh150,000 sent to him by mistake. Here is what Kenyan law says, and exactly what to do if a wrong payment lands in your account.
 summary: A Dandora man is awaiting sentencing after admitting he spent Ksh150,000 of a Ksh250,000 payment that reached his bank account by mistake. The case is a clear warning: keeping money that is not yours is a crime in Kenya, and returning it is simple if you act quickly.
-image: /images/covers/dandora-man-pleads-guilty-after-spending-ksh150-000-sent-to.jpg
+image: /images/illustrations/dandora-man-pleads-guilty-after-spending-ksh150-000-sent-to.jpg
+image_caption: A payment sent to the wrong number
+image_credit: Illustration: RemoteKazi
 ---
 Mistaken transfers happen every day in Kenya. One wrong digit on an M-Pesa number or a bank account is enough to send a salary, a school-fees payment or a supplier's money to a stranger. A case decided in Nairobi this week shows what can happen when the person who receives that money decides to keep it.
 

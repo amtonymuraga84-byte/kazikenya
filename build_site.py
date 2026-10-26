@@ -427,7 +427,7 @@ def load_posts():
             upd = None
         posts.append({"slug": slugify(f.stem), "title": title, "date": when, "updated": upd,
                       "author": meta.get("author", "RemoteKazi Team"), "summary": meta.get("summary", ""),
-                      "caption": meta.get("image_caption", ""),
+                      "caption": meta.get("image_caption", ""), "credit": meta.get("image_credit", ""),
                       "desc": post_desc(meta, body),
                       "tag": meta.get("tag", "Career tips"), "image": img if img.startswith("http") else "",
                       "mins": max(1, round(words / 200)), "html": md_to_html(body)})
@@ -468,7 +468,8 @@ def build_blog(posts):
                 + f' · By {E(p["author"])} · {p["mins"]} min read</p>'
                 + f'<p class="lead">{inline(p["summary"] or p["desc"])}</p>'
                 + (f'<figure class="hero"><img src="{E(p["image"])}" alt="{E(p["caption"] or p["title"])}">'
-                   + (f'<figcaption>{E(p["caption"])}</figcaption>' if p["caption"] else "") + '</figure>' if p["image"] else "")
+                   + (f'<figcaption>{E(p["caption"])}' + (f' <span class="credit">{inline(p["credit"])}</span>' if p["credit"] else "")
+                      + '</figcaption>' if p["caption"] or p["credit"] else "") + '</figure>' if p["image"] else "")
                 + f'{p["html"]}{share_bar(p["title"], url)}{alerts_box()}'
                 + (f'<h2>More from the blog</h2><div class="g3">{"".join(post_card(o) for o in others)}</div>' if others else "")
                 + '<p><a class="btn" href="/#jobs">Browse latest jobs →</a></p>')
@@ -502,7 +503,7 @@ def main():
     if not SHOW_AD_PLACEHOLDERS:
         css += ".ad,aside{display:none!important}.main{grid-template-columns:minmax(0,1fr)!important}"
     css += (".w.prose{max-width:780px;padding-block:24px}.prose h2{margin:22px 0 8px}.prose li{margin:5px 0}"
-            ".crumbs{font-size:14px;color:var(--muted)}footer a{margin-right:4px}.alerts{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;background:var(--soft);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:14px 0}.row{display:flex;gap:8px;flex-wrap:wrap}footer p{margin:8px 0}.prose{font-size:18px;line-height:1.65}.byline{font-size:15px}.lead{font-size:clamp(19px,2.6vw,22px);line-height:1.55;font-weight:600;margin:14px 0 18px}figure{margin:18px 0}figure img{width:100%;height:auto;border-radius:14px;display:block}figcaption{font-size:14px;color:var(--muted);margin-top:8px}.tablewrap{overflow-x:auto;margin:16px 0}table{border-collapse:collapse;width:100%;font-size:16px}th,td{border:1px solid var(--bd);padding:10px 12px;text-align:left;vertical-align:top}th{background:var(--soft);color:var(--ac)}img.thumb{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;margin-bottom:10px;display:block}.share{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:24px 0}.share .btn{padding:8px 14px;font-size:15px}a.card.post{display:block;color:inherit;text-decoration:none}a.card.post b{display:block;font-size:19px;margin:8px 0 4px}blockquote{border-left:4px solid var(--ac);margin:16px 0;padding:4px 16px;color:var(--muted)}.prose img{margin:12px 0}.g3.posts{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}.prose h1{font-size:clamp(28px,5vw,42px);line-height:1.15}")
+            ".crumbs{font-size:14px;color:var(--muted)}footer a{margin-right:4px}.alerts{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;background:var(--soft);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:14px 0}.row{display:flex;gap:8px;flex-wrap:wrap}footer p{margin:8px 0}.prose{font-size:18px;line-height:1.65}.byline{font-size:15px}.lead{font-size:clamp(19px,2.6vw,22px);line-height:1.55;font-weight:600;margin:14px 0 18px}figure{margin:18px 0}figure img{width:100%;height:auto;border-radius:14px;display:block}figcaption{font-size:14px;color:var(--muted);margin-top:8px}.credit{font-size:13px;opacity:.85}.credit:before{content:'· '}figcaption .credit:first-child:before{content:''}.tablewrap{overflow-x:auto;margin:16px 0}table{border-collapse:collapse;width:100%;font-size:16px}th,td{border:1px solid var(--bd);padding:10px 12px;text-align:left;vertical-align:top}th{background:var(--soft);color:var(--ac)}img.thumb{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;margin-bottom:10px;display:block}.share{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:24px 0}.share .btn{padding:8px 14px;font-size:15px}a.card.post{display:block;color:inherit;text-decoration:none}a.card.post b{display:block;font-size:19px;margin:8px 0 4px}blockquote{border-left:4px solid var(--ac);margin:16px 0;padding:4px 16px;color:var(--muted)}.prose img{margin:12px 0}.g3.posts{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}.prose h1{font-size:clamp(28px,5vw,42px);line-height:1.15}")
     write("/style.css", css)
 
     by_id = {}

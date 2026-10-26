@@ -6,7 +6,9 @@ author: RemoteKazi Team
 tag: Salaries
 description: Uganda's army pay rise has narrowed the gap with Kenya's KDF. A rank-by-rank salary comparison, what pay leaves out, and how KDF recruitment works.
 summary: A major pay rise in Uganda has narrowed the salary gap between new soldiers in the Uganda People's Defence Forces (UPDF) and the Kenya Defence Forces (KDF). Here is how base pay compares rank by rank, what the figures leave out, and what to know if you are thinking about a military career.
-image: /images/covers/military-pay-comparison-how-ugandan-army-salaries-measure-up.jpg
+image: /images/illustrations/military-pay-comparison-how-ugandan-army-salaries-measure-up.jpg
+image_caption: Base pay by rank, KDF and UPDF
+image_credit: Illustration: RemoteKazi
 ---
 Uganda has overhauled pay for its armed forces, and the change has closed much of the gap between what new soldiers earn there and in Kenya. For young people weighing a career in uniform, here is how the numbers compare.
 

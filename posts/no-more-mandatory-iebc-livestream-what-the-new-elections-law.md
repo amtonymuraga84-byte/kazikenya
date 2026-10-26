@@ -6,7 +6,9 @@ author: RemoteKazi Team
 tag: Kenya News
 description: MPs have removed the IEBC's duty to livestream polling station results. What changes, what stays the same, and how the 2027 election cycle creates temporary jobs.
 summary: The National Assembly has passed the Elections (Amendment) Bill, removing the IEBC's legal duty to livestream results as they are announced. Results declared at polling stations are still final, and media and observers can still broadcast them. Here is what changes for 2027.
-image: /images/covers/no-more-mandatory-iebc-livestream-what-the-new-elections-law.jpg
+image: /images/illustrations/no-more-mandatory-iebc-livestream-what-the-new-elections-law.jpg
+image_caption: Results, ballots and the end of the official livestream
+image_credit: Illustration: RemoteKazi
 ---
 Kenya's rules for announcing election results are changing ahead of the 2027 General Election. On October 22, 2026, the National Assembly passed the Elections (Amendment) Bill, which rewrites Section 39 of the Elections Act and removes the Independent Electoral and Boundaries Commission's (IEBC) legal duty to livestream results as they are announced.
 

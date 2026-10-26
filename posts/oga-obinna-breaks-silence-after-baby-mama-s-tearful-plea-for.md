@@ -6,7 +6,9 @@ author: RemoteKazi Team
 tag: Careers
 description: Tallie's plea for business capital sparked a debate about co-parenting. It also raised a bigger issue: graduates who can't find work. Practical home business ideas with low capital.
 summary: Media personality Oga Obinna's former partner, Tallie, asked the public for help to start a home business after struggling to find work despite her journalism degree. The debate that followed touches on co-parenting, but also on a problem many Kenyan graduates share. Here is what happened, and practical low-capital business ideas you can run from home.
-image: /images/covers/oga-obinna-breaks-silence-after-baby-mama-s-tearful-plea-for.jpg
+image: /images/illustrations/oga-obinna-breaks-silence-after-baby-mama-s-tearful-plea-for.jpg
+image_caption: Running a small business from home
+image_credit: Illustration: RemoteKazi
 ---
 A TikTok livestream has started a national conversation. Tallie, the mother of one of media personality Oga Obinna's children, broke down in tears while asking followers to help her raise money to start a business she could run from home.
 
