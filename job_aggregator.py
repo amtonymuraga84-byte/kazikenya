@@ -23,7 +23,7 @@ MAX_PER_SOURCE = 25       # max listings checked per source per run (caps cost)
 MAX_PER_SOURCE_BOARDS = 60
 MAX_AGE_DAYS = 2          # a listing is removed as soon as it would show "2 days ago" (checked on every daily run)
 ALLOWED_RISK = {"low"}    # no human review step, so only publish low-risk jobs
-HEADERS = {"User-Agent": "RemoteKaziBot/1.0 (+https://remotekazi.com/about.html)"}
+HEADERS = {"User-Agent": "RemoteKaziBot/1.0 (+https://remotekazi.com/about/)"}
 
 client = anthropic.Anthropic()
 
