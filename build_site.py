@@ -475,9 +475,9 @@ def build_blog(posts):
         write(path, page(f'{p["title"]} | RemoteKazi', p["desc"], path, body,
                          f'<script type="application/ld+json">{json.dumps(ld).replace("</", "<\\/")}</script>', p["image"] or None))
     cards = "".join(post_card(p) for p in posts) or "<p>New posts are coming soon.</p>"
-    write("/blog/index.html", page("Blog: Job Search Tips for Kenya | RemoteKazi",
-          "Career advice, CV tips and remote work guides for job seekers in Kenya.", "/blog/",
-          f'<h1>Blog</h1><p class="meta">Career advice, CV tips and remote work guides.</p><div class="g3 posts">{cards}</div>'))
+    write("/blog/index.html", page("Blog: Careers, Salaries and Money News for Kenyans | RemoteKazi",
+          "Career advice, salary guides and news that matters to job seekers and workers in Kenya.", "/blog/",
+          f'<h1>Blog</h1><p class="meta">Career advice, salary guides and news that matters to working Kenyans.</p><div class="g3 posts">{cards}</div>'))
     items = "".join(f'<item><title>{E(p["title"])}</title><link>{SITE_URL}/blog/{p["slug"]}/</link>'
                     f'<guid>{SITE_URL}/blog/{p["slug"]}/</guid><pubDate>{p["date"].strftime("%a, %d %b %Y 00:00:00 +0300")}</pubDate>'
                     f'<description>{E(p["desc"])}</description></item>' for p in posts[:20])
