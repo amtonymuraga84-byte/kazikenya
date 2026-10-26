@@ -1,10 +1,13 @@
 ---
 title: Dandora Man Pleads Guilty After Spending Ksh150,000 Sent to His Account by Mistake
 date: 2026-10-26
+updated: 2026-10-26
 author: RemoteKazi Team
 tag: Education
 description: A Dandora man is in custody awaiting sentencing after admitting to five charges linked to Ksh250,000 that was mistakenly transferred into his bank account.
 summary: A Dandora man is in custody awaiting sentencing after admitting to five charges linked to Ksh250,000 that was mistakenly transferred into his bank account. Instead of returning the money, he withdrew Ksh150,000 before the bank froze the remaining balance, according to the Directorate of Criminal Investigations (DCI).
+image: /images/dandora-man-pleads-guilty-after-spending-ksh150-000-sent-to-.jpg
+image_caption: DCI
 ---
 In a statement released on Monday, October 26, 2026, the DCI said the case dates back to September 4, 2026, when a complainant accidentally sent Ksh250,000 to the suspect’s bank account.
 
