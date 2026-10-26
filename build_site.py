@@ -28,13 +28,27 @@ FEATURED_EMPLOYERS = [
     ("Public Service Commission of Kenya", "https://www.publicservice.go.ke/", "Official notices for government jobs"),
 ]
 SHOW_AD_PLACEHOLDERS = False   # keep False until you paste real ad code into the ad boxes
+ADSENSE_CLIENT = ""   # your AdSense publisher ID, e.g. "ca-pub-1234567890123456". Adds the AdSense code to every page and writes ads.txt
+# Old addresses that should send visitors (and Google) to a newer page. Kept here because _redirects is rebuilt on every run.
+EXTRA_REDIRECTS = [
+    ("/blog/man-pleads-guilty-after-spending-ksh150-000-sent-to-his-acco/", "/blog/dandora-man-pleads-guilty-after-spending-ksh150-000-sent-to/"),
+]
 # ======================
 
+PAGES_UPDATED = "2026-10-26"   # change when you edit the guides or about/contact/privacy/terms text
 E = lambda s: html.escape(str(s if s is not None else ""), quote=True)
 FAV = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E"
        "%3Ctext y='.9em' font-size='90'%3E💼%3C/text%3E%3C/svg%3E")
 AD = '<div class="ad">Advertisement<br>{}</div>'
 EMP = {"Full-time": "FULL_TIME", "Part-time": "PART_TIME", "Contract": "CONTRACTOR", "Internship": "INTERN"}
+
+
+def snip(text, n=155):
+    """Shorten text for a meta description without cutting a word in half."""
+    t = re.sub(r"\s+", " ", text or "").strip()
+    if len(t) <= n:
+        return t
+    return t[:n].rsplit(" ", 1)[0].rstrip(",;:-–") + "…"
 
 
 def slugify(s):
@@ -43,6 +57,8 @@ def slugify(s):
 
 def head_extra(path="/", image=None):
     img = image or f"{SITE_URL}/og-image.png"
+    ads = (f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={E(ADSENSE_CLIENT)}" '
+           f'crossorigin="anonymous"></script><meta name="google-adsense-account" content="{E(ADSENSE_CLIENT)}">') if ADSENSE_CLIENT else ""
     beacon = (f'<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
               f'data-cf-beacon=\'{{"token": "{E(CF_BEACON_TOKEN)}"}}\'></script>') if CF_BEACON_TOKEN else ""
     adcss = '' if SHOW_AD_PLACEHOLDERS else '<style>.ad,aside{display:none!important}.main{grid-template-columns:minmax(0,1fr)!important}</style>'
@@ -53,7 +69,7 @@ def head_extra(path="/", image=None):
             f'<meta property="og:url" content="{SITE_URL}{path}"><meta property="og:image" content="{img}">'
             f'<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">'
             f'<meta property="og:image:alt" content="RemoteKazi – jobs in Kenya and remote roles">'
-            f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{img}">{beacon}')
+            f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{img}">{beacon}{ads}')
 
 
 _cta = TELEGRAM_URL or WHATSAPP_URL
@@ -164,7 +180,7 @@ def job_page(j, all_jobs):
             f'{alerts_box()}{AD.format("In-content 300×250 / responsive")}'
             + (f'<h2>More {E(j["k"])} jobs</h2><ul>{relh}</ul>' if rel else "")
             + '<p><a href="/#jobs">← Back to all jobs</a></p>')
-    write(path, page(f'{j["t"]} at {j["c"]} ({j["l"]}) | RemoteKazi', j["x"][:155], path, body,
+    write(path, page(f'{j["t"]} at {j["c"]} ({j["l"]}) | RemoteKazi', snip(j["x"]), path, body,
                      (f'<script type="application/ld+json">{json.dumps(ld).replace("</", "<\\/")}</script>'
                       if len(j["x"]) >= 150 else "")))     # Google needs a complete description
 
@@ -370,6 +386,15 @@ def md_to_html(text):
     return "\n".join(out)
 
 
+def post_desc(meta, body):
+    d = meta.get("description", "").strip()
+    if d and d[-1] in ".!?’\"')":
+        return snip(d, 160)
+    # description missing or cut off mid-word: rebuild it from the summary or the article
+    src = meta.get("summary") or re.sub(r"[#*\[\]()>`]", "", body)
+    return snip(src)
+
+
 def load_posts():
     posts = []
     for f in sorted(Path("posts").glob("*.md")):
@@ -402,7 +427,7 @@ def load_posts():
         posts.append({"slug": slugify(f.stem), "title": title, "date": when, "updated": upd,
                       "author": meta.get("author", "RemoteKazi Team"), "summary": meta.get("summary", ""),
                       "caption": meta.get("image_caption", ""),
-                      "desc": meta.get("description") or re.sub(r"\s+", " ", re.sub(r"[#*\[\]()>`]", "", body)).strip()[:155],
+                      "desc": post_desc(meta, body),
                       "tag": meta.get("tag", "Career tips"), "image": img if img.startswith("http") else "",
                       "mins": max(1, round(words / 200)), "html": md_to_html(body)})
     return sorted(posts, key=lambda p: p["date"], reverse=True)
@@ -521,13 +546,23 @@ def main():
     old_new += [(f"/guides/{g}.html", f"/guides/{g}/") for g in GUIDES]
     old_new += [(f"/jobs/{j['slug']}.html", f"/jobs/{j['slug']}/") for j in jobs]
     old_new += [(f"/blog/{q['slug']}.html", f"/blog/{q['slug']}/") for q in posts]
+    old_new += EXTRA_REDIRECTS
     write("/_redirects", "\n".join(f"{a} {b} 301" for a, b in old_new) + "\n")
 
     today = date.today().isoformat()
-    urls = ["/", "/blog/", "/guides/", "/about/", "/contact/", "/privacy/", "/terms/"]
-    urls += [f"/guides/{s}/" for s in GUIDES] + [f"/jobs/{j['slug']}/" for j in jobs] + [f"/blog/{p['slug']}/" for p in posts]
+    # lastmod is the date a page really changed; Google ignores lastmod if every URL claims "today" on every run
+    newest_job = max((j["posted"] for j in jobs), default=today)
+    newest_post = max(((p["updated"] or p["date"]).isoformat() for p in posts), default=PAGES_UPDATED)
+    sm = [("/", max(newest_job, newest_post)), ("/blog/", newest_post), ("/guides/", PAGES_UPDATED)]
+    sm += [(f"/{n}/", PAGES_UPDATED) for n in ("about", "contact", "privacy", "terms")]
+    sm += [(f"/guides/{s}/", PAGES_UPDATED) for s in GUIDES]
+    sm += [(f"/jobs/{j['slug']}/", j["posted"]) for j in jobs]
+    sm += [(f"/blog/{p['slug']}/", (p["updated"] or p["date"]).isoformat()) for p in posts]
+    urls = [u for u, _ in sm]
     write("/sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-          + "".join(f"<url><loc>{SITE_URL}{u}</loc><lastmod>{today}</lastmod></url>" for u in urls) + "</urlset>")
+          + "".join(f"<url><loc>{SITE_URL}{u}</loc><lastmod>{d}</lastmod></url>" for u, d in sm) + "</urlset>")
+    if ADSENSE_CLIENT:
+        write("/ads.txt", f"google.com, {ADSENSE_CLIENT.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n")
     write("/robots.txt", f"User-agent: *\nAllow: /\nDisallow: /whatsapp-post.txt\nDisallow: /social-posts.txt\nDisallow: /publish.html\nSitemap: {SITE_URL}/sitemap.xml\n")
     ji = "".join(f'<item><title>{E(j["t"])} - {E(j["c"])} ({E(j["l"])})</title><link>{SITE_URL}/jobs/{j["slug"]}/</link>'
                  f'<guid>{SITE_URL}/jobs/{j["slug"]}/</guid><pubDate>{datetime.fromisoformat(j["posted"]).strftime("%a, %d %b %Y 00:00:00 +0300")}</pubDate>'
@@ -552,7 +587,14 @@ def main():
     idx = patch(idx, "FEATURED", featured_html())
     if posts:
         idx = patch(idx, "BLOG", "".join(post_card(p) for p in posts[:6]))
-    for tag, content in (("NAV", NAV), ("HEAD", head_extra("/")), ("ALERTS", alerts_box()), ("FOOT", footer())):
+    site_ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "WebSite", "@id": SITE_URL + "/#website", "url": SITE_URL + "/", "name": "RemoteKazi",
+         "description": "Jobs in Kenya and remote jobs open to Kenyans", "inLanguage": "en-KE"},
+        {"@type": "Organization", "@id": SITE_URL + "/#org", "name": "RemoteKazi", "url": SITE_URL + "/",
+         "logo": SITE_URL + "/og-image.png", "email": CONTACT_EMAIL,
+         "sameAs": [u for u in (WHATSAPP_URL, TELEGRAM_URL) if u]}]}
+    home_head = head_extra("/") + f'<script type="application/ld+json">{json.dumps(site_ld)}</script>'
+    for tag, content in (("NAV", NAV), ("HEAD", home_head), ("ALERTS", alerts_box()), ("FOOT", footer())):
         idx = patch(idx, tag, content)
     Path("index.html").write_text(idx, encoding="utf-8")
     print(f"Built {len(jobs)} job pages, {len(urls)} URLs in sitemap")
