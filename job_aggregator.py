@@ -184,7 +184,9 @@ JSON keys:
 - detail: "good" if the text states duties or requirements, "basic" if it only names the role and employer,
   "none" if it says almost nothing beyond the title.
 - title, company: cleaned
-- location: "Nairobi", "Mombasa" or "Kisumu" only if the text says so; otherwise "Other Kenya" for Kenyan jobs, or "Remote".
+- location: the Kenyan town or city where the job is based, only if the text says so (for example "Nairobi", "Mombasa",
+  "Kisumu", "Nakuru", "Eldoret", "Thika", "Machakos"; use the town name only, not the county); otherwise "Other Kenya"
+  for Kenyan jobs, or "Remote".
 - type: "Full-time", "Part-time", "Contract" or "Internship" only if stated; otherwise "Not stated"
 - category: one of "Tech", "Finance", "Health", "Education", "Sales", "Logistics", "Other"
 - pay: as stated, or ""

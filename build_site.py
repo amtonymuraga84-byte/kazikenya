@@ -89,7 +89,13 @@ def alerts_box():
     return f'<div class="alerts"><span><b>🔔 Get new jobs on your phone</b><br><span class="meta">Free daily job alerts</span></span><span class="row">{btns}</span></div>'
 
 
+FOOTER_BROWSE = [("jobs-in-nairobi", "Jobs in Nairobi"), ("remote-jobs-kenya", "Remote jobs"),
+                 ("internships-kenya", "Internships"), ("tech-jobs-kenya", "Tech jobs"), ("finance-accounting-jobs-kenya", "Finance jobs")]
+
+
 def footer():
+    shown = [(s, n) for s, n in FOOTER_BROWSE if s in LIVE_LANDINGS]
+    browse_links = ("<p>" + " · ".join(f'<a href="/{s}/">{n}</a>' for s, n in shown) + "</p>") if shown else ""
     btns = ""
     if WHATSAPP_URL:
         btns += f'<a class="btn" href="{E(WHATSAPP_URL)}" rel="noopener">Job alerts on WhatsApp</a> '
@@ -100,6 +106,7 @@ def footer():
     alerts = f'<p>{btns}</p>' if btns else ""
     return (f'<footer><div class="w">{alerts}<p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · '
             f'<a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/guides/">Guides</a> · <a href="/blog/">Blog</a></p>'
+            f'{browse_links}'
             f'<p>© {date.today().year} RemoteKazi. Listings come from public feeds and are checked automatically, so details '
             f'can be wrong or out of date. Verify the employer, and never pay to get a job. '
             f'<a href="mailto:{E(CONTACT_EMAIL)}">Report a scam</a></p></div></footer>')
@@ -167,7 +174,9 @@ def job_page(j, all_jobs):
                                                            "addressCountry": "KE"}}
     rel = [r for r in all_jobs if r["k"] == j["k"] and r["id"] != j["id"]][:4]
     relh = "".join(f'<li><a href="/jobs/{r["slug"]}/">{E(r["t"])}</a> · {E(r["c"])} · {E(r["l"])}</li>' for r in rel)
-    body = (f'<p class="crumbs"><a href="/">Jobs</a> › {E(j["k"])}</p><h1>{E(j["t"])}</h1>'
+    cat = next((L for L in LANDINGS if L["kind"] == "category" and L["match"](j)), None)
+    crumb = f'<a href="/{cat["slug"]}/">{E(j["k"])}</a>' if cat else E(j["k"])
+    body = (f'<p class="crumbs"><a href="/">Jobs</a> › {crumb}</p><h1>{E(j["t"])}</h1>'
             f'<p class="meta">{E(j["c"])} · {E(j["l"])} · Posted {E(posted)}'
             f'{" · Closes " + E(j["deadline"]) if j.get("deadline") else ""}</p>'
             f'<p>{tag_y(j)}<span class="tag">{E(j["k"])}</span>'
@@ -183,7 +192,174 @@ def job_page(j, all_jobs):
             + '<p><a href="/#jobs">← Back to all jobs</a></p>')
     write(path, page(f'{j["t"]} at {j["c"]} ({j["l"]}) | RemoteKazi', snip(j["x"]), path, body,
                      (f'<script type="application/ld+json">{json.dumps(ld).replace("</", "<\\/")}</script>'
-                      if len(j["x"]) >= 150 else "")))     # Google needs a complete description
+                      if len(j["x"]) >= 150 else '<meta name="robots" content="noindex,follow">')))
+    # Google needs a complete description; a listing with almost no detail is thin content, so it is kept out of search
+
+
+# ---------- town & category landing pages ----------
+# Each page lists matching jobs and has its own short guide text. A page is only offered to Google
+# (indexed and in the sitemap) once it has at least MIN_LANDING_JOBS jobs, so Google never sees an empty page.
+MIN_LANDING_JOBS = 3
+LIVE_LANDINGS = set()   # filled in main(); pages with enough jobs to show to Google
+
+
+def _town(name):
+    rx = re.compile(rf"\b{name}\b", re.I)
+    return lambda j: j["l"] == name or bool(rx.search(j["t"] + " " + j["x"]))
+
+
+LANDINGS = [
+    {"slug": "jobs-in-nairobi", "name": "Jobs in Nairobi", "short": "Nairobi", "kind": "town", "match": _town("Nairobi"),
+     "intro": "<p>Nairobi has more formal jobs than any other county in Kenya. Banks, telecoms, tech start-ups, manufacturers, "
+              "the UN and hundreds of NGOs all have offices here, alongside government ministries and parastatals.</p>"
+              "<p><b>Tips for Nairobi job seekers:</b> factor commuting time and cost into any offer, since a job across town can "
+              "cost you several hours and a large share of your pay each week. Many employers in Upper Hill, Westlands and "
+              "Industrial Area shortlist online, so keep your CV short, clear and tailored to each advert.</p>"},
+    {"slug": "jobs-in-mombasa", "name": "Jobs in Mombasa", "short": "Mombasa", "kind": "town", "match": _town("Mombasa"),
+     "intro": "<p>Mombasa's economy runs on the port, logistics, tourism and hospitality, with growing opportunities in "
+              "shipping, clearing and forwarding, hotels, and county government services.</p>"
+              "<p><b>Tips:</b> hospitality hiring often peaks before the high tourist seasons, so apply early. For port and "
+              "logistics roles, certificates in clearing and forwarding or supply chain management can set you apart.</p>"},
+    {"slug": "jobs-in-kisumu", "name": "Jobs in Kisumu", "short": "Kisumu", "kind": "town", "match": _town("Kisumu"),
+     "intro": "<p>Kisumu is the main business hub of western Kenya, with jobs in health, NGOs and research programmes, "
+              "education, trade, agriculture and county government.</p>"
+              "<p><b>Tips:</b> many health and research organisations in the region recruit through their own websites, so "
+              "check them regularly. Fluency in local languages can be an advantage for community-facing roles.</p>"},
+    {"slug": "jobs-in-nakuru", "name": "Jobs in Nakuru", "short": "Nakuru", "kind": "town", "match": _town("Nakuru"),
+     "intro": "<p>Nakuru is one of Kenya's fastest-growing cities, with jobs in agriculture and agribusiness, manufacturing, "
+              "retail, hospitality, health and county services.</p>"
+              "<p><b>Tips:</b> agribusiness and processing companies around Nakuru hire for production, quality control, "
+              "sales and field roles. Keep an eye on seasonal hiring around harvest times.</p>"},
+    {"slug": "jobs-in-eldoret", "name": "Jobs in Eldoret", "short": "Eldoret", "kind": "town", "match": _town("Eldoret"),
+     "intro": "<p>Eldoret is the main commercial centre of the North Rift, known for agriculture, education, health "
+              "services and a growing retail and transport sector.</p>"
+              "<p><b>Tips:</b> universities, hospitals and agricultural organisations are among the larger employers in the "
+              "region and often advertise on their own websites as well as in national newspapers.</p>"},
+    {"slug": "remote-jobs-kenya", "name": "Remote Jobs for Kenyans", "short": "Remote", "kind": "type",
+     "match": lambda j: j["l"] == "Remote",
+     "intro": "<p>These remote roles are open to applicants based in Kenya, either because they hire worldwide or because "
+              "they accept candidates from Africa. You work from home and are usually paid by bank transfer or a "
+              "payment platform.</p>"
+              "<p><b>Before you apply:</b> check the time zone the employer expects you to work in, and never pay a fee to "
+              "be hired or to receive your earnings. Read our <a href='/guides/remote-work-from-kenya/'>guide to remote "
+              "work from Kenya</a> to get set up.</p>"},
+    {"slug": "internships-kenya", "name": "Internships in Kenya", "short": "Internships", "kind": "type",
+     "match": lambda j: j["y"] == "Internship" or bool(re.search(r"\bintern(ship)?s?\b|\battach", j["t"], re.I)),
+     "intro": "<p>Internships and attachments are the most common first step into formal work for students and recent "
+              "graduates in Kenya. Many lead directly to job offers.</p>"
+              "<p><b>Tips:</b> apply early, because popular programmes fill quickly. Check whether the internship is paid "
+              "and how long it lasts. A short, specific cover letter helps a lot. See our "
+              "<a href='/guides/cover-letter-tips-kenya/'>cover letter guide</a>.</p>"},
+    {"slug": "tech-jobs-kenya", "name": "Tech and IT Jobs in Kenya", "short": "Tech", "kind": "category",
+     "match": lambda j: j["k"] == "Tech",
+     "intro": "<p>Kenya has one of Africa's most active technology sectors, with jobs in software development, IT support, "
+              "data, mobile money, telecoms and digital marketing, as well as remote roles for international companies.</p>"
+              "<p><b>Tips:</b> a portfolio or GitHub profile often matters more than certificates. For IT support roles, "
+              "practical experience with networks and common office systems is highly valued.</p>"},
+    {"slug": "finance-accounting-jobs-kenya", "name": "Finance and Accounting Jobs in Kenya", "short": "Finance",
+     "kind": "category", "match": lambda j: j["k"] == "Finance",
+     "intro": "<p>Banks, SACCOs, microfinance institutions, insurers, NGOs and businesses of every size hire accountants, "
+              "credit officers, tellers, auditors and finance assistants.</p>"
+              "<p><b>Tips:</b> professional qualifications such as CPA (K) or ACCA strengthen most finance applications. Many "
+              "employers will ask for clearance documents, so keep your KRA PIN and certificate of good conduct up to date.</p>"},
+    {"slug": "health-jobs-kenya", "name": "Health Jobs in Kenya", "short": "Health", "kind": "category",
+     "match": lambda j: j["k"] == "Health",
+     "intro": "<p>Hospitals, clinics, county health departments, NGOs and research programmes hire nurses, clinical officers, "
+              "doctors, pharmacists, lab technologists and community health workers across the country.</p>"
+              "<p><b>Tips:</b> make sure your registration and practising licence with the relevant professional council are "
+              "current, and include your registration number on your CV.</p>"},
+    {"slug": "education-teaching-jobs-kenya", "name": "Teaching and Education Jobs in Kenya", "short": "Education",
+     "kind": "category", "match": lambda j: j["k"] == "Education",
+     "intro": "<p>Private schools, colleges, universities, tutoring companies and education NGOs hire teachers, lecturers, "
+              "tutors and education officers. Public school teachers are recruited by the Teachers Service Commission.</p>"
+              "<p><b>Tips:</b> keep your TSC registration current and mention CBC experience where you have it, since many "
+              "schools are looking for it.</p>"},
+    {"slug": "sales-marketing-jobs-kenya", "name": "Sales and Marketing Jobs in Kenya", "short": "Sales", "kind": "category",
+     "match": lambda j: j["k"] == "Sales",
+     "intro": "<p>Sales and marketing roles are among the most widely available jobs in Kenya, from field sales and "
+              "customer service to digital marketing and brand management.</p>"
+              "<p><b>Tips:</b> ask how pay is structured. Many sales jobs combine a basic salary with commission, and some "
+              "pay commission only. Be cautious of roles that ask you to buy stock or pay a fee to start.</p>"},
+    {"slug": "logistics-jobs-kenya", "name": "Logistics and Transport Jobs in Kenya", "short": "Logistics",
+     "kind": "category", "match": lambda j: j["k"] == "Logistics",
+     "intro": "<p>Kenya is a transport hub for East Africa, with jobs in warehousing, clearing and forwarding, fleet "
+              "management, procurement, delivery and supply chain.</p>"
+              "<p><b>Tips:</b> qualifications in supply chain management (such as CIPS or KISM) help for office roles. Driving "
+              "jobs require the right licence class and usually a clean record.</p>"},
+]
+
+
+def landing_jobs(jobs):
+    """{slug: [jobs]} for each landing page, newest first."""
+    out = {}
+    for L in LANDINGS:
+        m = [j for j in jobs if L["match"](j)]
+        out[L["slug"]] = sorted(m, key=lambda j: j["posted"], reverse=True)
+    return out
+
+
+def mini_card(j):
+    return (f'<article class="job"><h3><a href="/jobs/{j["slug"]}/">{E(j["t"])}</a></h3>'
+            f'<div class="meta">{E(j["c"])} · {E(j["l"])} · Posted {E(j["posted"])}'
+            f'{" · Closes " + E(j["deadline"]) if j.get("deadline") else ""}</div>{tag_y(j)}'
+            f'{"<span class=tag>" + E(j["p"]) + "</span>" if j.get("p") else ""}<p>{E(snip(j["x"], 170))}</p></article>')
+
+
+def build_landings(jobs, matched):
+    month = date.today().strftime("%B %Y")
+    live = LIVE_LANDINGS
+    for L in LANDINGS:
+        js, path = matched[L["slug"]], f"/{L['slug']}/"
+        others = [o for o in LANDINGS if o["slug"] in live and o["slug"] != L["slug"]]
+        links = " · ".join(f'<a href="/{o["slug"]}/">{E(o["name"])}</a>' for o in others)
+        listing = "".join(mini_card(j) for j in js) or (
+            '<div class="card"><p>There are no open listings here right now. New jobs are added every day, '
+            'so check back soon or <a href="/#jobs">browse all current jobs</a>.</p></div>')
+        n = len(js)
+        body = (f'<p class="crumbs"><a href="/">Jobs</a> › {E(L["short"])}</p>'
+                f'<h1>{E(L["name"])} ({month})</h1>'
+                f'<p class="meta">{n} open job{"s" if n != 1 else ""} · Updated daily · Every listing links to the employer\'s own page</p>'
+                f'{L["intro"]}{alerts_box()}<h2>Latest openings</h2><div class="list">{listing}</div>'
+                '<h2>Stay safe</h2><p>Genuine employers never ask you to pay for an interview, training, uniform or '
+                'medical check. Read <a href="/guides/spot-fake-jobs-kenya/">how to spot a fake job advert</a> before you apply.</p>'
+                + (f'<h2>More ways to search</h2><p>{links}</p>' if links else ""))
+        ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": L["name"], "url": SITE_URL + path,
+              "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [
+                  {"@type": "ListItem", "position": 1, "name": "Jobs", "item": SITE_URL + "/"},
+                  {"@type": "ListItem", "position": 2, "name": L["short"], "item": SITE_URL + path}]}}
+        robots = "" if L["slug"] in live else '<meta name="robots" content="noindex,follow">'
+        desc = (f'{n} current openings. ' if n else "") + re.sub("<[^>]+>", "", L["intro"])
+        write(path, page(f'{L["name"]} – {month} Vacancies | RemoteKazi', snip(desc), path, body,
+                         robots + f'<script type="application/ld+json">{json.dumps(ld)}</script>'))
+    return live
+
+
+def browse_html(live, matched):
+    chips = "".join(f'<a class="btn o" href="/{L["slug"]}/">{E(L["name"])} <span class="meta">({len(matched[L["slug"]])})</span></a>'
+                    for L in LANDINGS if L["slug"] in live)
+    if not chips:
+        return ""
+    return (f'<section class="s" id="browse"><div class="w"><p class="eyebrow2">Browse</p><h2>Jobs by town and field</h2>'
+            f'<div class="row">{chips}</div></div></section>')
+
+
+def closing_html(jobs):
+    today = date.today()
+    soon = sorted((j for j in jobs if j.get("deadline") and
+                   0 <= (date.fromisoformat(j["deadline"]) - today).days <= 7), key=lambda j: j["deadline"])
+    if not soon:
+        return ""
+    cards = "".join(mini_card(j) for j in soon[:6])
+    return (f'<section class="s" id="closing"><div class="w"><p class="eyebrow2">Don\'t miss out</p>'
+            f'<h2>Closing this week</h2><div class="list">{cards}</div></div></section>')
+
+
+def clean_x(x):
+    """Remove empty bullet points and headings with nothing under them (left by unfinished templates)."""
+    lines = [ln for ln in (x or "").splitlines() if not re.fullmatch(r"\s*[-*•]\s*", ln)]
+    t = "\n".join(lines)
+    t = re.sub(r"(?m)^[^\n:]{1,60}:[ \t]*\n(?=[ \t]*(?:\n|$))", "", t)
+    return re.sub(r"\n{3,}", "\n\n", t).strip()
 
 
 # ---------- guides & legal ----------
@@ -528,10 +704,14 @@ def main():
         if m.get("id") and m.get("t") and m.get("c") and m.get("u") and m.get("x"):
             by_id[m["id"]] = m
     jobs = list(by_id.values())
+    for j in jobs:
+        j["x"] = clean_x(j["x"])
     ordered = sorted(jobs, key=lambda j: (not j.get("f"), -datetime.fromisoformat(j["posted"]).toordinal()))
     shutil.rmtree("jobs", ignore_errors=True)
     for j in jobs:
         j["slug"] = f"{slugify(j['t'] + '-' + j['c'])}-{j['id'][:6]}"
+    matched = landing_jobs(jobs)
+    LIVE_LANDINGS.update(L["slug"] for L in LANDINGS if len(matched[L["slug"]]) >= MIN_LANDING_JOBS)
     for j in jobs:
         job_page(j, jobs)
     Path("jobs.json").write_text(json.dumps(jobs, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -539,6 +719,9 @@ def main():
     for old in ("about", "contact", "privacy", "terms"):
         Path(f"{old}.html").unlink(missing_ok=True)      # old .html pages are replaced by /about/ style URLs
     static_pages()
+    for old in LANDINGS:
+        shutil.rmtree(old["slug"], ignore_errors=True)
+    live = build_landings(jobs, matched)
     shutil.rmtree("blog", ignore_errors=True)
     posts = load_posts()
     build_blog(posts)
@@ -558,7 +741,8 @@ def main():
     sm = [("/", max(newest_job, newest_post)), ("/blog/", newest_post), ("/guides/", PAGES_UPDATED)]
     sm += [(f"/{n}/", PAGES_UPDATED) for n in ("about", "contact", "privacy", "terms")]
     sm += [(f"/guides/{s}/", PAGES_UPDATED) for s in GUIDES]
-    sm += [(f"/jobs/{j['slug']}/", j["posted"]) for j in jobs]
+    sm += [(f"/{L['slug']}/", matched[L['slug']][0]["posted"]) for L in LANDINGS if L["slug"] in live]
+    sm += [(f"/jobs/{j['slug']}/", j["posted"]) for j in jobs if len(j["x"]) >= 150]
     sm += [(f"/blog/{p['slug']}/", (p["updated"] or p["date"]).isoformat()) for p in posts]
     urls = [u for u, _ in sm]
     write("/sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
@@ -587,6 +771,8 @@ def main():
             idx = re.sub(rf'(<b id="{k}">)[^<]*(</b>)', rf'\g<1>{v}\g<2>', idx)
         idx = re.sub(r'(<span id="count">)[^<]*(</span>)', rf'\g<1>{len(jobs)} jobs found\g<2>', idx)
     idx = patch(idx, "FEATURED", featured_html())
+    idx = patch(idx, "BROWSE", browse_html(live, matched))
+    idx = patch(idx, "CLOSING", closing_html(jobs))
     if posts:
         idx = patch(idx, "BLOG", "".join(post_card(p) for p in posts[:6]))
     else:   # no blog posts yet: show the guides instead
