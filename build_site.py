@@ -27,11 +27,11 @@ FEATURED_EMPLOYERS = [
     ("ReliefWeb Jobs", "https://reliefweb.int/jobs", "NGO and humanitarian jobs, filter by Kenya"),
     ("Public Service Commission of Kenya", "https://www.publicservice.go.ke/", "Official notices for government jobs"),
 ]
+MAX_AGE_DAYS = 14   # keep in step with job_aggregator.py
 SHOW_AD_PLACEHOLDERS = False   # keep False until you paste real ad code into the ad boxes
 ADSENSE_CLIENT = ""   # your AdSense publisher ID, e.g. "ca-pub-1234567890123456". Adds the AdSense code to every page and writes ads.txt
 # Old addresses that should send visitors (and Google) to a newer page. Kept here because _redirects is rebuilt on every run.
 EXTRA_REDIRECTS = [
-    ("/blog/man-pleads-guilty-after-spending-ksh150-000-sent-to-his-acco/", "/blog/dandora-man-pleads-guilty-after-spending-ksh150-000-sent-to/"),
 ]
 # ======================
 
@@ -154,8 +154,9 @@ def job_page(j, all_jobs):
           "datePosted": posted, "employmentType": EMP.get(j["y"], "OTHER"),
           "hiringOrganization": {"@type": "Organization", "name": j["c"]}, "directApply": False,
           "url": SITE_URL + path, "identifier": {"@type": "PropertyValue", "name": j.get("src", "RemoteKazi"), "value": j["id"]}}
-    if j.get("deadline"):
-        ld["validThrough"] = j["deadline"]            # only a real deadline; Google says to omit it otherwise
+    # the page is taken down at the deadline or MAX_AGE_DAYS after posting, whichever comes first
+    gone = (datetime.fromisoformat(posted).date() + timedelta(days=MAX_AGE_DAYS)).isoformat()
+    ld["validThrough"] = min(j["deadline"], gone) if j.get("deadline") else gone
     if j["y"] == "Not stated":
         ld.pop("employmentType")
     if remote:
@@ -587,6 +588,10 @@ def main():
     idx = patch(idx, "FEATURED", featured_html())
     if posts:
         idx = patch(idx, "BLOG", "".join(post_card(p) for p in posts[:6]))
+    else:   # no blog posts yet: show the guides instead
+        idx = patch(idx, "BLOG", "".join(
+            f'<a class="card post" href="/guides/{s}/"><span class="tag">Guide</span><b>{E(t)}</b><p class="meta">{E(d)}</p></a>'
+            for s, (t, d, _) in list(GUIDES.items())[:6]))
     site_ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "WebSite", "@id": SITE_URL + "/#website", "url": SITE_URL + "/", "name": "RemoteKazi",
          "description": "Jobs in Kenya and remote jobs open to Kenyans", "inLanguage": "en-KE"},
