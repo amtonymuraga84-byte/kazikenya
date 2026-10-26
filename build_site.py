@@ -69,6 +69,7 @@ def alerts_box():
         btns += f'<a class="btn o" href="{E(TELEGRAM_URL)}" rel="noopener">Telegram</a>'
     if not btns:
         return ""
+    btns += ' <a class="btn o" href="https://www.google.com/alerts?q=site%3Aremotekazi.com%2Fjobs" target="_blank" rel="noopener">Google Alert</a>'
     return f'<div class="alerts"><span><b>🔔 Get new jobs on your phone</b><br><span class="meta">Free daily job alerts</span></span><span class="row">{btns}</span></div>'
 
 
@@ -78,9 +79,11 @@ def footer():
         btns += f'<a class="btn" href="{E(WHATSAPP_URL)}" rel="noopener">Job alerts on WhatsApp</a> '
     if TELEGRAM_URL:
         btns += f'<a class="btn o" href="{E(TELEGRAM_URL)}" rel="noopener">Telegram channel</a>'
+    btns += (' <a class="btn o" href="https://www.google.com/alerts?q=site%3Aremotekazi.com%2Fjobs" target="_blank" rel="noopener">Google Alert</a>'
+             ' <a class="btn o" href="/jobs.xml">Jobs RSS</a>')
     alerts = f'<p>{btns}</p>' if btns else ""
-    return (f'<footer><div class="w">{alerts}<p><a href="/about.html">About</a> · <a href="/contact.html">Contact</a> · '
-            f'<a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/guides/">Guides</a> · <a href="/blog/">Blog</a></p>'
+    return (f'<footer><div class="w">{alerts}<p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · '
+            f'<a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/guides/">Guides</a> · <a href="/blog/">Blog</a></p>'
             f'<p>© {date.today().year} RemoteKazi. Listings come from public feeds and are checked automatically, so details '
             f'can be wrong or out of date. Verify the employer, and never pay to get a job. '
             f'<a href="mailto:{E(CONTACT_EMAIL)}">Report a scam</a></p></div></footer>')
@@ -97,6 +100,8 @@ def page(title, desc, path, body, extra="", image=None):
 
 def write(path, text):
     p = Path(path.lstrip("/"))
+    if path.endswith("/"):
+        p = p / "index.html"                      # clean URL: /about/ is served from about/index.html
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(text, encoding="utf-8")
 
@@ -117,23 +122,24 @@ def card_html(j):
     d = (date.today() - datetime.fromisoformat(j["posted"]).date()).days
     when = "today" if d <= 0 else "1 day ago" if d == 1 else f"{d} days ago"
     pay = f'<span class="tag">{E(j["p"])}</span>' if j.get("p") else ""
-    return (f'<article class="job{" f" if j.get("f") else ""}"><h3><a href="/jobs/{j["slug"]}.html">{E(j["t"])}</a></h3>'
+    return (f'<article class="job{" f" if j.get("f") else ""}"><h3><a href="/jobs/{j["slug"]}/">{E(j["t"])}</a></h3>'
             f'<div class="meta">{E(j["c"])} · {E(j["l"])} · {when}</div>{tag_y(j)}<span class="tag">{E(j["k"])}</span>{pay}'
             f'<p>{E(j["x"])}</p><div class="row"><a class="btn" href="{E(j["u"])}" target="_blank" rel="nofollow noopener">'
-            f'Apply on employer site</a><a class="meta" href="/contact.html">Report</a>'
+            f'Apply on employer site</a><a class="meta" href="/contact/">Report</a>'
             f'<span class="meta">Source: {E(j.get("src", "Direct"))}</span></div></article>')
 
 
 # ---------- job pages ----------
 def job_page(j, all_jobs):
-    path = f"/jobs/{j['slug']}.html"
+    path = f"/jobs/{j['slug']}/"
     posted = j["posted"]
-    valid = j.get("deadline") or (datetime.fromisoformat(posted) + timedelta(days=30)).date().isoformat()
     remote = j["l"] == "Remote"
     ld = {"@context": "https://schema.org", "@type": "JobPosting", "title": j["t"], "description": j["x"],
-          "datePosted": posted, "validThrough": valid, "employmentType": EMP.get(j["y"], "OTHER"),
+          "datePosted": posted, "employmentType": EMP.get(j["y"], "OTHER"),
           "hiringOrganization": {"@type": "Organization", "name": j["c"]}, "directApply": False,
           "url": SITE_URL + path, "identifier": {"@type": "PropertyValue", "name": j.get("src", "RemoteKazi"), "value": j["id"]}}
+    if j.get("deadline"):
+        ld["validThrough"] = j["deadline"]            # only a real deadline; Google says to omit it otherwise
     if j["y"] == "Not stated":
         ld.pop("employmentType")
     if remote:
@@ -143,7 +149,7 @@ def job_page(j, all_jobs):
         ld["jobLocation"] = {"@type": "Place", "address": {"@type": "PostalAddress", "addressLocality": j["l"],
                                                            "addressCountry": "KE"}}
     rel = [r for r in all_jobs if r["k"] == j["k"] and r["id"] != j["id"]][:4]
-    relh = "".join(f'<li><a href="/jobs/{r["slug"]}.html">{E(r["t"])}</a> · {E(r["c"])} · {E(r["l"])}</li>' for r in rel)
+    relh = "".join(f'<li><a href="/jobs/{r["slug"]}/">{E(r["t"])}</a> · {E(r["c"])} · {E(r["l"])}</li>' for r in rel)
     body = (f'<p class="crumbs"><a href="/">Jobs</a> › {E(j["k"])}</p><h1>{E(j["t"])}</h1>'
             f'<p class="meta">{E(j["c"])} · {E(j["l"])} · Posted {E(posted)}'
             f'{" · Closes " + E(j["deadline"]) if j.get("deadline") else ""}</p>'
@@ -159,7 +165,8 @@ def job_page(j, all_jobs):
             + (f'<h2>More {E(j["k"])} jobs</h2><ul>{relh}</ul>' if rel else "")
             + '<p><a href="/#jobs">← Back to all jobs</a></p>')
     write(path, page(f'{j["t"]} at {j["c"]} ({j["l"]}) | RemoteKazi', j["x"][:155], path, body,
-                     f'<script type="application/ld+json">{json.dumps(ld).replace("</", "<\\/")}</script>'))
+                     (f'<script type="application/ld+json">{json.dumps(ld).replace("</", "<\\/")}</script>'
+                      if len(j["x"]) >= 150 else "")))     # Google needs a complete description
 
 
 # ---------- guides & legal ----------
@@ -237,13 +244,13 @@ GUIDES = {
 
 def static_pages():
     for slug, (t, d, b) in GUIDES.items():
-        write(f"/guides/{slug}.html", page(f"{t} | RemoteKazi", d, f"/guides/{slug}.html",
+        write(f"/guides/{slug}/", page(f"{t} | RemoteKazi", d, f"/guides/{slug}/",
                                            f"<h1>{E(t)}</h1>{b}{AD.format('In-content ad')}<p><a href='/guides/'>← All guides</a></p>"))
-    items = "".join(f'<li><a href="/guides/{s}.html"><b>{E(t)}</b></a><br><span class="meta">{E(d)}</span></li>'
+    items = "".join(f'<li><a href="/guides/{s}/"><b>{E(t)}</b></a><br><span class="meta">{E(d)}</span></li>'
                     for s, (t, d, _) in GUIDES.items())
     write("/guides/index.html", page("Career Guides | RemoteKazi", "CV, interview and job-scam guides for Kenyan job seekers.",
                                      "/guides/", f"<h1>Career guides</h1><ul>{items}</ul>"))
-    write("/about.html", page("About RemoteKazi", "RemoteKazi lists jobs in Kenya and remote roles open to Kenyans.", "/about.html",
+    write("/about/", page("About RemoteKazi", "RemoteKazi lists jobs in Kenya and remote roles open to Kenyans.", "/about/",
         "<h1>About RemoteKazi</h1><p>RemoteKazi helps people in Kenya find jobs in Nairobi, Mombasa, Kisumu and beyond, plus remote roles "
         "open to applicants in Kenya. Browsing is free.</p><h2>How listings are collected</h2>"
         "<p>We gather vacancies from public job feeds and partner sources. Software summarises each listing in plain language, "
@@ -252,12 +259,12 @@ def static_pages():
         "<h2>How we make money</h2><p>The site shows advertising and may carry sponsored listings, which are labelled. "
         "We never charge job seekers.</p>"
         f'<h2>Contact</h2><p><a href="mailto:{E(CONTACT_EMAIL)}">{E(CONTACT_EMAIL)}</a></p>'))
-    write("/contact.html", page("Contact RemoteKazi", "Contact RemoteKazi to report a job, an error or to advertise.", "/contact.html",
+    write("/contact/", page("Contact RemoteKazi", "Contact RemoteKazi to report a job, an error or to advertise.", "/contact/",
         f'<h1>Contact us</h1><p>Email <a href="mailto:{E(CONTACT_EMAIL)}">{E(CONTACT_EMAIL)}</a>.</p>'
         "<ul><li><b>Report a scam or expired job:</b> include the page link.</li>"
         "<li><b>Employers:</b> ask about featured listings and advertising.</li>"
         "<li><b>Remove a listing:</b> tell us the link and we will take it down.</li></ul>"))
-    write("/privacy.html", page("Privacy Policy | RemoteKazi", "How RemoteKazi handles visitor data, cookies and advertising.", "/privacy.html",
+    write("/privacy/", page("Privacy Policy | RemoteKazi", "How RemoteKazi handles visitor data, cookies and advertising.", "/privacy/",
         f"<h1>Privacy Policy</h1><p class='meta'>Last updated {date.today().isoformat()}</p>"
         "<p>This policy explains what information RemoteKazi collects and how it is used, in line with the Kenya Data Protection Act, 2019.</p>"
         "<h2>What we collect</h2><p>We do not ask visitors to create accounts. We collect basic, aggregated visit data "
@@ -269,7 +276,7 @@ def static_pages():
         "Do not share sensitive details until you have verified the employer.</p>"
         "<h2>Your rights</h2><p>You may ask what data we hold about you, and request correction or deletion, by emailing "
         f"<a href='mailto:{E(CONTACT_EMAIL)}'>{E(CONTACT_EMAIL)}</a>.</p>"))
-    write("/terms.html", page("Terms of Use | RemoteKazi", "Terms for using RemoteKazi.", "/terms.html",
+    write("/terms/", page("Terms of Use | RemoteKazi", "Terms for using RemoteKazi.", "/terms/",
         f"<h1>Terms of Use</h1><p class='meta'>Last updated {date.today().isoformat()}</p>"
         "<p>RemoteKazi is an information service. Listings come from third parties, we are not the employer, and we cannot guarantee "
         "that any job is genuine, available or accurate.</p><ul><li>Verify each employer before sharing personal information or applying.</li>"
@@ -413,14 +420,14 @@ def share_bar(title, url):
 
 def post_card(p):
     thumb = f'<img class="thumb" src="{E(p["image"])}" alt="" loading="lazy">' if p["image"] else ""
-    return (f'<a class="card post" href="/blog/{p["slug"]}.html">{thumb}<span class="tag">{E(p["tag"])}</span>'
+    return (f'<a class="card post" href="/blog/{p["slug"]}/">{thumb}<span class="tag">{E(p["tag"])}</span>'
             f'<b>{E(p["title"])}</b><p class="meta">{E(p["desc"])}</p>'
             f'<span class="meta">{p["date"].strftime("%d %b %Y")} · {p["mins"]} min read</span></a>')
 
 
 def build_blog(posts):
     for p in posts:
-        path = f"/blog/{p['slug']}.html"
+        path = f"/blog/{p['slug']}/"
         url = SITE_URL + path
         ld = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": p["title"], "description": p["desc"],
               "datePublished": p["date"].isoformat(), "dateModified": (p["updated"] or p["date"]).isoformat(),
@@ -445,15 +452,15 @@ def build_blog(posts):
     write("/blog/index.html", page("Blog: Job Search Tips for Kenya | RemoteKazi",
           "Career advice, CV tips and remote work guides for job seekers in Kenya.", "/blog/",
           f'<h1>Blog</h1><p class="meta">Career advice, CV tips and remote work guides.</p><div class="g3 posts">{cards}</div>'))
-    items = "".join(f'<item><title>{E(p["title"])}</title><link>{SITE_URL}/blog/{p["slug"]}.html</link>'
-                    f'<guid>{SITE_URL}/blog/{p["slug"]}.html</guid><pubDate>{p["date"].strftime("%a, %d %b %Y 00:00:00 +0300")}</pubDate>'
+    items = "".join(f'<item><title>{E(p["title"])}</title><link>{SITE_URL}/blog/{p["slug"]}/</link>'
+                    f'<guid>{SITE_URL}/blog/{p["slug"]}/</guid><pubDate>{p["date"].strftime("%a, %d %b %Y 00:00:00 +0300")}</pubDate>'
                     f'<description>{E(p["desc"])}</description></item>' for p in posts[:20])
     write("/feed.xml", f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>RemoteKazi Blog</title>'
                        f'<link>{SITE_URL}/blog/</link><description>Career advice for job seekers in Kenya</description>{items}</channel></rss>')
     # social post text for each of the newest articles, ready to copy
     lines = []
     for p in posts[:5]:
-        lines += [f"📝 {p['title']}", p["desc"], f"{SITE_URL}/blog/{p['slug']}.html", "#KenyaJobs #RemoteJobs #CareerTips", "", "---", ""]
+        lines += [f"📝 {p['title']}", p["desc"], f"{SITE_URL}/blog/{p['slug']}/", "#KenyaJobs #RemoteJobs #CareerTips", "", "---", ""]
     write("/social-posts.txt", "\n".join(lines))
 
 
@@ -501,21 +508,36 @@ def main():
     for j in jobs:
         job_page(j, jobs)
     Path("jobs.json").write_text(json.dumps(jobs, ensure_ascii=False, indent=1), encoding="utf-8")
+    shutil.rmtree("guides", ignore_errors=True)
+    for old in ("about", "contact", "privacy", "terms"):
+        Path(f"{old}.html").unlink(missing_ok=True)      # old .html pages are replaced by /about/ style URLs
     static_pages()
     shutil.rmtree("blog", ignore_errors=True)
     posts = load_posts()
     build_blog(posts)
 
+    # permanent redirects from the old .html addresses to the new clean ones (Cloudflare reads _redirects)
+    old_new = [(f"/{n}.html", f"/{n}/") for n in ("about", "contact", "privacy", "terms")]
+    old_new += [(f"/guides/{g}.html", f"/guides/{g}/") for g in GUIDES]
+    old_new += [(f"/jobs/{j['slug']}.html", f"/jobs/{j['slug']}/") for j in jobs]
+    old_new += [(f"/blog/{q['slug']}.html", f"/blog/{q['slug']}/") for q in posts]
+    write("/_redirects", "\n".join(f"{a} {b} 301" for a, b in old_new) + "\n")
+
     today = date.today().isoformat()
-    urls = ["/", "/blog/", "/guides/", "/about.html", "/contact.html", "/privacy.html", "/terms.html"]
-    urls += [f"/guides/{s}.html" for s in GUIDES] + [f"/jobs/{j['slug']}.html" for j in jobs] + [f"/blog/{p['slug']}.html" for p in posts]
+    urls = ["/", "/blog/", "/guides/", "/about/", "/contact/", "/privacy/", "/terms/"]
+    urls += [f"/guides/{s}/" for s in GUIDES] + [f"/jobs/{j['slug']}/" for j in jobs] + [f"/blog/{p['slug']}/" for p in posts]
     write("/sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
           + "".join(f"<url><loc>{SITE_URL}{u}</loc><lastmod>{today}</lastmod></url>" for u in urls) + "</urlset>")
     write("/robots.txt", f"User-agent: *\nAllow: /\nDisallow: /whatsapp-post.txt\nDisallow: /social-posts.txt\nDisallow: /publish.html\nSitemap: {SITE_URL}/sitemap.xml\n")
+    ji = "".join(f'<item><title>{E(j["t"])} - {E(j["c"])} ({E(j["l"])})</title><link>{SITE_URL}/jobs/{j["slug"]}/</link>'
+                 f'<guid>{SITE_URL}/jobs/{j["slug"]}/</guid><pubDate>{datetime.fromisoformat(j["posted"]).strftime("%a, %d %b %Y 00:00:00 +0300")}</pubDate>'
+                 f'<description>{E(j["x"][:300])}</description></item>' for j in ordered[:50])
+    write("/jobs.xml", '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>RemoteKazi Jobs</title>'
+                       f'<link>{SITE_URL}/</link><description>Latest jobs in Kenya and remote jobs open to Kenyans</description>{ji}</channel></rss>')
     fresh = [j for j in ordered if j["posted"] == today][:8] or ordered[:8]
     lines = ["🔔 *New jobs on RemoteKazi*", ""]
     for j in fresh:
-        lines += [f"💼 *{j['t']}*", f"{j['c']} · {j['l']}", f"{SITE_URL}/jobs/{j['slug']}.html", ""]
+        lines += [f"💼 *{j['t']}*", f"{j['c']} · {j['l']}", f"{SITE_URL}/jobs/{j['slug']}/", ""]
     lines.append(f"More jobs: {SITE_URL}")
     write("/whatsapp-post.txt", "\n".join(lines))
 
@@ -529,7 +551,7 @@ def main():
         idx = re.sub(r'(<span id="count">)[^<]*(</span>)', rf'\g<1>{len(jobs)} jobs found\g<2>', idx)
     idx = patch(idx, "FEATURED", featured_html())
     if posts:
-        idx = patch(idx, "BLOG", "".join(post_card(p) for p in posts[:3]))
+        idx = patch(idx, "BLOG", "".join(post_card(p) for p in posts[:6]))
     for tag, content in (("NAV", NAV), ("HEAD", head_extra("/")), ("ALERTS", alerts_box()), ("FOOT", footer())):
         idx = patch(idx, tag, content)
     Path("index.html").write_text(idx, encoding="utf-8")
