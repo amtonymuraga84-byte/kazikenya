@@ -14,7 +14,7 @@ from pathlib import Path
 
 # ===== EDIT THESE =====
 SITE_URL = "https://remotekazi.com"  # change to your own domain, no trailing slash
-CONTACT_EMAIL = "hello@remotekazi.com"                      # a real inbox you read
+CONTACT_EMAIL = "amtonymuraga84@gmail.com"   # a real inbox you read; switch to hello@remotekazi.com once Cloudflare Email Routing forwards it
 WHATSAPP_URL = "https://whatsapp.com/channel/0029Vb9Ag48EFeXcKNbsZ137"
 TELEGRAM_URL = ""      # e.g. https://t.me/yourchannel            (leave empty to hide)
 CF_BEACON_TOKEN = ""   # Cloudflare > Web Analytics > your site > token (leave empty to disable)
