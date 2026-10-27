@@ -1,7 +1,7 @@
 ---
 title: Why the October–December Short Rains Are Late, and What It Means for Farm Work
 date: 2026-10-22
-updated: 2026-10-26
+updated: 2026-10-27
 author: RemoteKazi Team
 tag: Kenya News
 description: The Kenya Meteorological Department says storms over the northern Indian Ocean delayed the short rains. Here is the science in plain words and what it means for farmers and farm jobs.
@@ -41,6 +41,35 @@ Planting too early, before the rains are established, is one of the most common 
 Agriculture employs more Kenyans than any other sector, much of it seasonal and casual. When planting is delayed, the work of preparing land, planting and weeding shifts later too, which can leave casual farm workers without income for several weeks. A short or late season can also push up the price of maize, beans and vegetables in markets a few months later.
 
 If you depend on seasonal farm work, it may be worth looking for short-term roles in other sectors until planting picks up. Agribusiness, logistics, retail and food processing companies also hire throughout the year. [See the latest jobs on RemoteKazi](/#jobs).
+
+## Where to find reliable weather information
+
+- **The Kenya Meteorological Department** publishes seasonal forecasts, monthly outlooks and county-level advisories on its official website and social media pages.
+- **County agriculture offices and extension officers** translate forecasts into advice on what and when to plant locally.
+- **Local radio stations** often broadcast weather updates and farming programmes in local languages.
+
+Be cautious about forecasts shared on WhatsApp without a source; old or foreign forecasts are often recirculated.
+
+## Smart money moves in a late season
+
+- **Avoid buying all your inputs on credit too early.** If the season is delayed or short, you may be left with debt and no harvest.
+- **Ask about crop or livestock insurance.** Several insurers and programmes in Kenya offer cover against drought and poor rains; compare terms before you sign.
+- **Diversify your income.** A small side business or casual work outside farming can carry your household through a poor season.
+
+## Farm-related jobs that run all year
+
+Agriculture is not only seasonal casual work. Agronomists, extension officers, irrigation technicians, agribusiness sales staff, quality controllers in food processing, and farm managers are employed year-round. Diplomas and certificates from agricultural colleges and TVETs can open these doors.
+
+## Frequently asked questions
+
+**When do the short rains normally start?**
+In a typical year, the October to December short rains begin in western Kenya in early October, while some coastal areas can see rain from September.
+
+**Is El Niño the reason the rains are late?**
+According to the weather office, the delay was caused by low-pressure systems over the northern Indian Ocean holding back the rain belt that brings the short rains.
+
+**Where can I get my county's forecast?**
+The Kenya Meteorological Department publishes county forecasts and seasonal advisories on its official website, and county agriculture offices can explain what they mean for local crops.
 
 ## Sources
 

@@ -1,7 +1,7 @@
 ---
 title: Burudi Nabwera Remembered: Leaders Unite to Honour Kenya's First Ambassador to the US
 date: 2026-10-21
-updated: 2026-10-26
+updated: 2026-10-27
 author: RemoteKazi Team
 tag: Kenya News
 description: Sifuna, Wetang'ula and Mudavadi set aside differences to honour veteran diplomat Burudi Nabwera. His career, the farewell plans, and how to build a career in Kenya's foreign service.
@@ -49,3 +49,34 @@ Nabwera's generation built Kenya's foreign service from scratch. Today it is a s
 - Internship or volunteer experience with government, the UN or an NGO
 
 Start by watching the [UN Careers](https://careers.un.org/) site and the [Public Service Commission](https://www.publicservice.go.ke/) for openings, and check the [latest jobs on RemoteKazi](/#jobs), where we list NGO and international roles in Kenya.
+
+## Building a CV for public service and international jobs
+
+Diplomatic and international roles are highly competitive, and the application is often your only chance to stand out.
+
+- **Follow the format exactly.** Many public bodies and UN agencies use their own online forms. Fill in every field fully rather than writing "see CV".
+- **Show results, not just duties.** For each role, include one or two concrete achievements, such as a report you wrote, an event you organised or a budget you managed.
+- **List your languages honestly,** with your level in each. Interview panels often test them.
+- **Prepare for written tests.** Many foreign service and UN recruitments include a written exam or assessment on current affairs, writing and analysis. Reading quality news daily and practising short policy summaries helps.
+
+## Entry routes for graduates
+
+You don't need to start as an ambassador. Common first steps include:
+
+- **Internships** with government ministries, UN agencies in Nairobi and international NGOs. Many UN internships are unpaid or pay only a small stipend, so check the terms before you apply.
+- **Graduate and public service internship programmes**, advertised by the Public Service Commission on its website.
+- **Research and programme assistant roles** at think tanks, embassies' local staff positions and regional organisations.
+- **Volunteering** with community and youth organisations, which builds the experience many panels look for.
+
+Keep copies of your [clearance documents](/blog/clearance-documents-for-government-jobs-in-kenya/) up to date; government and many international employers ask for them at short notice.
+
+## Frequently asked questions
+
+**Who was Burudi Nabwera?**
+He was a veteran Kenyan diplomat and politician who served as Kenya's first ambassador to the United States, its first permanent representative to the UN, a Minister of State, and the first MP for Lugari.
+
+**What should I study to become a diplomat?**
+International relations, law, economics and political science are common choices, but strong writing, analysis and language skills matter as much as the degree.
+
+**Do I need to speak French to work at the UN?**
+English is widely used, but a second UN language such as French or Arabic is a strong advantage and is required for some roles.

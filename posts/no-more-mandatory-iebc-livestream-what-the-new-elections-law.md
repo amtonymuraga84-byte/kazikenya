@@ -1,7 +1,7 @@
 ---
 title: No More Mandatory IEBC Livestream: What the New Elections Law Means for 2027
 date: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-27
 author: RemoteKazi Team
 tag: Kenya News
 description: MPs have removed the IEBC's duty to livestream polling station results. What changes, what stays the same, and how the 2027 election cycle creates temporary jobs.
@@ -43,6 +43,36 @@ Supporters of the change, including Deputy Speaker Gladys Boss Shollei, argued t
 General elections are one of the biggest short-term employers in Kenya. Ahead of 2027, the IEBC is expected to recruit thousands of temporary staff, including presiding officers, deputy presiding officers, polling clerks and ICT support clerks. Media houses, observer missions and research firms also hire data clerks and enumerators.
 
 These roles are advertised on the IEBC's official website and in national newspapers. Applying is free. We will post verified election vacancies on RemoteKazi as they open, so [check the latest jobs](/#jobs) or join our free alerts.
+
+## How to prepare for an IEBC temporary job
+
+When the IEBC advertises election-period posts, competition is strong. Past adverts have typically asked applicants to:
+
+- Be Kenyan citizens with a national ID
+- Be registered voters, often in the area where they apply
+- Meet a minimum education level, which differs by role
+- Not be members of a political party or active in partisan politics
+
+Read each advert carefully, because requirements and pay rates are set for each election. Successful applicants usually attend training before election day, and payment for temporary staff is generally made through bank or mobile money after the work is done. Keep your details accurate on the application, as the IEBC checks them.
+
+## Check your own voter registration
+
+If you plan to vote in 2027, confirm your registration details well before the election. The IEBC publishes how to verify your registration on its official website. Mistakes in your details are much easier to fix early, during the official verification period, than on election day.
+
+## Beyond the IEBC
+
+Election years also create work in media, research and data collection. Polling firms hire field interviewers, observer missions hire monitors, and newsrooms hire temporary data and results clerks. These jobs reward accuracy, punctuality and neutrality, which are worth highlighting on your CV.
+
+## Frequently asked questions
+
+**Does the new law ban livestreaming of results?**
+No. It removes the IEBC's legal duty to provide a livestream. Media, observers and party agents can still broadcast results.
+
+**Are polling station results still final?**
+Yes. Results declared and signed at the polling station remain the official result for that station.
+
+**How much do IEBC temporary staff earn?**
+Rates are set by the IEBC for each election and differ by role. Check the official advert for the current rates and never pay anyone to secure a post.
 
 ## Sources
 

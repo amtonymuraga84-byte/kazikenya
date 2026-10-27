@@ -443,20 +443,52 @@ def static_pages():
                     for s, (t, d, _) in GUIDES.items())
     write("/guides/index.html", page("Career Guides | RemoteKazi", "CV, interview and job-scam guides for Kenyan job seekers.",
                                      "/guides/", f"<h1>Career guides</h1><ul>{items}</ul>"))
-    write("/about/", page("About RemoteKazi", "RemoteKazi lists jobs in Kenya and remote roles open to Kenyans.", "/about/",
-        "<h1>About RemoteKazi</h1><p>RemoteKazi helps people in Kenya find jobs in Nairobi, Mombasa, Kisumu and beyond, plus remote roles "
-        "open to applicants in Kenya. Browsing is free.</p><h2>How listings are collected</h2>"
-        "<p>We gather vacancies from public job feeds and partner sources. Software summarises each listing in plain language, "
-        "keeps only jobs relevant to Kenya, and flags adverts that look like scams. Every listing links to the original page, "
-        "where you apply. Summaries can contain mistakes, so always check the original advert.</p>"
-        "<h2>How we make money</h2><p>The site shows advertising and may carry sponsored listings, which are labelled. "
-        "We never charge job seekers.</p>"
-        f'<h2>Contact</h2><p><a href="mailto:{E(CONTACT_EMAIL)}">{E(CONTACT_EMAIL)}</a></p>'))
-    write("/contact/", page("Contact RemoteKazi", "Contact RemoteKazi to report a job, an error or to advertise.", "/contact/",
-        f'<h1>Contact us</h1><p>Email <a href="mailto:{E(CONTACT_EMAIL)}">{E(CONTACT_EMAIL)}</a>.</p>'
-        "<ul><li><b>Report a scam or expired job:</b> include the page link.</li>"
-        "<li><b>Employers:</b> ask about featured listings and advertising.</li>"
-        "<li><b>Remove a listing:</b> tell us the link and we will take it down.</li></ul>"))
+    write("/about/", page("About RemoteKazi: Who We Are and How We Check Jobs",
+        "RemoteKazi is a free Kenyan job site founded by mechanical engineer Cherop Antony Muigai. How we find, check and publish jobs and articles.", "/about/",
+        "<h1>About RemoteKazi</h1>"
+        "<p class='lead'>RemoteKazi is a free job site for people in Kenya. We list vacancies across the country and remote roles "
+        "open to Kenyan applicants, and we publish practical guides on CVs, interviews, salaries and the documents employers ask for.</p>"
+        "<h2>Why we started</h2>"
+        "<p>Looking for work in Kenya often means scrolling through WhatsApp groups and Facebook pages full of expired adverts, "
+        "copied posts and outright scams that ask for a \u201cprocessing fee\u201d. RemoteKazi was started to give job seekers one "
+        "clean place to find genuine openings, with every listing linking straight to the employer's own page.</p>"
+        "<h2>Who runs RemoteKazi</h2>"
+        "<p>RemoteKazi was founded and is run by <b>Cherop Antony Muigai</b>, a mechanical engineer based in Nairobi. Antony holds a "
+        "Bachelor of Science in Mechanical Engineering from Jomo Kenyatta University of Agriculture and Technology (JKUAT) and has "
+        "worked in manufacturing, equipment maintenance and site supervision on large residential projects.</p>"
+        "<p>Having gone through the Kenyan job market himself, from university to the factory floor and construction sites, he built "
+        "RemoteKazi around the questions job seekers actually ask: where are the real jobs, what do they pay, and how do I avoid being scammed?</p>"
+        "<h2>How listings are collected and checked</h2>"
+        "<ul><li><b>Sources:</b> we gather vacancies from public job feeds, job boards that allow reuse, and employers who send us their adverts.</li>"
+        "<li><b>Screening:</b> software keeps only jobs open to people in Kenya, writes a short plain-language summary, and flags warning "
+        "signs such as fees, personal-email-only contact or unrealistic pay. Only low-risk listings are published.</li>"
+        "<li><b>Freshness:</b> listings are refreshed daily and removed at their closing date, or after 14 days if no date is given.</li>"
+        "<li><b>Apply at the source:</b> every job links to the original advert, where you apply. We never collect applications or CVs.</li></ul>"
+        "<p>Automated summaries can contain mistakes, so always confirm the details on the employer's page.</p>"
+        "<h2>Our articles</h2>"
+        "<p>Our blog and guides are written in our own words and focus on careers, salaries, money and workplace rights in Kenya. "
+        "When an article is based on news or research, we link to the original sources at the end. Images on the site are our own "
+        "illustrations unless a credit says otherwise. If you spot an error, email us and we will correct it.</p>"
+        "<h2>Free for job seekers</h2>"
+        "<p>RemoteKazi is free to use. The site is supported by advertising and by featured listings for employers, which are "
+        "clearly labelled. <b>We will never ask you for money to apply for a job, and no genuine employer will either.</b> "
+        "Read <a href='/guides/spot-fake-jobs-kenya/'>how to spot a fake job advert</a>.</p>"
+        f'<h2>Contact</h2><p>Questions, corrections, scam reports or employer enquiries: '
+        f'<a href="mailto:{E(CONTACT_EMAIL)}">{E(CONTACT_EMAIL)}</a>. See our <a href="/contact/">contact page</a>.</p>',
+        '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@type": "AboutPage",
+            "url": SITE_URL + "/about/", "mainEntity": {"@type": "Organization", "name": "RemoteKazi", "url": SITE_URL + "/",
+            "founder": {"@type": "Person", "name": "Cherop Antony Muigai", "jobTitle": "Mechanical Engineer",
+                        "alumniOf": "Jomo Kenyatta University of Agriculture and Technology"}}}) + '</script>'))
+    write("/contact/", page("Contact RemoteKazi", "Contact RemoteKazi to report a job or scam, correct an error, or ask about featured listings for employers.", "/contact/",
+        f'<h1>Contact us</h1><p>Email <a href="mailto:{E(CONTACT_EMAIL)}">{E(CONTACT_EMAIL)}</a>. We usually reply within two working days.</p>'
+        "<ul><li><b>Report a scam or expired job:</b> include the page link and what looks wrong. We review reports and remove "
+        "listings that break our rules.</li>"
+        "<li><b>Corrections:</b> if an article or listing contains an error, tell us and we will fix it.</li>"
+        "<li><b>Employers:</b> ask about posting a vacancy, featured listings and advertising.</li>"
+        "<li><b>Remove a listing:</b> if you are the employer or source, send the link and we will take it down.</li></ul>"
+        "<p>We cannot help with individual job applications, and we never ask job seekers for payment. "
+        "If someone claiming to be from RemoteKazi asks you for money, it is a scam.</p>"
+        "<p>RemoteKazi is run from Nairobi, Kenya. Read more <a href='/about/'>about us</a>.</p>"))
     write("/privacy/", page("Privacy Policy | RemoteKazi", "How RemoteKazi handles visitor data, cookies and advertising.", "/privacy/",
         f"<h1>Privacy Policy</h1><p class='meta'>Last updated {date.today().isoformat()}</p>"
         "<p>This policy explains what information RemoteKazi collects and how it is used, in line with the Kenya Data Protection Act, 2019.</p>"

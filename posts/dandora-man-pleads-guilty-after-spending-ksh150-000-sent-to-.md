@@ -1,7 +1,7 @@
 ---
 title: Money Sent to You by Mistake? A Dandora Case Shows Why You Must Return It
 date: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 author: RemoteKazi Team
 tag: Money & Law
 description: A Dandora man pleaded guilty after spending Ksh150,000 sent to him by mistake. Here is what Kenyan law says, and exactly what to do if a wrong payment lands in your account.
@@ -37,8 +37,34 @@ The key word is *intentionally*. Receiving money by mistake is not a crime. The 
 - **For bank transfers,** call your bank's customer care right away and follow up in writing with the transaction reference.
 - **If the recipient refuses to return it,** report the case at the nearest police station or to the DCI with your transaction records.
 
+## How to avoid sending money to the wrong person
+
+- **Check the name** that appears before you confirm any M-Pesa or bank transfer. If it doesn't match, cancel.
+- **Save regular contacts** in your phone and select them rather than typing numbers each time.
+- **Double-check paybill and account numbers**, especially for rent, school fees and utility bills.
+- **Send a small test amount first** when paying a new person or account a large sum.
+
+## Beware of fake "wrong payment" messages
+
+A common scam works the other way round: you receive a fake SMS saying money was sent to you by mistake, followed by a call asking you to send it back. Before doing anything:
+
+- **Check your real balance** through your M-Pesa menu or app, not the SMS.
+- **Look at the sender.** Genuine M-Pesa confirmations come from the official M-Pesa sender ID, not from a regular phone number.
+- **Let the provider handle it.** If money really arrived by mistake, the sender can request a reversal through the provider, so you never need to send it back yourself.
+
 ## Why this matters for job seekers and workers
 
 Many people now receive salaries, casual-work payments and freelance income straight into M-Pesa or a bank account. If you work in a role that handles payments, such as cashier, teller, accounts assistant or agent, knowing these rules protects both you and your employer. A criminal record for withholding money can end a career in finance before it starts, and many employers now ask for a police clearance certificate before hiring.
 
 The lesson from Dandora is simple: a payment you were not expecting is not a windfall. Report it, return it, and move on.
+
+## Frequently asked questions
+
+**Is it a crime to receive money by mistake?**
+No. The offence is intentionally keeping or spending money you know was not meant for you.
+
+**How do I reverse an M-Pesa payment sent to the wrong number?**
+Contact Safaricom immediately through the official reversal process. Reversals are easier before the recipient withdraws the money.
+
+**What should I do if someone calls asking me to return money?**
+Check your real balance first. If money truly arrived by mistake, let the provider reverse it rather than sending it yourself.

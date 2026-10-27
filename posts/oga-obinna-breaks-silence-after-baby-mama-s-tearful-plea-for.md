@@ -1,7 +1,7 @@
 ---
 title: A Degree but No Job: Lessons From the Oga Obinna Co-Parenting Debate, and 8 Home Businesses to Start
 date: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-27
 author: RemoteKazi Team
 tag: Careers
 description: Tallie's plea for business capital sparked a debate about co-parenting. It also raised a bigger issue: graduates who can't find work. Practical home business ideas with low capital.
@@ -44,6 +44,33 @@ If you are in that position, a home business can be a practical step, especially
 - **Look for support.** Government youth and women's funds, county programmes and chamas can provide small loans or grants. Avoid digital lenders with very high interest.
 - **Keep applying for jobs.** A business and a job search can run side by side.
 
+## Register your business properly
+
+A registered business is easier to grow and more trusted by customers and suppliers.
+
+1. **Register a business name** through the Business Registration Service on eCitizen.
+2. **Get a KRA PIN** if you don't have one, and learn your tax obligations. See our [KRA PIN guide](/blog/how-to-get-a-kra-pin-online-in-kenya/).
+3. **Get a single business permit** from your county government if your business needs one.
+4. **Check special licences**, for example food handling or health certificates for food businesses.
+
+## How to price what you sell
+
+- **Add up all your costs:** materials, packaging, transport, data and a fair amount for your own time.
+- **Check what others charge** for similar products or services in your area or online.
+- **Set a price that leaves a profit** after costs. Selling cheaply to attract customers only works if you can still cover your expenses.
+- **Track every sale and expense** in a notebook or a free app, so you know whether the business is really making money.
+
 ## Find work that fits your schedule
 
 RemoteKazi lists remote and part-time roles that can fit around childcare and a small business. [Browse the latest jobs](/#jobs), and read our guide to [working remotely from Kenya](/guides/remote-work-from-kenya/).
+
+## Frequently asked questions
+
+**How much money do I need to start a home business?**
+It depends on the business. Service businesses like writing, tutoring or social media management can start with a phone and data, while baking or reselling needs some stock.
+
+**Do I need to register my small business?**
+Registering a business name and getting the right county permit makes it easier to open a business bank account, get contracts and access government funds.
+
+**Where can young people and women get business funding?**
+Government funds for youth and women, county programmes, SACCOs and chamas are common sources. Compare interest rates and avoid high-cost digital loans.

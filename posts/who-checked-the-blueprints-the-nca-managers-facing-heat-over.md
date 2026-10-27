@@ -1,7 +1,7 @@
 ---
 title: Eastleigh Building Collapse: What the NCA Does, and Why Construction Safety Careers Matter
 date: 2026-10-24
-updated: 2026-10-26
+updated: 2026-10-27
 author: RemoteKazi Team
 tag: Careers
 description: A 16-storey building under construction collapsed in Eastleigh, Nairobi. What the National Construction Authority is responsible for, and the careers that keep buildings safe.
@@ -42,11 +42,41 @@ Every building collapse is a reminder that construction safety depends on traine
 
 TVET colleges across Kenya offer certificates and diplomas in building technology, civil engineering and plumbing, and NCA accreditation can help skilled workers earn more and qualify for bigger projects.
 
+## Warning signs on a construction site
+
+Workers and neighbours are often the first to notice problems. Signs worth reporting include:
+
+- Cracks appearing in columns, beams or slabs during construction
+- Floors being added beyond what neighbouring approved buildings have
+- Concrete being poured without visible supervision, or formwork removed very quickly
+- Workers without basic protective equipment such as helmets, boots and harnesses
+- No visible information about the contractor or the project on site
+
+Concerns can be raised with the county's building control office or the NCA. If you work on a site and feel it is unsafe, you have the right to raise it without being punished.
+
+## How to start a career in construction
+
+- **Choose your route:** a degree for engineering, architecture and quantity surveying; a diploma or certificate from a TVET for building technology, plumbing, electrical installation and masonry.
+- **Get accredited.** Professionals register with their boards, and skilled workers and site supervisors can get NCA accreditation, which helps them qualify for bigger projects.
+- **Learn safety early.** A course in occupational safety and health is valuable for any construction role.
+- **Build a portfolio:** keep photos and records of the projects you have worked on, with the supervisor's contact as a reference.
+
 ## Stay safe as a buyer or tenant
 
 If you are renting or buying in a new building, ask whether the developer and contractor are registered with the NCA and whether the plans were approved by the county. Be cautious about buildings that appear to have more floors than neighbouring approved developments.
 
 [Browse construction and engineering jobs on RemoteKazi](/#jobs).
+
+## Frequently asked questions
+
+**What does the NCA do?**
+The National Construction Authority registers contractors and construction projects, monitors sites for compliance and accredits skilled construction workers and site supervisors.
+
+**Who approves building plans in Nairobi?**
+Building plans are approved by the county government, which issues construction permits. The NCA registers the project and monitors construction.
+
+**How can I check if a contractor is registered?**
+The NCA provides a way to check registered contractors on its official website. Ask the developer for the contractor's registration details.
 
 ## Sources
 

@@ -1,7 +1,7 @@
 ---
 title: Rachel Ruto on the President's Stamina, and How to Avoid Burnout in a Demanding Job
 date: 2026-10-22
-updated: 2026-10-26
+updated: 2026-10-27
 author: RemoteKazi Team
 tag: Careers
 description: The First Lady credits faith for President Ruto's energy. For the rest of us, long hours carry real burnout risks. Practical ways to keep your energy up at work.
@@ -39,9 +39,41 @@ The President is not the only one with a demanding schedule. Many Kenyan workers
 7. **Use your leave.** Kenyan employees are entitled to annual leave under the Employment Act. Taking it is not a weakness.
 8. **Lean on your support system.** Faith, family and friends help many people get through hard seasons. If stress becomes overwhelming, talk to a doctor or counsellor; many employers offer free counselling through medical cover.
 
+## Your rights on working hours and leave in Kenya
+
+Kenya's Employment Act, 2007 sets minimum protections that help prevent burnout. Among them:
+
+| Right | What the law provides |
+|---|---|
+| Annual leave | At least 21 working days of paid leave after every 12 months of continuous service |
+| Rest day | At least one rest day in every period of seven days |
+| Sick leave | After two months of service, 7 days on full pay and 7 days on half pay in each 12 months, with a medical certificate |
+| Maternity leave | Three months with full pay |
+| Paternity leave | Two weeks with full pay |
+
+Your contract or a collective agreement may give you more than this, but not less. If you are regularly denied leave or rest days, raise it with HR first, and keep records of your hours.
+
+## A simple weekly reset
+
+- **Sunday evening:** list your three most important tasks for the week, so Monday starts with a plan.
+- **Each day:** block one hour of focused work with notifications off.
+- **Midweek:** check whether you are on track, and say no to new requests that would push you over the limit.
+- **Friday:** finish by writing tomorrow's or Monday's first task, then switch off. Small routines like this make long weeks more manageable.
+
 ## When it's time for a change
 
 Sometimes the problem is the job itself: unrealistic targets, unpaid overtime or a toxic workplace. If that is your situation, it may be time to look elsewhere. [Browse the latest jobs on RemoteKazi](/#jobs), including remote roles that cut out the commute, and read our [interview preparation guide](/guides/interview-tips-kenya/).
+
+## Frequently asked questions
+
+**How many leave days am I entitled to in Kenya?**
+Under the Employment Act, at least 21 working days of paid annual leave after every 12 months of continuous service. Your contract may give more.
+
+**Can my employer make me work seven days a week?**
+The Act entitles employees to at least one rest day in every seven days.
+
+**Is burnout a medical condition?**
+The World Health Organization describes burnout as an occupational phenomenon caused by chronic workplace stress that has not been managed. If you are struggling, speak to a doctor or counsellor.
 
 ## Sources
 

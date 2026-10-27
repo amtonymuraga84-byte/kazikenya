@@ -1,7 +1,7 @@
 ---
 title: Karen Nyamu's Police Recruitment Remarks Under Investigation: How to Join the Police the Right Way
 date: 2026-10-25
-updated: 2026-10-26
+updated: 2026-10-27
 author: RemoteKazi Team
 tag: Careers
 description: The National Police Service is investigating Senator Karen Nyamu's remarks about helping a supporter join the police. What was said, and how genuine police recruitment works.
@@ -46,6 +46,35 @@ Recruitment is advertised by the National Police Service in national newspapers 
 - **Prepare properly.** Train for the fitness tests in the weeks before recruitment and bring all original documents.
 
 Read our guide on [how to spot a fake job advert](/guides/spot-fake-jobs-kenya/), and [browse verified jobs on RemoteKazi](/#jobs).
+
+## Preparing for recruitment day
+
+Recruitment drives move fast, and candidates are often turned away for small, avoidable reasons.
+
+- **Read the advert twice** and check you meet every requirement, including age and grades, before travelling.
+- **Organise your documents** the night before: original national ID, original academic certificates and result slips, school leaving certificate, and photocopies of each.
+- **Train for the fitness tests** for several weeks beforehand. Running and basic strength exercises such as push-ups and sit-ups are a good start.
+- **Arrive early** at the centre listed in the advert, rested and with water.
+- **Be honest on every form.** Misstating your age, grades or background can lead to dismissal later, even after training.
+
+## If you have already paid a "fixer"
+
+If someone has taken your money with a promise of a recruitment slot, you are a victim of fraud. Keep the M-Pesa messages, call logs and chats, and report it at a police station or to the EACC. Do not pay more money to "unlock" the slot; fixers often come back for a second payment.
+
+## Other careers in uniform
+
+The National Police Service is not the only option. The Kenya Defence Forces, Kenya Wildlife Service, Kenya Forest Service, Kenya Prisons Service and National Youth Service also recruit regularly, each with its own requirements and selection process. Compare them before you decide, and read our [KDF and UPDF salary comparison](/blog/military-pay-comparison-how-ugandan-army-salaries-measure-up/).
+
+## Frequently asked questions
+
+**How much does it cost to join the police in Kenya?**
+Nothing. Police recruitment is free. Anyone who asks for money to secure a slot is committing a crime and should be reported.
+
+**What grade do I need to join the police?**
+The minimum KCSE grade and subject requirements are set in each recruitment advert, and they can change, so always read the latest official advert.
+
+**Can I use a relative's or friend's certificate?**
+No. Certificates are verified, and using someone else's or a forged certificate can lead to dismissal and criminal charges.
 
 ## Sources
 

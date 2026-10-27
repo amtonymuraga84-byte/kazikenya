@@ -1,7 +1,7 @@
 ---
 title: Can Kenyans Join the US Military? Requirements, Steps and Benefits Explained
 date: 2026-10-24
-updated: 2026-10-26
+updated: 2026-10-27
 author: RemoteKazi Team
 tag: Careers
 description: A Kenyan nurse in the US military shared how she enlisted. Who is eligible, the step-by-step process, the ASVAB test, signing bonuses and the path to citizenship.
@@ -42,6 +42,39 @@ A special programme that once allowed some non-permanent residents with critical
 If you are in Kenya and interested in a uniformed career, look at local options too. The Kenya Defence Forces, National Police Service, Kenya Wildlife Service and Kenya Prisons Service all run recruitment drives. See our [KDF vs UPDF salary comparison](/blog/military-pay-comparison-how-ugandan-army-salaries-measure-up/) for what Kenyan soldiers earn.
 
 For a legal route to the US, the only realistic options are study, a job offer with a work visa, family sponsorship or the annual Diversity Visa lottery, which is free to enter on the official US State Department website.
+
+## Watch out for "join the US Army" scams
+
+Stories like this one are often used by fraudsters. Warning signs include:
+
+- Anyone in Kenya offering to "process" US military enlistment for a fee
+- Promises of a visa or Green Card in exchange for joining
+- Requests to pay for "medical tests", "training" or "travel documents" before you have even met a recruiter
+- Contact only through WhatsApp or social media inboxes
+
+US military recruiters do not charge for enlistment, and they work only with people already legally living in the United States.
+
+## Legal routes to work abroad from Kenya
+
+If your goal is a job overseas, there are safer paths:
+
+- **Use licensed recruitment agencies.** The National Employment Authority (NEA) regulates and publishes the list of registered foreign recruitment agencies in Kenya. Check an agency is on it before paying anything.
+- **Get a written contract** stating the employer, job, salary, hours and who pays for travel, and read it before you travel.
+- **Never surrender your passport** to an agent or employer.
+- **Register with the Kenyan embassy** in the country where you will work, so they can help if something goes wrong.
+
+Read our guide on [how to spot a fake job advert](/guides/spot-fake-jobs-kenya/) before applying for any overseas offer.
+
+## Frequently asked questions
+
+**Can I join the US Army from Kenya?**
+No. You must be a US citizen or a lawful permanent resident (Green Card holder) living in the United States to enlist.
+
+**Does joining the US military give you citizenship?**
+Service can provide a faster route to US citizenship for eligible lawful permanent residents, but it is not automatic and has its own requirements.
+
+**Is the Diversity Visa lottery free?**
+Yes. Entry is free on the official US State Department website. Agents who charge fees to enter you are not needed.
 
 ## Sources
 

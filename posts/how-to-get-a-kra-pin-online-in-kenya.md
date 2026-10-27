@@ -1,5 +1,6 @@
 ---
 title: How to Get a KRA PIN Online in Kenya (2026 Guide, Including the New PIN for Students)
+updated: 2026-10-27
 date: 2026-10-26
 author: RemoteKazi Team
 tag: Guides
@@ -50,6 +51,21 @@ To apply, follow the same steps above, but choose **"Yes"** when asked whether y
 **I lost my PIN certificate.** Log in to iTax and reprint it from your account.
 
 **Do I need to file returns?** If you have a regular PIN, yes, every year by June 30, even if you earned nothing (a "nil" return). If you have a PIN Without Obligation, no, until you add a tax obligation.
+
+## Filing your first tax return as an employee
+
+If you have a regular PIN and a job, you must file an income tax return every year by **June 30**, covering the previous year from January to December.
+
+1. **Get your P9 form** from your employer. It shows your total pay and the PAYE tax deducted.
+2. **Log in to iTax** and choose the income tax return for employment income.
+3. **Enter the figures from your P9.** Your employer's PAYE should match what you enter.
+4. **Submit and save the receipt.** If your tax was fully paid through PAYE, you usually have nothing more to pay.
+
+If you earned nothing in a year, you still file a **nil return** unless you have a PIN Without Obligation. Missing returns can lead to penalties and can stop you getting a tax compliance certificate.
+
+## Getting a tax compliance certificate
+
+Many employers, especially for government jobs, ask for a **Tax Compliance Certificate (TCC)**. Once your returns are filed and taxes paid, you can apply for one on iTax and download it. Keep your filing up to date every year so the TCC is never the document that holds up a job offer.
 
 ## Next steps for job seekers
 

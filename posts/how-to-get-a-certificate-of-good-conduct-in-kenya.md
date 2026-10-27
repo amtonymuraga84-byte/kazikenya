@@ -1,5 +1,6 @@
 ---
 title: How to Get a Certificate of Good Conduct in Kenya (2026 Step-by-Step Guide)
+updated: 2026-10-27
 date: 2026-10-26
 author: RemoteKazi Team
 tag: Guides
@@ -47,6 +48,26 @@ Kenyans living outside the country can apply on eCitizen too. Fingerprints are u
 - **Name mismatches** between your eCitizen account, your ID and the form.
 - **Forgetting the printed form** on fingerprint day.
 - **Waiting for a job advert** before applying, then missing the deadline.
+
+## Frequently asked questions
+
+**How much does a certificate of good conduct cost?**
+Recent guides put it at KSh 1,050 on eCitizen, including the convenience fee. Confirm the amount on the payment page.
+
+**How long is it valid?**
+It is generally treated as valid for 12 months, though some employers ask for a more recent one.
+
+**Can I apply if I once had a case in court?** Yes. The certificate reflects what is on record. If a case was withdrawn or you were acquitted, keep the court documents, as an employer may ask about it.
+
+**Can someone else collect it for me?** Most applicants now download the certificate from eCitizen themselves, which avoids this problem.
+
+**Do I need a new one for every job?** Not necessarily. Many employers accept a certificate issued within the last 12 months, but some ask for one issued more recently, so check each advert.
+
+**Can I use it for a job or visa abroad?** Often yes, but some countries require it to be officially authenticated before use. Ask the employer or embassy what they need, and allow extra time.
+
+## Keep your documents ready
+
+Store a copy of your certificate in your email or cloud storage as well as on your phone. When an advert gives you only a few days to submit documents, having everything ready can be the difference between being interviewed and missing out.
 
 ## Other documents employers ask for
 

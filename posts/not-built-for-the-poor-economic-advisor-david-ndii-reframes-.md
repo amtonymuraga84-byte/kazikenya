@@ -1,7 +1,7 @@
 ---
 title: "Not for the Poor": David Ndii on Affordable Housing, and What the New Prices Mean for Workers
 date: 2026-10-24
-updated: 2026-10-26
+updated: 2026-10-27
 author: RemoteKazi Team
 tag: Money & Law
 description: David Ndii says affordable housing is middle-class housing. With Boma Yangu prices up 20%, here is what a unit costs now and how it compares with a typical worker's budget.
@@ -50,9 +50,36 @@ With more than half of income going to food, saving a deposit is the hardest ste
 - **Check your levy deductions** on your payslip; your contributions are recorded against your ID.
 - **Plan your deposit** alongside other goals like an emergency fund.
 
+## Renting vs buying: questions to ask yourself
+
+Owning a home is a major goal for many Kenyans, but it is not always the right move immediately. Before you commit:
+
+- **How secure is your income?** A long repayment plan needs steady earnings for many years.
+- **Do you have an emergency fund?** Aim to keep several months of expenses aside before taking on a big commitment.
+- **What is the full cost?** Ask for the total amount you will pay over the life of the plan, including interest, service charges and fees, not just the unit price.
+- **Is the location right for your work?** A cheaper home far from your job can cost more in transport and time.
+
+## Saving for a deposit
+
+- **Automate your savings** with a standing order on payday, so the money moves before you can spend it.
+- **Consider a SACCO** if you are employed; many offer savings products and loans to members at reasonable rates.
+- **Compare low-risk options** such as money market funds and fixed deposits, and check that any fund is licensed by the Capital Markets Authority.
+- **Avoid investment schemes promising very high, guaranteed returns.** They are a common way people lose their housing savings.
+
 ## Growing your income
 
 For many workers the real gap is income, not just prices. Building skills that employers pay more for, negotiating your salary with good information, and taking on remote or freelance work can make home ownership more realistic. Our guides on [salary negotiation](/guides/negotiate-salary-kenya/) and [remote work from Kenya](/guides/remote-work-from-kenya/) are a good place to start.
+
+## Frequently asked questions
+
+**How much is the Affordable Housing Levy?**
+It is 1.5% of an employee's gross salary, with the employer contributing a further 1.5%.
+
+**How much is a studio unit on Boma Yangu now?**
+After the October 1, 2026 increase, a studio unit costs about KSh 1.8 million, up from KSh 1.5 million.
+
+**How do I apply for an affordable housing unit?**
+Register on the official Boma Yangu platform and follow its process. Do not pay agents who promise to secure a unit for you.
 
 ## Sources
 
