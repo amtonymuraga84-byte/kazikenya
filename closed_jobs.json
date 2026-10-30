@@ -1,0 +1,513 @@
+{
+ "accountant-sheria-dt-sacco-cb1844": {
+  "t": "Accountant",
+  "c": "Sheria DT Sacco",
+  "l": "Nairobi",
+  "k": "Finance",
+  "closed": "2026-10-24"
+ },
+ "administration-front-office-intern-the-green-belt-movement-9f32a9": {
+  "t": "Administration & Front Office Intern",
+  "c": "The Green Belt Movement",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "administrative-assistant-receptionist-summit-recruitment-and-7d99f0": {
+  "t": "Administrative Assistant / Receptionist",
+  "c": "Summit Recruitment and Search",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-19"
+ },
+ "ai-trainer-video-annotation-imerit-technology-de2b0f": {
+  "t": "AI Trainer - Video Annotation",
+  "c": "iMerit Technology",
+  "l": "Remote",
+  "k": "Tech",
+  "closed": "2026-10-26"
+ },
+ "ajira-apprenticeship-internship-opportunities-riziki-source-4bd862": {
+  "t": "Ajira Apprenticeship/Internship Opportunities",
+  "c": "Riziki Source",
+  "l": "Nairobi",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "bi-analyst-4g-capital-effd34": {
+  "t": "BI Analyst",
+  "c": "4G Capital",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-10-24"
+ },
+ "call-center-agent-4g-capital-ae7f45": {
+  "t": "Call Center Agent",
+  "c": "4G Capital",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-10-26"
+ },
+ "call-center-agent-debt-collection-mogo-finance-be49db": {
+  "t": "Call Center Agent (Debt Collection)",
+  "c": "Mogo Finance",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-10-24"
+ },
+ "call-center-team-lead-mogo-finance-6fad6f": {
+  "t": "Call Center Team Lead",
+  "c": "Mogo Finance",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-10-24"
+ },
+ "call-center-telesales-agent-ison-xperiences-limited-1d9bb7": {
+  "t": "Call Center (Telesales) Agent",
+  "c": "iSON Xperiences Limited",
+  "l": "Other Kenya",
+  "k": "Sales",
+  "closed": "2026-10-26"
+ },
+ "call-centre-agent-pula-edf5b4": {
+  "t": "Call Centre Agent",
+  "c": "Pula",
+  "l": "Nairobi",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "care-giver-nyumbani-village-9bb341": {
+  "t": "Care Giver",
+  "c": "Nyumbani Village",
+  "l": "Other Kenya",
+  "k": "Health",
+  "closed": "2026-10-19"
+ },
+ "casual-employee-q-sourcing-servtec-group-73ce2e": {
+  "t": "Casual Employee",
+  "c": "Q-Sourcing Servtec Group",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "casual-labourer-q-sourcing-servtec-group-fbaeec": {
+  "t": "Casual Labourer",
+  "c": "Q-Sourcing Servtec Group",
+  "l": "Other Kenya",
+  "k": "Logistics",
+  "closed": "2026-10-24"
+ },
+ "cleaners-fine-urban-interiors-a44056": {
+  "t": "Cleaners",
+  "c": "Fine Urban Interiors",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-26"
+ },
+ "clinical-nutritionist-fertility-point-e42e28": {
+  "t": "Clinical Nutritionist",
+  "c": "Fertility Point",
+  "l": "Other Kenya",
+  "k": "Health",
+  "closed": "2026-10-24"
+ },
+ "contact-center-solutions-specialist-mogo-finance-0302dc": {
+  "t": "Contact Center Solutions Specialist",
+  "c": "Mogo Finance",
+  "l": "Nairobi",
+  "k": "Finance",
+  "closed": "2026-10-24"
+ },
+ "contact-centre-assistant-1-year-fixed-term-contract-britam-2a8714": {
+  "t": "Contact Centre Assistant (1 Year Fixed-Term Contract)",
+  "c": "Britam",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "contact-centre-officer-prime-bank-kenya-01e534": {
+  "t": "Contact Centre Officer",
+  "c": "Prime Bank Kenya",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-10-19"
+ },
+ "credit-analysts-digital-credit-absa-bank-limited-067ebb": {
+  "t": "Credit Analysts – Digital Credit",
+  "c": "Absa Bank Limited",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-10-26"
+ },
+ "credit-assistants-sheria-dt-sacco-fb612d": {
+  "t": "Credit Assistants",
+  "c": "Sheria DT Sacco",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-10-24"
+ },
+ "customer-experience-associate-peach-cars-ke-446ce9": {
+  "t": "Customer Experience Associate",
+  "c": "Peach Cars KE",
+  "l": "Other Kenya",
+  "k": "Sales",
+  "closed": "2026-10-24"
+ },
+ "customer-experience-officer-vision-plus-31f942": {
+  "t": "Customer Experience Officer",
+  "c": "Vision Plus",
+  "l": "Mombasa",
+  "k": "Sales",
+  "closed": "2026-10-19"
+ },
+ "customer-service-officer-peoplelink-consultants-ltd-1cda94": {
+  "t": "Customer Service Officer",
+  "c": "Peoplelink Consultants Ltd",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "customer-service-officer-peoplelink-consultants-ltd-c18a57": {
+  "t": "Customer Service Officer",
+  "c": "Peoplelink Consultants Ltd",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "customer-service-personnel-cledun-realtors-ltd-0f8644": {
+  "t": "Customer Service Personnel",
+  "c": "Cledun Realtors Ltd",
+  "l": "Other Kenya",
+  "k": "Sales",
+  "closed": "2026-10-24"
+ },
+ "customs-regulatory-affairs-coordinator-m-f-africa-global-log-dmvncv": {
+  "t": "Customs & Regulatory Affairs Coordinator M/F",
+  "c": "Africa Global Logistics",
+  "l": "Nairobi",
+  "k": "Tech",
+  "closed": "2026-10-27"
+ },
+ "debt-collection-agent-administration-mogo-finance-c387c6": {
+  "t": "Debt Collection Agent (Administration)",
+  "c": "Mogo Finance",
+  "l": "Nairobi",
+  "k": "Finance",
+  "closed": "2026-10-24"
+ },
+ "digital-customer-service-training-job-placement-programme-ge-a8d071": {
+  "t": "Digital Customer Service Training & Job Placement Programme",
+  "c": "Generation Kenya",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "direct-sales-executives-ecobank-kenya-8d0c0c": {
+  "t": "Direct Sales Executives",
+  "c": "Ecobank Kenya",
+  "l": "Other Kenya",
+  "k": "Sales",
+  "closed": "2026-10-24"
+ },
+ "direct-sales-representative-kcb-bank-kenya-d5c139": {
+  "t": "Direct Sales Representative",
+  "c": "KCB Bank Kenya",
+  "l": "Other Kenya",
+  "k": "Sales",
+  "closed": "2026-10-24"
+ },
+ "dispatch-clerk-moko-home-living-87268a": {
+  "t": "Dispatch Clerk",
+  "c": "Moko Home + Living",
+  "l": "Other Kenya",
+  "k": "Logistics",
+  "closed": "2026-10-24"
+ },
+ "distribution-assistant-unga-holding-6aa019": {
+  "t": "Distribution Assistant",
+  "c": "Unga Holding",
+  "l": "Other Kenya",
+  "k": "Logistics",
+  "closed": "2026-10-19"
+ },
+ "driver-mechanic-the-maa-trust-b98a8e": {
+  "t": "Driver/Mechanic",
+  "c": "The Maa Trust",
+  "l": "Other Kenya",
+  "k": "Logistics",
+  "closed": "2026-10-24"
+ },
+ "executive-assistant-to-the-managing-director-summit-recruitm-d3ef65": {
+  "t": "Executive Assistant to the Managing Director",
+  "c": "Summit Recruitment and Search Africa",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "freelance-copywriter-coalition-technologies-c4fe3c": {
+  "t": "Freelance Copywriter",
+  "c": "Coalition Technologies",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "graduate-trainee-programme-standard-bank-group-90eb74": {
+  "t": "Graduate Trainee Programme",
+  "c": "Standard Bank Group",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-10-26"
+ },
+ "hr-intern-british-american-tobacco-bat-78426a": {
+  "t": "HR Intern",
+  "c": "British American Tobacco (BAT)",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "ict-intern-micro-enterprises-support-programme-trust-mespt-5fbd9d": {
+  "t": "ICT Intern",
+  "c": "Micro Enterprises Support Programme Trust (MESPT)",
+  "l": "Other Kenya",
+  "k": "Tech",
+  "closed": "2026-10-19"
+ },
+ "ipoa-jobs-2026-multiple-positions-independent-policing-overs-6b820b": {
+  "t": "IPOA Jobs 2026 – Multiple Positions",
+  "c": "Independent Policing Oversight Authority (IPOA)",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "it-intern-bm-security-edf6f7": {
+  "t": "IT Intern",
+  "c": "BM Security",
+  "l": "Other Kenya",
+  "k": "Tech",
+  "closed": "2026-10-24"
+ },
+ "laundry-supervisor-m-venpick-hotel-residences-f6e540": {
+  "t": "Laundry Supervisor",
+  "c": "Mövenpick Hotel & Residences",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "marketing-assistant-vivo-fashion-group-0674b4": {
+  "t": "Marketing Assistant",
+  "c": "Vivo Fashion Group",
+  "l": "Other Kenya",
+  "k": "Sales",
+  "closed": "2026-10-26"
+ },
+ "marketing-executive-kempinski-hotels-dmvmz6": {
+  "t": "Marketing Executive",
+  "c": "Kempinski Hotels",
+  "l": "Nairobi",
+  "k": "Tech",
+  "closed": "2026-10-27"
+ },
+ "meal-assistant-nandi-save-the-children-f29828": {
+  "t": "MEAL Assistant - Nandi",
+  "c": "Save the Children",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-26"
+ },
+ "nairobi-city-county-revenue-authority-vacancies-2026-nairobi-dbb267": {
+  "t": "Nairobi City County Revenue Authority Vacancies 2026",
+  "c": "Nairobi City County Public Service Board",
+  "l": "Nairobi",
+  "k": "Finance",
+  "closed": "2026-10-24"
+ },
+ "national-post-gender-based-violence-coordinator-fta-noc-nair-dmvngq": {
+  "t": "NATIONAL POST: Gender-Based Violence Coordinator (FTA) NOC Nairobi, Kenya",
+  "c": "United Nations Population Fund",
+  "l": "Nairobi",
+  "k": "Tech",
+  "closed": "2026-10-27"
+ },
+ "office-assistant-avsi-foundation-f006f8": {
+  "t": "Office Assistant",
+  "c": "AVSI Foundation",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "part-time-chefs-senjes-cuisines-076bd3": {
+  "t": "Part-Time Chefs",
+  "c": "Senjes Cuisines",
+  "l": "Nairobi",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "petrol-station-attendant-peoplelink-consultants-ltd-26d31a": {
+  "t": "Petrol Station Attendant",
+  "c": "Peoplelink Consultants Ltd",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "pp1-teacher-lelani-school-400c0d": {
+  "t": "PP1 Teacher",
+  "c": "Lelani School",
+  "l": "Other Kenya",
+  "k": "Education",
+  "closed": "2026-10-24"
+ },
+ "project-lead-functional-excellence-care-63818e": {
+  "t": "Project Lead – Functional Excellence",
+  "c": "CARE",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "quality-assurance-officer-2-positions-biodeal-laboratories-l-f01689": {
+  "t": "Quality Assurance Officer (2 Positions)",
+  "c": "Biodeal Laboratories Limited",
+  "l": "Nairobi",
+  "k": "Health",
+  "closed": "2026-10-19"
+ },
+ "receptionist-cancer-centre-aga-khan-university-hospital-7ae0b6": {
+  "t": "Receptionist, Cancer Centre",
+  "c": "Aga Khan University Hospital",
+  "l": "Nairobi",
+  "k": "Health",
+  "closed": "2026-10-24"
+ },
+ "receptionist-tricom-technologies-951929": {
+  "t": "Receptionist",
+  "c": "Tricom Technologies",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-23"
+ },
+ "remote-accounting-specialist-transition-support-accounting-a-4c7095": {
+  "t": "Remote Accounting Specialist (Transition Support – Accounting & Administration)",
+  "c": "Remote Raven",
+  "l": "Remote",
+  "k": "Finance",
+  "closed": "2026-10-19"
+ },
+ "remote-customer-support-representative-iclosed-7e178b": {
+  "t": "Remote Customer Support Representative",
+  "c": "iClosed",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-10-26"
+ },
+ "remote-guest-services-executive-styeverz-ltd-ce3f2f": {
+  "t": "Remote Guest Services Executive",
+  "c": "Styeverz Ltd",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "resident-physician-avenue-healthcare-ccab78": {
+  "t": "Resident Physician",
+  "c": "Avenue Healthcare",
+  "l": "Other Kenya",
+  "k": "Health",
+  "closed": "2026-10-24"
+ },
+ "salary-loan-agent-brisk-credit-ltd-3e0a68": {
+  "t": "Salary Loan Agent",
+  "c": "Brisk Credit LTD",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-10-24"
+ },
+ "sama-ai-101-training-programme-sama-e4d7ae": {
+  "t": "Sama AI 101 Training Programme",
+  "c": "Sama",
+  "l": "Other Kenya",
+  "k": "Tech",
+  "closed": "2026-10-24"
+ },
+ "senior-platform-engineer-proxify-ab-1f3e72": {
+  "t": "Senior Platform Engineer",
+  "c": "Proxify AB",
+  "l": "Remote",
+  "k": "Tech",
+  "closed": "2026-10-19"
+ },
+ "senior-shopify-developer-sanctuary-computer-inc-41f5a6": {
+  "t": "Senior Shopify Developer",
+  "c": "Sanctuary Computer Inc",
+  "l": "Remote",
+  "k": "Tech",
+  "closed": "2026-10-24"
+ },
+ "service-engineer-earth-moving-awp-aerial-work-platform-machi-dmvnna": {
+  "t": "Service Engineer Earth Moving /AWP (Aerial Work Platform Machinery)",
+  "c": "AWP (Aerial Work Platform Machinery)",
+  "l": "Other Kenya",
+  "k": "Tech",
+  "closed": "2026-10-27"
+ },
+ "social-media-executive-family-media-2723ac": {
+  "t": "Social Media Executive",
+  "c": "Family Media",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "station-manager-luqman-petroleum-612a9c": {
+  "t": "Station Manager",
+  "c": "Luqman Petroleum",
+  "l": "Other Kenya",
+  "k": "Logistics",
+  "closed": "2026-10-19"
+ },
+ "teacher-assistant-bus-assistant-chantilly-schools-0df3be": {
+  "t": "Teacher Assistant / Bus Assistant",
+  "c": "Chantilly Schools",
+  "l": "Other Kenya",
+  "k": "Education",
+  "closed": "2026-10-24"
+ },
+ "team-leaders-jubilee-insurance-e00fcf": {
+  "t": "Team Leaders",
+  "c": "Jubilee Insurance",
+  "l": "Nairobi",
+  "k": "Sales",
+  "closed": "2026-10-19"
+ },
+ "telesales-agent-sunculture-kenya-ltd-3a2bf6": {
+  "t": "Telesales Agent",
+  "c": "SunCulture Kenya Ltd",
+  "l": "Other Kenya",
+  "k": "Sales",
+  "closed": "2026-10-24"
+ },
+ "virtual-assistant-operations-marketing-coordinator-remote-ra-bc4427": {
+  "t": "Virtual Assistant (Operations & Marketing Coordinator)",
+  "c": "Remote Raven",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-10-19"
+ },
+ "waiters-stewards-and-housekeeping-staff-maison-du-caf-61397f": {
+  "t": "Waiters, Stewards and Housekeeping Staff",
+  "c": "Maison du Café",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-10-24"
+ },
+ "warehouse-worker-truck-driver-u-s-embassy-to-kenya-04c05b": {
+  "t": "Warehouse Worker (Truck Driver)",
+  "c": "U.S. Embassy to Kenya",
+  "l": "Nairobi",
+  "k": "Logistics",
+  "closed": "2026-10-19"
+ },
+ "website-redesign-and-development-consultancy-kenya-sightsave-dmvmzp": {
+  "t": "Website Redesign and Development Consultancy (Kenya)",
+  "c": "Sightsavers",
+  "l": "Nairobi",
+  "k": "Tech",
+  "closed": "2026-10-26"
+ }
+}
