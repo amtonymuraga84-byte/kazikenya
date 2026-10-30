@@ -28,6 +28,10 @@ FEATURED_EMPLOYERS = [
     ("Public Service Commission of Kenya", "https://www.publicservice.go.ke/", "Official notices for government jobs"),
 ]
 MAX_AGE_DAYS = 14   # keep in step with job_aggregator.py
+# When a job is taken down, its address keeps a short "this job has closed" page (noindex) for this many days,
+# so links shared on WhatsApp/Telegram and old Google results land on similar live jobs instead of a 404.
+CLOSED_KEEP_DAYS = 90
+CLOSED_FILE = "closed_jobs.json"
 SHOW_AD_PLACEHOLDERS = False   # keep False until you paste real ad code into the ad boxes
 ADSENSE_CLIENT = ""   # your AdSense publisher ID, e.g. "ca-pub-1234567890123456". Adds the AdSense code to every page and writes ads.txt
 # Old addresses that should send visitors (and Google) to a newer page. Kept here because _redirects is rebuilt on every run.
@@ -194,6 +198,37 @@ def job_page(j, all_jobs):
                      (f'<script type="application/ld+json">{json.dumps(ld).replace("</", "<\\/")}</script>'
                       if len(j["x"]) >= 150 else '<meta name="robots" content="noindex,follow">')))
     # Google needs a complete description; a listing with almost no detail is thin content, so it is kept out of search
+
+
+# ---------- closed jobs ----------
+def read_job_html(text):
+    """Title, company, location and category from a built job page (used once the job has left jobs.json)."""
+    clean = lambda x: html.unescape(re.sub(r"<[^>]+>", "", x)).strip()
+    h1 = re.search(r"<h1>(.*?)</h1>", text, re.S)
+    if not h1:
+        return None
+    meta = re.search(r'<p class="meta">(.*?)</p>', text, re.S)
+    crumb = re.search(r'<p class="crumbs">.*?›\s*(.*?)</p>', text, re.S)
+    parts = [clean(x) for x in meta.group(1).split(" · ")] if meta else []
+    return {"t": clean(h1.group(1)), "c": parts[0] if parts else "", "l": parts[1] if len(parts) > 1 else "",
+            "k": clean(crumb.group(1)) if crumb else "Other"}
+
+
+def closed_page(slug, info, live):
+    path = f"/jobs/{slug}/"
+    same = [j for j in live if j["k"] == info["k"]]
+    picks = sorted(same or live, key=lambda j: j["posted"], reverse=True)[:6]
+    cat = next((L for L in LANDINGS if L["kind"] == "category" and L["slug"] in LIVE_LANDINGS
+                and L["match"]({"t": info["t"], "x": "", "k": info["k"], "l": info["l"], "y": ""})), None)
+    lis = "".join(f'<li><a href="/jobs/{j["slug"]}/">{E(j["t"])}</a> · {E(j["c"])} · {E(j["l"])}</li>' for j in picks)
+    body = (f'<p class="crumbs"><a href="/">Jobs</a> › {E(info["k"])}</p><h1>This job has closed</h1>'
+            f'<p class="lead">{E(info["t"])}{" at " + E(info["c"]) if info["c"] else ""} is no longer taking applications, '
+            f'so we have removed the listing.</p>'
+            + (f'<h2>Similar jobs that are open now</h2><ul>{lis}</ul>' if lis else "")
+            + (f'<p><a class="btn" href="/{cat["slug"]}/">See all {E(cat["short"])} jobs</a> ' if cat else '<p>')
+            + '<a class="btn o" href="/#jobs">Browse all jobs</a></p>' + alerts_box())
+    write(path, page(f'Closed: {info["t"]} at {info["c"]} | RemoteKazi', f'This listing has closed. See similar open jobs on RemoteKazi.',
+                     path, body, '<meta name="robots" content="noindex,follow">'))
 
 
 # ---------- town & category landing pages ----------
@@ -739,13 +774,30 @@ def main():
     for j in jobs:
         j["x"] = clean_x(j["x"])
     ordered = sorted(jobs, key=lambda j: (not j.get("f"), -datetime.fromisoformat(j["posted"]).toordinal()))
-    shutil.rmtree("jobs", ignore_errors=True)
     for j in jobs:
         j["slug"] = f"{slugify(j['t'] + '-' + j['c'])}-{j['id'][:6]}"
+    # remember jobs that were on the site last time but are gone now, before their pages are deleted
+    live_slugs = {j["slug"] for j in jobs}
+    try:
+        closed = json.loads(Path(CLOSED_FILE).read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        closed = {}
+    for f in Path("jobs").glob("*/index.html"):
+        slug = f.parent.name
+        if slug not in live_slugs and slug not in closed:
+            info = read_job_html(f.read_text(encoding="utf-8"))
+            if info and not info["t"].startswith("This job has closed"):
+                closed[slug] = {**info, "closed": date.today().isoformat()}
+    closed = {s: v for s, v in sorted(closed.items()) if s not in live_slugs
+              and (date.today() - date.fromisoformat(v["closed"])).days <= CLOSED_KEEP_DAYS}
+    Path(CLOSED_FILE).write_text(json.dumps(closed, ensure_ascii=False, indent=1), encoding="utf-8")
+    shutil.rmtree("jobs", ignore_errors=True)
     matched = landing_jobs(jobs)
     LIVE_LANDINGS.update(L["slug"] for L in LANDINGS if len(matched[L["slug"]]) >= MIN_LANDING_JOBS)
     for j in jobs:
         job_page(j, jobs)
+    for slug, info in closed.items():
+        closed_page(slug, info, jobs)       # noindex, and never in the sitemap
     Path("jobs.json").write_text(json.dumps(jobs, ensure_ascii=False, indent=1), encoding="utf-8")
     shutil.rmtree("guides", ignore_errors=True)
     for old in ("about", "contact", "privacy", "terms"):
@@ -762,6 +814,7 @@ def main():
     old_new = [(f"/{n}.html", f"/{n}/") for n in ("about", "contact", "privacy", "terms")]
     old_new += [(f"/guides/{g}.html", f"/guides/{g}/") for g in GUIDES]
     old_new += [(f"/jobs/{j['slug']}.html", f"/jobs/{j['slug']}/") for j in jobs]
+    old_new += [(f"/jobs/{c}.html", f"/jobs/{c}/") for c in closed]
     old_new += [(f"/blog/{q['slug']}.html", f"/blog/{q['slug']}/") for q in posts]
     old_new += EXTRA_REDIRECTS
     write("/_redirects", "\n".join(f"{a} {b} 301" for a, b in old_new) + "\n")
@@ -821,7 +874,7 @@ def main():
     for tag, content in (("NAV", NAV), ("HEAD", home_head), ("ALERTS", alerts_box()), ("FOOT", footer())):
         idx = patch(idx, tag, content)
     Path("index.html").write_text(idx, encoding="utf-8")
-    print(f"Built {len(jobs)} job pages, {len(urls)} URLs in sitemap")
+    print(f"Built {len(jobs)} job pages, {len(closed)} closed-job pages, {len(urls)} URLs in sitemap")
 
 
 if __name__ == "__main__":
