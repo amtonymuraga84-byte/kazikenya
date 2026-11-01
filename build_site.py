@@ -27,7 +27,7 @@ FEATURED_EMPLOYERS = [
     ("ReliefWeb Jobs", "https://reliefweb.int/jobs", "NGO and humanitarian jobs, filter by Kenya"),
     ("Public Service Commission of Kenya", "https://www.publicservice.go.ke/", "Official notices for government jobs"),
 ]
-MAX_AGE_DAYS = 14   # keep in step with job_aggregator.py
+MAX_AGE_DAYS = 2    # keep in step with job_aggregator.py
 # When a job is taken down, its address keeps a short "this job has closed" page (noindex) for this many days,
 # so links shared on WhatsApp/Telegram and old Google results land on similar live jobs instead of a 404.
 CLOSED_KEEP_DAYS = 90
@@ -497,7 +497,7 @@ def static_pages():
         "<ul><li><b>Sources:</b> we gather vacancies from public job feeds, job boards that allow reuse, and employers who send us their adverts.</li>"
         "<li><b>Screening:</b> software keeps only jobs open to people in Kenya, writes a short plain-language summary, and flags warning "
         "signs such as fees, personal-email-only contact or unrealistic pay. Only low-risk listings are published.</li>"
-        "<li><b>Freshness:</b> listings are refreshed daily and removed at their closing date, or after 14 days if no date is given.</li>"
+        "<li><b>Freshness:</b> listings are refreshed daily and removed at their closing date, or after 2 days if no date is given.</li>"
         "<li><b>Apply at the source:</b> every job links to the original advert, where you apply. We never collect applications or CVs.</li></ul>"
         "<p>Automated summaries can contain mistakes, so always confirm the details on the employer's page.</p>"
         "<h2>Our articles</h2>"
