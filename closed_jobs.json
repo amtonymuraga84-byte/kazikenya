@@ -1,4 +1,18 @@
 {
+ "accountant-kmatt-supermarket-d0533e": {
+  "t": "Accountant",
+  "c": "Kmatt Supermarket",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-01"
+ },
+ "accountant-nutreco-d7d8fd": {
+  "t": "Accountant",
+  "c": "Nutreco",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-01"
+ },
  "accountant-sheria-dt-sacco-cb1844": {
   "t": "Accountant",
   "c": "Sheria DT Sacco",
@@ -111,12 +125,26 @@
   "k": "Other",
   "closed": "2026-10-26"
  },
+ "client-services-call-center-assistant-internship-cytonn-inve-c77ee2": {
+  "t": "Client Services Call Center Assistant Internship",
+  "c": "Cytonn Investments",
+  "l": "Nairobi",
+  "k": "Finance",
+  "closed": "2026-11-01"
+ },
  "clinical-nutritionist-fertility-point-e42e28": {
   "t": "Clinical Nutritionist",
   "c": "Fertility Point",
   "l": "Other Kenya",
   "k": "Health",
   "closed": "2026-10-24"
+ },
+ "collection-officer-tenakata-4ff726": {
+  "t": "Collection Officer",
+  "c": "Tenakata",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-01"
  },
  "community-promoter-hand-in-hand-kenya-dmvpgo": {
   "t": "COMMUNITY PROMOTER",
@@ -138,6 +166,13 @@
   "l": "Other Kenya",
   "k": "Other",
   "closed": "2026-10-24"
+ },
+ "contact-centre-officer-i-m-bank-181c64": {
+  "t": "Contact Centre Officer",
+  "c": "I&M Bank",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-01"
  },
  "contact-centre-officer-prime-bank-kenya-01e534": {
   "t": "Contact Centre Officer",
@@ -174,6 +209,13 @@
   "k": "Sales",
   "closed": "2026-10-19"
  },
+ "customer-operations-officer-insurance-m-kopa-solar-5a4b70": {
+  "t": "Customer Operations Officer – Insurance",
+  "c": "M-KOPA Solar",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-01"
+ },
  "customer-service-officer-peoplelink-consultants-ltd-1cda94": {
   "t": "Customer Service Officer",
   "c": "Peoplelink Consultants Ltd",
@@ -208,6 +250,13 @@
   "l": "Nairobi",
   "k": "Finance",
   "closed": "2026-10-24"
+ },
+ "depot-field-clerk-reeds-africa-consult-717775": {
+  "t": "Depot Field Clerk",
+  "c": "Reeds Africa Consult",
+  "l": "Other Kenya",
+  "k": "Logistics",
+  "closed": "2026-11-01"
  },
  "digital-customer-service-training-job-placement-programme-ge-a8d071": {
   "t": "Digital Customer Service Training & Job Placement Programme",
@@ -272,6 +321,13 @@
   "k": "Finance",
   "closed": "2026-10-26"
  },
+ "household-survey-enumerator-trees-for-the-future-trees-998770": {
+  "t": "Household Survey Enumerator",
+  "c": "Trees for the Future (TREES)",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-01"
+ },
  "hr-intern-british-american-tobacco-bat-78426a": {
   "t": "HR Intern",
   "c": "British American Tobacco (BAT)",
@@ -299,6 +355,13 @@
   "l": "Other Kenya",
   "k": "Tech",
   "closed": "2026-10-24"
+ },
+ "it-support-associate-food-for-education-e11d56": {
+  "t": "IT Support Associate",
+  "c": "Food For Education",
+  "l": "Other Kenya",
+  "k": "Tech",
+  "closed": "2026-11-01"
  },
  "junior-product-designer-savannah-informatics-dmvqys": {
   "t": "Junior Product Designer",
@@ -340,6 +403,20 @@
   "c": "MS ActionAid Denmark",
   "l": "Other Kenya",
   "k": "Tech",
+  "closed": "2026-11-01"
+ },
+ "multiple-positions-at-st-paul-s-hospital-kitengela-st-paul-s-e2ddb1": {
+  "t": "Multiple Positions at St. Paul's Hospital Kitengela",
+  "c": "St. Paul's Hospital Kitengela",
+  "l": "Other Kenya",
+  "k": "Health",
+  "closed": "2026-11-01"
+ },
+ "multiple-positions-at-the-grand-oak-atlas-the-grand-oak-atla-a4d9ca": {
+  "t": "Multiple Positions at The Grand Oak Atlas",
+  "c": "The Grand Oak Atlas",
+  "l": "Nairobi",
+  "k": "Other",
   "closed": "2026-11-01"
  },
  "nairobi-city-county-revenue-authority-vacancies-2026-nairobi-dbb267": {
@@ -475,6 +552,13 @@
   "k": "Tech",
   "closed": "2026-10-27"
  },
+ "shop-attendant-generations-techzone-49643d": {
+  "t": "Shop Attendant",
+  "c": "Generations Techzone",
+  "l": "Other Kenya",
+  "k": "Sales",
+  "closed": "2026-11-01"
+ },
  "social-media-executive-family-media-2723ac": {
   "t": "Social Media Executive",
   "c": "Family Media",
@@ -509,6 +593,13 @@
   "l": "Other Kenya",
   "k": "Sales",
   "closed": "2026-10-24"
+ },
+ "teller-m-oriental-bank-9a0859": {
+  "t": "Teller",
+  "c": "M-Oriental Bank",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-01"
  },
  "virtual-assistant-operations-marketing-coordinator-remote-ra-bc4427": {
   "t": "Virtual Assistant (Operations & Marketing Coordinator)",
