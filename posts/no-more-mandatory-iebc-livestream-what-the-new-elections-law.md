@@ -1,4 +1,5 @@
 ---
+hidden: yes
 title: No More Mandatory IEBC Livestream: What the New Elections Law Means for 2027
 date: 2026-10-25
 updated: 2026-10-27

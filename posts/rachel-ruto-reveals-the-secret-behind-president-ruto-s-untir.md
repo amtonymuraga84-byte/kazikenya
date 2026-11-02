@@ -1,4 +1,5 @@
 ---
+hidden: yes
 title: Rachel Ruto on the President's Stamina, and How to Avoid Burnout in a Demanding Job
 date: 2026-10-22
 updated: 2026-10-27

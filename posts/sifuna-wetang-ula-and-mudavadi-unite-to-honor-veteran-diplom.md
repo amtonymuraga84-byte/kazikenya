@@ -1,4 +1,5 @@
 ---
+hidden: yes
 title: Burudi Nabwera Remembered: Leaders Unite to Honour Kenya's First Ambassador to the US
 date: 2026-10-21
 updated: 2026-10-27

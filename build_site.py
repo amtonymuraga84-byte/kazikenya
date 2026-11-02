@@ -44,6 +44,8 @@ E = lambda s: html.escape(str(s if s is not None else ""), quote=True)
 FAV = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E"
        "%3Ctext y='.9em' font-size='90'%3E💼%3C/text%3E%3C/svg%3E")
 AD = '<div class="ad">Advertisement<br>{}</div>'
+if not SHOW_AD_PLACEHOLDERS:
+    AD = "{:.0}"     # formats to an empty string, so no empty ad boxes are written into the pages
 EMP = {"Full-time": "FULL_TIME", "Part-time": "PART_TIME", "Contract": "CONTRACTOR", "Internship": "INTERN"}
 
 
@@ -639,6 +641,16 @@ def post_desc(meta, body):
     return snip(src)
 
 
+def hidden_post_slugs():
+    """Posts marked "hidden: yes": their old addresses are sent to /blog/ so shared links don't break."""
+    out = []
+    for f in Path("posts").glob("*.md"):
+        m = re.search(r"^hidden:\s*(yes|true|1)\s*$", f.read_text(encoding="utf-8").split("\n---", 1)[0], re.M | re.I)
+        if m:
+            out.append(slugify(f.stem))
+    return out
+
+
 def load_posts():
     posts = []
     for f in sorted(Path("posts").glob("*.md")):
@@ -658,6 +670,8 @@ def load_posts():
         except ValueError:
             when = date.today()
         if when > date.today():                # scheduled posts go live on their date
+            continue
+        if meta.get("hidden", "").lower() in ("yes", "true", "1"):   # "hidden: yes" keeps the file but takes the post off the site
             continue
         title = meta.get("title") or f.stem.replace("-", " ").title()
         words = len(re.findall(r"\w+", body))
@@ -816,6 +830,8 @@ def main():
     old_new += [(f"/jobs/{j['slug']}.html", f"/jobs/{j['slug']}/") for j in jobs]
     old_new += [(f"/jobs/{c}.html", f"/jobs/{c}/") for c in closed]
     old_new += [(f"/blog/{q['slug']}.html", f"/blog/{q['slug']}/") for q in posts]
+    for h in hidden_post_slugs():
+        old_new += [(f"/blog/{h}/", "/blog/"), (f"/blog/{h}.html", "/blog/")]
     old_new += EXTRA_REDIRECTS
     write("/_redirects", "\n".join(f"{a} {b} 301" for a, b in old_new) + "\n")
 

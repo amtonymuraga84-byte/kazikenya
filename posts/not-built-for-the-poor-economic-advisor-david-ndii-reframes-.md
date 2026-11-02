@@ -1,4 +1,5 @@
 ---
+hidden: yes
 title: "Not for the Poor": David Ndii on Affordable Housing, and What the New Prices Mean for Workers
 date: 2026-10-24
 updated: 2026-10-27

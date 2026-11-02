@@ -1,4 +1,5 @@
 ---
+hidden: yes
 title: Karen Nyamu's Police Recruitment Remarks Under Investigation: How to Join the Police the Right Way
 date: 2026-10-25
 updated: 2026-10-27

@@ -1,4 +1,5 @@
 ---
+hidden: yes
 title: Ndindi Nyoro Says the Opposition Should Welcome Anyone, Even Ruto's Son
 date: 2026-10-21
 updated: 2026-10-27
