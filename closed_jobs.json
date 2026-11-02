@@ -118,6 +118,13 @@
   "k": "Logistics",
   "closed": "2026-10-24"
  },
+ "chefs-powerstar-supermarket-dc2743": {
+  "t": "Chefs",
+  "c": "Powerstar Supermarket",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-02"
+ },
  "cleaners-fine-urban-interiors-a44056": {
   "t": "Cleaners",
   "c": "Fine Urban Interiors",
@@ -195,12 +202,26 @@
   "k": "Finance",
   "closed": "2026-10-24"
  },
+ "customer-care-agents-cci-global-61ac48": {
+  "t": "Customer Care Agents",
+  "c": "CCI Global",
+  "l": "Nairobi",
+  "k": "Other",
+  "closed": "2026-11-02"
+ },
  "customer-experience-associate-peach-cars-ke-446ce9": {
   "t": "Customer Experience Associate",
   "c": "Peach Cars KE",
   "l": "Other Kenya",
   "k": "Sales",
   "closed": "2026-10-24"
+ },
+ "customer-experience-executive-liberty-life-assurance-kenya-9af869": {
+  "t": "Customer Experience Executive",
+  "c": "Liberty Life Assurance Kenya",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-02"
  },
  "customer-experience-officer-vision-plus-31f942": {
   "t": "Customer Experience Officer",
@@ -236,6 +257,13 @@
   "l": "Other Kenya",
   "k": "Sales",
   "closed": "2026-10-24"
+ },
+ "customer-service-representative-oasis-outsourcing-284680": {
+  "t": "Customer Service Representative",
+  "c": "Oasis Outsourcing",
+  "l": "Nairobi",
+  "k": "Other",
+  "closed": "2026-11-02"
  },
  "customs-regulatory-affairs-coordinator-m-f-africa-global-log-dmvncv": {
   "t": "Customs & Regulatory Affairs Coordinator M/F",
@@ -300,12 +328,26 @@
   "k": "Logistics",
   "closed": "2026-10-24"
  },
+ "driver-special-service-agreement-world-health-organization-643084": {
+  "t": "Driver – Special Service Agreement",
+  "c": "World Health Organization",
+  "l": "Other Kenya",
+  "k": "Logistics",
+  "closed": "2026-11-02"
+ },
  "executive-assistant-to-the-managing-director-summit-recruitm-d3ef65": {
   "t": "Executive Assistant to the Managing Director",
   "c": "Summit Recruitment and Search Africa",
   "l": "Other Kenya",
   "k": "Other",
   "closed": "2026-10-24"
+ },
+ "finance-assistant-mazido-ca813b": {
+  "t": "Finance Assistant",
+  "c": "MAZIDO",
+  "l": "Voi",
+  "k": "Finance",
+  "closed": "2026-11-02"
  },
  "freelance-copywriter-coalition-technologies-c4fe3c": {
   "t": "Freelance Copywriter",
@@ -363,6 +405,13 @@
   "k": "Tech",
   "closed": "2026-11-01"
  },
+ "job-openings-at-unclaimed-financial-assets-authority-ufaa-un-85df28": {
+  "t": "Job Openings at Unclaimed Financial Assets Authority (UFAA)",
+  "c": "Unclaimed Financial Assets Authority (UFAA)",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-02"
+ },
  "junior-product-designer-savannah-informatics-dmvqys": {
   "t": "Junior Product Designer",
   "c": "Savannah Informatics",
@@ -397,6 +446,13 @@
   "l": "Other Kenya",
   "k": "Other",
   "closed": "2026-10-26"
+ },
+ "mentors-and-mentor-supervisors-299-vacancies-ministry-of-lab-b45cfe": {
+  "t": "Mentors and Mentor Supervisors (299 Vacancies)",
+  "c": "Ministry of Labour and Social Protection",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-02"
  },
  "monitoring-evaluation-and-learning-mel-officer-arch-ms-actio-dmvqyu": {
   "t": "Monitoring, Evaluation and Learning (MEL) Officer – ARCH",
@@ -510,6 +566,13 @@
   "k": "Other",
   "closed": "2026-10-24"
  },
+ "remote-mid-level-customer-support-specialist-bamboo-works-f7a7f9": {
+  "t": "Remote Mid Level Customer Support Specialist",
+  "c": "Bamboo Works",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-11-02"
+ },
  "resident-physician-avenue-healthcare-ccab78": {
   "t": "Resident Physician",
   "c": "Avenue Healthcare",
@@ -587,6 +650,13 @@
   "k": "Sales",
   "closed": "2026-10-19"
  },
+ "technical-support-specialist-freshly-commerce-e86491": {
+  "t": "Technical Support Specialist",
+  "c": "Freshly Commerce",
+  "l": "Remote",
+  "k": "Tech",
+  "closed": "2026-11-02"
+ },
  "telesales-agent-sunculture-kenya-ltd-3a2bf6": {
   "t": "Telesales Agent",
   "c": "SunCulture Kenya Ltd",
@@ -607,6 +677,13 @@
   "l": "Remote",
   "k": "Other",
   "closed": "2026-10-19"
+ },
+ "virtual-assistant-pavago-82f148": {
+  "t": "Virtual Assistant",
+  "c": "Pavago",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-11-02"
  },
  "waiters-stewards-and-housekeeping-staff-maison-du-caf-61397f": {
   "t": "Waiters, Stewards and Housekeeping Staff",
