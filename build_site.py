@@ -415,7 +415,7 @@ GUIDES = {
         "<li>No spelling errors; ask someone to proofread</li><li>Save as PDF unless the employer asks for Word</li>"
         "<li>Name the file clearly, for example <i>Jane-Wanjiku-CV.pdf</i></li></ul>"),
     "spot-fake-jobs-kenya": ("How to Spot a Fake Job Advert in Kenya",
-        "Warning signs of job scams in Kenya and what to do if you suspect one.",
+        "The most common job scams in Kenya, the red flags to watch for, how to check an employer and what to do if you have been scammed.",
         "<p>Job scams target people who are searching hard for work. Knowing the warning signs protects your money and your personal data.</p>"
         "<h2>Red flags</h2><ul><li><b>You are asked to pay.</b> Real employers do not charge for interviews, uniforms, training or “processing”.</li>"
         "<li><b>Contact is only by personal email or WhatsApp</b> with no company website or office address.</li>"
@@ -440,7 +440,7 @@ GUIDES = {
         "<h2>Answer with a story</h2><p>For behavioural questions, describe the situation, what you did, and the result. "
         "Finish by asking one or two thoughtful questions about the role.</p>"),
     "remote-work-from-kenya": ("Remote Work From Kenya: How to Start and Get Paid",
-        "A beginner’s guide to finding remote work from Kenya, building trust with employers and receiving payments.",
+        "How to find genuine remote work from Kenya: beginner-friendly roles, setup, avoiding scams, getting paid and handling tax.",
         "<p>Remote work lets you earn from employers anywhere, but it rewards preparation. These steps work for most people starting out.</p>"
         "<h2>Check that you are eligible</h2><p>Read each advert for location rules. Some remote roles are open worldwide, some only to specific countries or time zones. "
         "Apply only where Kenya or Africa is allowed, and make sure you can work the hours required.</p>"
@@ -451,7 +451,7 @@ GUIDES = {
         "<h2>Plan how you will be paid</h2><p>Ask the employer how they pay: bank transfer, a payment platform or mobile money. Compare the fees and exchange rates of "
         "each option before you agree, and keep records for tax purposes. Never pay to receive work or “unlock” earnings.</p>"),
     "cover-letter-tips-kenya": ("How to Write a Cover Letter That Gets Read",
-        "A simple structure for a short, convincing cover letter for jobs in Kenya and remote roles.",
+        "A simple structure, a full example and common mistakes for a short, convincing cover letter for jobs in Kenya.",
         "<p>A good cover letter is short, specific and addressed to the person hiring. Aim for one page, or about 250 to 350 words.</p>"
         "<h2>Use a simple structure</h2><ol><li><b>Opening:</b> name the job, and say in one sentence why you are a strong fit.</li>"
         "<li><b>Middle:</b> give two or three examples of results that match the advert, with numbers where you can.</li>"
@@ -459,8 +459,8 @@ GUIDES = {
         "<h2>Make it specific</h2><p>Mention the employer by name and say what attracts you to the role. Copying a template word for word is easy to spot.</p>"
         "<h2>Avoid common mistakes</h2><ul><li>Repeating your CV line by line</li><li>Spelling errors or the wrong company name</li>"
         "<li>Over-long paragraphs and vague claims such as “hardworking team player”</li></ul>"),
-    "negotiate-salary-kenya": ("Salary Negotiation Basics for Job Seekers",
-        "How to research pay, handle the salary question and negotiate an offer calmly.",
+    "negotiate-salary-kenya": ("How to Negotiate Your Salary in Kenya",
+        "How to research pay, understand gross and net salary, answer the salary question and negotiate a job offer in Kenya.",
         "<p>Many people accept the first offer because negotiating feels uncomfortable. A calm, prepared conversation can make a real difference.</p>"
         "<h2>Do your research first</h2><p>Look at pay for similar roles in your county and industry, using job adverts, salary surveys and people you trust. "
         "Decide the lowest offer you would accept and the figure you would be happy with.</p>"
@@ -472,7 +472,8 @@ GUIDES = {
 }
 
 
-GUIDE_UPDATED = {"cv-tips-kenya": "2026-11-03", "interview-tips-kenya": "2026-11-03"}   # date each full-length guide was last edited
+GUIDE_UPDATED = {s: "2026-11-03" for s in ("cv-tips-kenya", "interview-tips-kenya", "spot-fake-jobs-kenya",
+                                          "remote-work-from-kenya", "cover-letter-tips-kenya", "negotiate-salary-kenya")}   # date each full-length guide was last edited
 
 
 def static_pages():
