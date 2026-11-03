@@ -35,7 +35,7 @@ aside .box{background:var(--card);border:1px solid var(--bd);border-radius:12px;
 aside h4{margin:0 0 8px}
 section.s{padding:28px 0;border-top:1px solid var(--bd)}
 h2{margin:0 0 10px}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px}
 form.p{display:grid;gap:8px;max-width:520px}
 .price{font-size:22px;font-weight:800}

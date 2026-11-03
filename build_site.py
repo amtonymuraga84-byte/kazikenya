@@ -884,12 +884,7 @@ def main():
     idx = patch(idx, "FEATURED", featured_html())
     idx = patch(idx, "BROWSE", browse_html(live, matched))
     idx = patch(idx, "CLOSING", closing_html(jobs))
-    if posts:
-        idx = patch(idx, "BLOG", "".join(post_card(p) for p in posts[:6]))
-    else:   # no blog posts yet: show the guides instead
-        idx = patch(idx, "BLOG", "".join(
-            f'<a class="card post" href="/guides/{s}/"><span class="tag">Guide</span><b>{E(t)}</b><p class="meta">{E(d)}</p></a>'
-            for s, (t, d, _) in list(GUIDES.items())[:6]))
+    # blog posts are shown on /blog/ only, not on the jobs homepage
     site_ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "WebSite", "@id": SITE_URL + "/#website", "url": SITE_URL + "/", "name": "RemoteKazi",
          "description": "Jobs in Kenya and remote jobs open to Kenyans", "inLanguage": "en-KE"},
