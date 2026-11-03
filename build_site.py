@@ -39,7 +39,7 @@ EXTRA_REDIRECTS = [
 ]
 # ======================
 
-PAGES_UPDATED = "2026-10-26"   # change when you edit the guides or about/contact/privacy/terms text
+PAGES_UPDATED = "2026-11-03"   # change when you edit the guides or about/contact/privacy/terms text
 E = lambda s: html.escape(str(s if s is not None else ""), quote=True)
 FAV = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E"
        "%3Ctext y='.9em' font-size='90'%3E💼%3C/text%3E%3C/svg%3E")
@@ -402,7 +402,7 @@ def clean_x(x):
 # ---------- guides & legal ----------
 GUIDES = {
     "cv-tips-kenya": ("How to Write a CV That Gets Shortlisted in Kenya",
-        "Practical CV tips for Kenyan job seekers: structure, keywords, length and common mistakes.",
+        "How to write a CV that gets shortlisted in Kenya: structure, length, results, keywords, what to leave out and a final checklist.",
         "<p>Recruiters in Kenya often review dozens of CVs for a single role, and many companies now filter them with "
         "applicant tracking software first. A clear, honest CV gives you the best chance of being read.</p>"
         "<h2>Keep it to two pages</h2><p>Lead with a three-line professional summary, then your most recent role. "
@@ -426,8 +426,8 @@ GUIDES = {
         "vacancy on the employer’s own careers page. Call the office using a number you found yourself.</p>"
         "<h2>If you suspect a scam</h2><p>Stop contact and do not send money. Report it to the platform that showed the advert, "
         "and to the police or the Communications Authority if you lost money. You can also report any listing on RemoteKazi using the link on its page.</p>"),
-    "interview-tips-kenya": ("Interview Preparation: 10 Questions to Practise",
-        "A simple preparation routine and common interview questions for job seekers in Kenya.",
+    "interview-tips-kenya": ("Job Interview Tips for Kenya: 10 Common Questions and How to Answer Them",
+        "How to prepare for panel, online and government job interviews in Kenya, with example answers to 10 common questions.",
         "<p>Good preparation matters more than natural confidence. Spend an hour on the steps below before any interview.</p>"
         "<h2>Before the day</h2><ul><li>Read the vacancy and list how your experience matches each requirement</li>"
         "<li>Learn what the organisation does, its products or programmes, and recent news</li>"
@@ -472,10 +472,19 @@ GUIDES = {
 }
 
 
+GUIDE_UPDATED = {"cv-tips-kenya": "2026-11-03", "interview-tips-kenya": "2026-11-03"}   # date each full-length guide was last edited
+
+
 def static_pages():
     for slug, (t, d, b) in GUIDES.items():
+        src = Path(f"guides_src/{slug}.html")       # a full-length guide in guides_src/ replaces the short text above
+        byline = ""
+        if src.exists():
+            b = src.read_text(encoding="utf-8")
+            byline = (f"<p class='byline meta'>By RemoteKazi Team · Updated "
+                      f"{date.fromisoformat(GUIDE_UPDATED.get(slug, PAGES_UPDATED)).strftime('%-d %b %Y')}</p>")
         write(f"/guides/{slug}/", page(f"{t} | RemoteKazi", d, f"/guides/{slug}/",
-                                           f"<h1>{E(t)}</h1>{b}{AD.format('In-content ad')}<p><a href='/guides/'>← All guides</a></p>"))
+                                           f"<h1>{E(t)}</h1>{byline}{b}{AD.format('In-content ad')}<p><a href='/guides/'>← All guides</a></p>"))
     items = "".join(f'<li><a href="/guides/{s}/"><b>{E(t)}</b></a><br><span class="meta">{E(d)}</span></li>'
                     for s, (t, d, _) in GUIDES.items())
     write("/guides/index.html", page("Career Guides | RemoteKazi", "CV, interview and job-scam guides for Kenyan job seekers.",
@@ -850,7 +859,7 @@ def main():
           + "".join(f"<url><loc>{SITE_URL}{u}</loc><lastmod>{d}</lastmod></url>" for u, d in sm) + "</urlset>")
     if ADSENSE_CLIENT:
         write("/ads.txt", f"google.com, {ADSENSE_CLIENT.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n")
-    write("/robots.txt", f"User-agent: *\nAllow: /\nDisallow: /whatsapp-post.txt\nDisallow: /social-posts.txt\nDisallow: /publish.html\nSitemap: {SITE_URL}/sitemap.xml\n")
+    write("/robots.txt", f"User-agent: *\nAllow: /\nDisallow: /whatsapp-post.txt\nDisallow: /social-posts.txt\nDisallow: /publish.html\nDisallow: /guides_src/\nSitemap: {SITE_URL}/sitemap.xml\n")
     ji = "".join(f'<item><title>{E(j["t"])} - {E(j["c"])} ({E(j["l"])})</title><link>{SITE_URL}/jobs/{j["slug"]}/</link>'
                  f'<guid>{SITE_URL}/jobs/{j["slug"]}/</guid><pubDate>{datetime.fromisoformat(j["posted"]).strftime("%a, %d %b %Y 00:00:00 +0300")}</pubDate>'
                  f'<description>{E(j["x"][:300])}</description></item>' for j in ordered[:50])

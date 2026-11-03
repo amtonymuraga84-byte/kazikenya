@@ -3,4 +3,5 @@ Allow: /
 Disallow: /whatsapp-post.txt
 Disallow: /social-posts.txt
 Disallow: /publish.html
+Disallow: /guides_src/
 Sitemap: https://remotekazi.com/sitemap.xml
