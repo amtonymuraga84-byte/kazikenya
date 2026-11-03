@@ -62,6 +62,13 @@
   "k": "Finance",
   "closed": "2026-10-24"
  },
+ "cabin-crew-emirates-4d7869": {
+  "t": "Cabin Crew",
+  "c": "Emirates",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-03"
+ },
  "call-center-agent-4g-capital-ae7f45": {
   "t": "Call Center Agent",
   "c": "4G Capital",
@@ -279,6 +286,13 @@
   "k": "Finance",
   "closed": "2026-10-24"
  },
+ "debt-collection-agent-finley-international-limited-e02945": {
+  "t": "Debt Collection Agent",
+  "c": "Finley International Limited",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-03"
+ },
  "depot-field-clerk-reeds-africa-consult-717775": {
   "t": "Depot Field Clerk",
   "c": "Reeds Africa Consult",
@@ -321,6 +335,13 @@
   "k": "Logistics",
   "closed": "2026-10-19"
  },
+ "documentation-clerk-kenya-airfreight-handling-limited-kahl-4d0343": {
+  "t": "Documentation Clerk",
+  "c": "Kenya Airfreight Handling Limited (KAHL)",
+  "l": "Other Kenya",
+  "k": "Logistics",
+  "closed": "2026-11-03"
+ },
  "driver-mechanic-the-maa-trust-b98a8e": {
   "t": "Driver/Mechanic",
   "c": "The Maa Trust",
@@ -334,6 +355,13 @@
   "l": "Other Kenya",
   "k": "Logistics",
   "closed": "2026-11-02"
+ },
+ "executive-assistant-to-the-chief-people-officer-save-the-chi-0b890b": {
+  "t": "Executive Assistant to the Chief People Officer",
+  "c": "Save the Children",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-03"
  },
  "executive-assistant-to-the-managing-director-summit-recruitm-d3ef65": {
   "t": "Executive Assistant to the Managing Director",
@@ -362,6 +390,13 @@
   "l": "Other Kenya",
   "k": "Finance",
   "closed": "2026-10-26"
+ },
+ "head-of-engineering-lemon-io-e25e74": {
+  "t": "Head of Engineering",
+  "c": "Lemon.io",
+  "l": "Remote",
+  "k": "Tech",
+  "closed": "2026-11-03"
  },
  "household-survey-enumerator-trees-for-the-future-trees-998770": {
   "t": "Household Survey Enumerator",
@@ -398,6 +433,13 @@
   "k": "Tech",
   "closed": "2026-10-24"
  },
+ "it-specialist-eidu-1dc21c": {
+  "t": "IT Specialist",
+  "c": "EIDU",
+  "l": "Other Kenya",
+  "k": "Tech",
+  "closed": "2026-11-03"
+ },
  "it-support-associate-food-for-education-e11d56": {
   "t": "IT Support Associate",
   "c": "Food For Education",
@@ -411,6 +453,13 @@
   "l": "Other Kenya",
   "k": "Finance",
   "closed": "2026-11-02"
+ },
+ "jobs-at-platinum-outsourcing-and-logistics-platinum-outsourc-821f1e": {
+  "t": "Jobs at Platinum Outsourcing and Logistics",
+  "c": "Platinum Outsourcing & Logistics (E.A) Ltd",
+  "l": "Other Kenya",
+  "k": "Logistics",
+  "closed": "2026-11-03"
  },
  "junior-product-designer-savannah-informatics-dmvqys": {
   "t": "Junior Product Designer",
@@ -495,6 +544,13 @@
   "l": "Other Kenya",
   "k": "Other",
   "closed": "2026-10-24"
+ },
+ "p1-teachers-appleton-schools-08d89f": {
+  "t": "P1 Teachers",
+  "c": "Appleton Schools",
+  "l": "Other Kenya",
+  "k": "Education",
+  "closed": "2026-11-03"
  },
  "part-time-chefs-senjes-cuisines-076bd3": {
   "t": "Part-Time Chefs",
