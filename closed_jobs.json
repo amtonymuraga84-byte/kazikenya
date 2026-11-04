@@ -244,6 +244,13 @@
   "k": "Finance",
   "closed": "2026-11-01"
  },
+ "customer-service-executive-autoxpress-limited-d626ca": {
+  "t": "Customer Service Executive",
+  "c": "AutoXpress Limited",
+  "l": "Other Kenya",
+  "k": "Sales",
+  "closed": "2026-11-04"
+ },
  "customer-service-officer-peoplelink-consultants-ltd-1cda94": {
   "t": "Customer Service Officer",
   "c": "Peoplelink Consultants Ltd",
@@ -356,6 +363,13 @@
   "k": "Logistics",
   "closed": "2026-11-02"
  },
+ "entry-level-image-and-video-annotator-initlabel-849a49": {
+  "t": "Entry Level Image and Video Annotator",
+  "c": "InitLabel",
+  "l": "Nairobi",
+  "k": "Tech",
+  "closed": "2026-11-04"
+ },
  "executive-assistant-to-the-chief-people-officer-save-the-chi-0b890b": {
   "t": "Executive Assistant to the Chief People Officer",
   "c": "Save the Children",
@@ -376,6 +390,13 @@
   "l": "Voi",
   "k": "Finance",
   "closed": "2026-11-02"
+ },
+ "financial-intelligence-officer-ii-multiple-roles-financial-r-bbebf6": {
+  "t": "Financial Intelligence Officer II (Multiple Roles)",
+  "c": "Financial Reporting Centre (FRC)",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-04"
  },
  "freelance-copywriter-coalition-technologies-c4fe3c": {
   "t": "Freelance Copywriter",
@@ -496,6 +517,13 @@
   "k": "Other",
   "closed": "2026-10-26"
  },
+ "medical-laboratory-technician-wama-hospital-9a1863": {
+  "t": "Medical Laboratory Technician",
+  "c": "Wama Hospital",
+  "l": "Other Kenya",
+  "k": "Health",
+  "closed": "2026-11-04"
+ },
  "mentors-and-mentor-supervisors-299-vacancies-ministry-of-lab-b45cfe": {
   "t": "Mentors and Mentor Supervisors (299 Vacancies)",
   "c": "Ministry of Labour and Social Protection",
@@ -544,6 +572,13 @@
   "l": "Other Kenya",
   "k": "Other",
   "closed": "2026-10-24"
+ },
+ "officer-it-platform-support-operations-ncba-group-18485f": {
+  "t": "Officer, IT Platform Support Operations",
+  "c": "NCBA Group",
+  "l": "Other Kenya",
+  "k": "Tech",
+  "closed": "2026-11-04"
  },
  "p1-teachers-appleton-schools-08d89f": {
   "t": "P1 Teachers",
@@ -594,6 +629,13 @@
   "k": "Health",
   "closed": "2026-10-24"
  },
+ "receptionist-mogo-finance-5a0ceb": {
+  "t": "Receptionist",
+  "c": "Mogo Finance",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-04"
+ },
  "receptionist-tricom-technologies-951929": {
   "t": "Receptionist",
   "c": "Tricom Technologies",
@@ -614,6 +656,13 @@
   "l": "Remote",
   "k": "Other",
   "closed": "2026-10-26"
+ },
+ "remote-entry-level-executive-assistant-explera-dmc-2c944b": {
+  "t": "Remote Entry Level Executive Assistant",
+  "c": "Explera DMC",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-11-04"
  },
  "remote-guest-services-executive-styeverz-ltd-ce3f2f": {
   "t": "Remote Guest Services Executive",
@@ -684,6 +733,13 @@
   "l": "Other Kenya",
   "k": "Other",
   "closed": "2026-10-24"
+ },
+ "spa-cleaning-attendant-marriott-international-dfaae3": {
+  "t": "Spa Cleaning Attendant",
+  "c": "Marriott International",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-04"
  },
  "station-manager-luqman-petroleum-612a9c": {
   "t": "Station Manager",
