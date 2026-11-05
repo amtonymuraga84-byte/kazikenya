@@ -13,6 +13,13 @@
   "k": "Finance",
   "closed": "2026-11-01"
  },
+ "accountant-petroleum-retail-wts-energy-6adb12": {
+  "t": "Accountant (Petroleum Retail)",
+  "c": "WTS Energy",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-05"
+ },
  "accountant-sheria-dt-sacco-cb1844": {
   "t": "Accountant",
   "c": "Sheria DT Sacco",
@@ -26,6 +33,13 @@
   "l": "Other Kenya",
   "k": "Other",
   "closed": "2026-10-24"
+ },
+ "administrative-assistant-directorate-of-teaching-practice-in-3ecc58": {
+  "t": "Administrative Assistant – Directorate of Teaching Practice & Industrial Attachment",
+  "c": "KCA University (KCAU)",
+  "l": "Nairobi",
+  "k": "Education",
+  "closed": "2026-11-05"
  },
  "administrative-assistant-receptionist-summit-recruitment-and-7d99f0": {
   "t": "Administrative Assistant / Receptionist",
@@ -363,6 +377,13 @@
   "k": "Logistics",
   "closed": "2026-11-02"
  },
+ "drivers-jimcab-services-ltd-0d04ac": {
+  "t": "Drivers",
+  "c": "JimCab Services Ltd",
+  "l": "Other Kenya",
+  "k": "Logistics",
+  "closed": "2026-11-05"
+ },
  "entry-level-image-and-video-annotator-initlabel-849a49": {
   "t": "Entry Level Image and Video Annotator",
   "c": "InitLabel",
@@ -390,6 +411,13 @@
   "l": "Voi",
   "k": "Finance",
   "closed": "2026-11-02"
+ },
+ "finance-associate-zanaafrica-foundation-76d302": {
+  "t": "Finance Associate",
+  "c": "ZanaAfrica Foundation",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-05"
  },
  "financial-intelligence-officer-ii-multiple-roles-financial-r-bbebf6": {
   "t": "Financial Intelligence Officer II (Multiple Roles)",
@@ -432,6 +460,13 @@
   "l": "Other Kenya",
   "k": "Other",
   "closed": "2026-10-24"
+ },
+ "human-resource-assistant-hi-home-67d847": {
+  "t": "Human Resource Assistant",
+  "c": "HI Home",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-05"
  },
  "ict-intern-micro-enterprises-support-programme-trust-mespt-5fbd9d": {
   "t": "ICT Intern",
@@ -482,12 +517,26 @@
   "k": "Logistics",
   "closed": "2026-11-03"
  },
+ "junior-digital-marketer-oracom-group-c32c59": {
+  "t": "Junior Digital Marketer",
+  "c": "Oracom Group",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-05"
+ },
  "junior-product-designer-savannah-informatics-dmvqys": {
   "t": "Junior Product Designer",
   "c": "Savannah Informatics",
   "l": "Nairobi",
   "k": "Tech",
   "closed": "2026-11-01"
+ },
+ "la-riba-universal-banker-coast-absa-bank-limited-fe6cfa": {
+  "t": "La Riba Universal Banker – Coast",
+  "c": "Absa Bank Limited",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-05"
  },
  "laundry-supervisor-m-venpick-hotel-residences-f6e540": {
   "t": "Laundry Supervisor",
@@ -580,6 +629,20 @@
   "k": "Tech",
   "closed": "2026-11-04"
  },
+ "online-english-teacher-native-camp-d6365a": {
+  "t": "Online English Teacher",
+  "c": "Native Camp",
+  "l": "Remote",
+  "k": "Education",
+  "closed": "2026-11-05"
+ },
+ "operations-and-human-resource-manager-minority-africa-a972ab": {
+  "t": "Operations and Human Resource Manager",
+  "c": "Minority Africa",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-11-05"
+ },
  "p1-teachers-appleton-schools-08d89f": {
   "t": "P1 Teachers",
   "c": "Appleton Schools",
@@ -615,6 +678,13 @@
   "k": "Other",
   "closed": "2026-10-24"
  },
+ "project-manager-craft-silicon-3404d5": {
+  "t": "Project Manager",
+  "c": "Craft Silicon",
+  "l": "Other Kenya",
+  "k": "Tech",
+  "closed": "2026-11-05"
+ },
  "quality-assurance-officer-2-positions-biodeal-laboratories-l-f01689": {
   "t": "Quality Assurance Officer (2 Positions)",
   "c": "Biodeal Laboratories Limited",
@@ -622,12 +692,26 @@
   "k": "Health",
   "closed": "2026-10-19"
  },
+ "receiving-and-quality-control-officer-bollard-consulting-lim-93ded4": {
+  "t": "Receiving and Quality Control Officer",
+  "c": "Bollard Consulting Limited",
+  "l": "Other Kenya",
+  "k": "Logistics",
+  "closed": "2026-11-05"
+ },
  "receptionist-cancer-centre-aga-khan-university-hospital-7ae0b6": {
   "t": "Receptionist, Cancer Centre",
   "c": "Aga Khan University Hospital",
   "l": "Nairobi",
   "k": "Health",
   "closed": "2026-10-24"
+ },
+ "receptionist-machakos-imaging-centre-a1dd4b": {
+  "t": "Receptionist",
+  "c": "Machakos Imaging Centre",
+  "l": "Machakos",
+  "k": "Health",
+  "closed": "2026-11-05"
  },
  "receptionist-mogo-finance-5a0ceb": {
   "t": "Receptionist",
@@ -649,6 +733,13 @@
   "l": "Remote",
   "k": "Finance",
   "closed": "2026-10-19"
+ },
+ "remote-customer-support-agent-quickmail-52e773": {
+  "t": "Remote Customer Support Agent",
+  "c": "QuickMail",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-11-05"
  },
  "remote-customer-support-representative-iclosed-7e178b": {
   "t": "Remote Customer Support Representative",
@@ -677,6 +768,13 @@
   "l": "Remote",
   "k": "Other",
   "closed": "2026-11-02"
+ },
+ "remote-photographer-micro1-f4a879": {
+  "t": "Remote Photographer",
+  "c": "micro1",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-11-05"
  },
  "resident-physician-avenue-healthcare-ccab78": {
   "t": "Resident Physician",
@@ -712,6 +810,13 @@
   "l": "Remote",
   "k": "Tech",
   "closed": "2026-10-24"
+ },
+ "senior-shopify-developer-storetasker-dcf49a": {
+  "t": "Senior Shopify Developer",
+  "c": "Storetasker",
+  "l": "Remote",
+  "k": "Tech",
+  "closed": "2026-11-05"
  },
  "service-engineer-earth-moving-awp-aerial-work-platform-machi-dmvnna": {
   "t": "Service Engineer Earth Moving /AWP (Aerial Work Platform Machinery)",
@@ -817,5 +922,12 @@
   "l": "Nairobi",
   "k": "Tech",
   "closed": "2026-10-26"
+ },
+ "zeytoon-lounge-jobs-supervisors-and-stewards-zeytoon-lounge-3d49c6": {
+  "t": "Zeytoon Lounge Jobs – Supervisors and Stewards",
+  "c": "Zeytoon Lounge",
+  "l": "Nairobi",
+  "k": "Other",
+  "closed": "2026-11-05"
  }
 }
