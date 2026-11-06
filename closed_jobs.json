@@ -1,4 +1,11 @@
 {
+ "accountant-corporate-staffing-services-c0727a": {
+  "t": "Accountant",
+  "c": "Corporate Staffing Services",
+  "l": "Nairobi",
+  "k": "Finance",
+  "closed": "2026-11-06"
+ },
  "accountant-kmatt-supermarket-d0533e": {
   "t": "Accountant",
   "c": "Kmatt Supermarket",
@@ -286,12 +293,26 @@
   "k": "Sales",
   "closed": "2026-10-24"
  },
+ "customer-service-representative-cigna-healthcare-cigna-b49fd4": {
+  "t": "Customer Service Representative - Cigna Healthcare",
+  "c": "Cigna",
+  "l": "Other Kenya",
+  "k": "Health",
+  "closed": "2026-11-06"
+ },
  "customer-service-representative-oasis-outsourcing-284680": {
   "t": "Customer Service Representative",
   "c": "Oasis Outsourcing",
   "l": "Nairobi",
   "k": "Other",
   "closed": "2026-11-02"
+ },
+ "customer-service-representative-q-sourcing-servtec-group-57d1f8": {
+  "t": "Customer Service Representative",
+  "c": "Q-Sourcing Servtec Group",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-06"
  },
  "customs-regulatory-affairs-coordinator-m-f-africa-global-log-dmvncv": {
   "t": "Customs & Regulatory Affairs Coordinator M/F",
@@ -475,6 +496,13 @@
   "k": "Tech",
   "closed": "2026-10-19"
  },
+ "ict-officer-network-administration-postbank-54c7b2": {
+  "t": "ICT Officer, Network Administration",
+  "c": "Postbank",
+  "l": "Other Kenya",
+  "k": "Tech",
+  "closed": "2026-11-06"
+ },
  "ipoa-jobs-2026-multiple-positions-independent-policing-overs-6b820b": {
   "t": "IPOA Jobs 2026 – Multiple Positions",
   "c": "Independent Policing Oversight Authority (IPOA)",
@@ -503,6 +531,13 @@
   "k": "Tech",
   "closed": "2026-11-01"
  },
+ "job-openings-at-afia-concept-claims-settling-agency-acs-afia-45d9bf": {
+  "t": "Job Openings at Afia Concept Claims Settling Agency (ACS)",
+  "c": "Afia Concept Claims Settling Agency (ACS)",
+  "l": "Nairobi",
+  "k": "Health",
+  "closed": "2026-11-06"
+ },
  "job-openings-at-unclaimed-financial-assets-authority-ufaa-un-85df28": {
   "t": "Job Openings at Unclaimed Financial Assets Authority (UFAA)",
   "c": "Unclaimed Financial Assets Authority (UFAA)",
@@ -530,6 +565,13 @@
   "l": "Nairobi",
   "k": "Tech",
   "closed": "2026-11-01"
+ },
+ "junior-store-clerk-jacaranda-nairobi-hotel-c1a5ce": {
+  "t": "Junior Store Clerk",
+  "c": "Jacaranda Nairobi Hotel",
+  "l": "Nairobi",
+  "k": "Logistics",
+  "closed": "2026-11-06"
  },
  "la-riba-universal-banker-coast-absa-bank-limited-fe6cfa": {
   "t": "La Riba Universal Banker – Coast",
@@ -670,6 +712,13 @@
   "l": "Other Kenya",
   "k": "Education",
   "closed": "2026-10-24"
+ },
+ "procurement-officer-ramco-group-f5f709": {
+  "t": "Procurement Officer",
+  "c": "Ramco Group",
+  "l": "Other Kenya",
+  "k": "Logistics",
+  "closed": "2026-11-06"
  },
  "project-lead-functional-excellence-care-63818e": {
   "t": "Project Lead – Functional Excellence",
