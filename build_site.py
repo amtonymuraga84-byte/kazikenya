@@ -95,7 +95,8 @@ def alerts_box():
     return f'<div class="alerts"><span><b>🔔 Get new jobs on your phone</b><br><span class="meta">Free daily job alerts</span></span><span class="row">{btns}</span></div>'
 
 
-FOOTER_BROWSE = [("jobs-in-nairobi", "Jobs in Nairobi"), ("remote-jobs-kenya", "Remote jobs"),
+FOOTER_BROWSE = [("jobs-in-nairobi", "Jobs in Nairobi"), ("government-jobs-kenya", "Government jobs"),
+                 ("ngo-jobs-kenya", "NGO jobs"), ("entry-level-jobs-kenya", "Entry-level jobs"), ("remote-jobs-kenya", "Remote jobs"),
                  ("internships-kenya", "Internships"), ("tech-jobs-kenya", "Tech jobs"), ("finance-accounting-jobs-kenya", "Finance jobs")]
 
 
@@ -240,6 +241,19 @@ MIN_LANDING_JOBS = 3
 LIVE_LANDINGS = set()   # filled in main(); pages with enough jobs to show to Google
 
 
+_GOV = re.compile(r"county government|government of|\bministry\b|state department|commission\b|\bauthority\b|"
+                     r"\bKEMRI\b|kenya medical research|kenya wildlife|kenya power|kengen|kenya ports|kenya revenue|"
+                     r"kenya forest|kenya railways|kenya pipeline|kenya airports|national police|teachers service|"
+                     r"public service|central bank of kenya|kenyatta national hospital|moi teaching|university of nairobi|"
+                     r"kenyatta university|moi university|\bJKUAT\b|egerton university|maseno university|technical university", re.I)
+_NGO = re.compile(r"\bUN\b|united nations|\bUN[A-Z]{2,}\b|\bWFP\b|\bWHO\b|\bIOM\b|red cross|world vision|\bILRI\b|"
+                     r"\bICRAF\b|action against hunger|givedirectly|village enterprise|jhpiego|amref|save the children|oxfam|"
+                     r"mercy corps|plan international|\bIRC\b|rescue committee|care international|catholic relief|\bFHI\b|"
+                     r"aga khan foundation|\bMSF\b|medecins|médecins|norwegian refugee|danish refugee|windle|"
+                     r"\bNGO\b|foundation\b|\btrust\b", re.I)
+_ENTRY = re.compile(r"\bintern(ship)?s?\b|\battach|graduate|trainee|entry[- ]level|\bjunior\b|no experience|fresh", re.I)
+
+
 def _town(name):
     rx = re.compile(rf"\b{name}\b", re.I)
     return lambda j: j["l"] == name or bool(rx.search(j["t"] + " " + j["x"]))
@@ -287,6 +301,30 @@ LANDINGS = [
               "<p><b>Tips:</b> apply early, because popular programmes fill quickly. Check whether the internship is paid "
               "and how long it lasts. A short, specific cover letter helps a lot. See our "
               "<a href='/guides/cover-letter-tips-kenya/'>cover letter guide</a>.</p>"},
+    {"slug": "government-jobs-kenya", "name": "Government and County Jobs in Kenya", "short": "Government", "kind": "type",
+     "match": lambda j: bool(_GOV.search(j["c"])),
+     "intro": "<p>These vacancies are with national government ministries, county governments, state corporations, public "
+              "universities and other public bodies in Kenya. Public sector jobs offer job security, pension benefits and clear "
+              "salary scales, so competition is high.</p>"
+              "<p><b>Tips:</b> read the full advert on the hiring body's website, quote the job reference number, apply before "
+              "the deadline and start your Chapter Six clearances early. Our guide on "
+              "<a href='/guides/how-to-apply-government-jobs-kenya/'>how to apply for government jobs</a> explains every step. "
+              "Government recruitment is always free.</p>"},
+    {"slug": "ngo-jobs-kenya", "name": "NGO and UN Jobs in Kenya", "short": "NGO and UN", "kind": "type",
+     "match": lambda j: bool(_NGO.search(j["c"])),
+     "intro": "<p>Nairobi hosts UN agencies, international NGOs, research institutes and foundations working across East "
+              "Africa, and many local NGOs work in every county. These jobs cover programmes, finance, monitoring and "
+              "evaluation, health, logistics and support roles.</p>"
+              "<p><b>Tips:</b> match your application closely to the advert, complete every section of online forms, and prepare "
+              "real examples for competency-based interviews. Read our guide to "
+              "<a href='/guides/ngo-un-jobs-kenya/'>getting NGO and UN jobs in Kenya</a>. Genuine NGOs never charge fees.</p>"},
+    {"slug": "entry-level-jobs-kenya", "name": "Entry-Level and Graduate Jobs in Kenya", "short": "Entry level", "kind": "type",
+     "match": lambda j: j["y"] == "Internship" or bool(_ENTRY.search(j["t"])),
+     "intro": "<p>These openings suit recent graduates and people early in their careers: graduate trainee programmes, "
+              "internships, and junior and assistant roles where employers expect to train you.</p>"
+              "<p><b>Tips:</b> count your attachment, part-time work, volunteering and projects as experience, and tailor each "
+              "application. Our guide on <a href='/guides/first-job-no-experience-kenya/'>getting your first job with no "
+              "experience</a> shows how.</p>"},
     {"slug": "tech-jobs-kenya", "name": "Tech and IT Jobs in Kenya", "short": "Tech", "kind": "category",
      "match": lambda j: j["k"] == "Tech",
      "intro": "<p>Kenya has one of Africa's most active technology sectors, with jobs in software development, IT support, "
@@ -450,7 +488,7 @@ GUIDES = {
         "video introduction. Start with smaller contracts to collect reviews.</p>"
         "<h2>Plan how you will be paid</h2><p>Ask the employer how they pay: bank transfer, a payment platform or mobile money. Compare the fees and exchange rates of "
         "each option before you agree, and keep records for tax purposes. Never pay to receive work or “unlock” earnings.</p>"),
-    "cover-letter-tips-kenya": ("How to Write a Cover Letter That Gets Read",
+    "cover-letter-tips-kenya": ("How to Write a Cover Letter (Application Letter) in Kenya",
         "A simple structure, a full example and common mistakes for a short, convincing cover letter for jobs in Kenya.",
         "<p>A good cover letter is short, specific and addressed to the person hiring. Aim for one page, or about 250 to 350 words.</p>"
         "<h2>Use a simple structure</h2><ol><li><b>Opening:</b> name the job, and say in one sentence why you are a strong fit.</li>"
@@ -468,12 +506,21 @@ GUIDES = {
         "Avoid stating your current pay unless it helps you.</p>"
         "<h2>Look at the whole offer</h2><ul><li>Basic pay, allowances and any bonus</li><li>Medical cover, leave days and pension</li>"
         "<li>Contract length, probation period and notice terms</li></ul>"
-        "<h2>Get it in writing</h2><p>Ask for the offer letter and read it carefully before you resign from your current job. If something differs from what you discussed, raise it politely.</p>"),
+        "<h2>Get it in writing</h2><p>Ask for the offer letter and read it carefully before you resign from your current job. If something differs from what you discussed, raise it politely.</p>"),    "how-to-apply-government-jobs-kenya": ("How to Apply for Government Jobs in Kenya (PSC, County and TSC)",
+        "Where government and county jobs in Kenya are advertised, how to apply through PSC, county boards and TSC, the documents you need and mistakes to avoid.", ""),
+    "first-job-no-experience-kenya": ("How to Get Your First Job in Kenya With No Experience",
+        "Practical steps for graduates and young job seekers in Kenya: counting the experience you have, entry-level roles, skills, networking and interviews.", ""),
+    "ngo-un-jobs-kenya": ("How to Get NGO and UN Jobs in Kenya",
+        "Where to find NGO and UN jobs in Kenya, UN job categories open to Kenyans, what recruiters look for and how to apply successfully.", ""),
+    "jobs-abroad-safely-kenya": ("How to Find Genuine Jobs Abroad From Kenya",
+        "How to work abroad safely from Kenya: licensed NEA agencies, costs, contracts, work visas, protecting your passport and avoiding overseas job scams.", ""),
 }
 
 
 GUIDE_UPDATED = {s: "2026-11-03" for s in ("cv-tips-kenya", "interview-tips-kenya", "spot-fake-jobs-kenya",
-                                          "remote-work-from-kenya", "cover-letter-tips-kenya", "negotiate-salary-kenya")}   # date each full-length guide was last edited
+                                          "remote-work-from-kenya", "cover-letter-tips-kenya", "negotiate-salary-kenya")}
+GUIDE_UPDATED.update({s: "2026-11-07" for s in ("how-to-apply-government-jobs-kenya", "first-job-no-experience-kenya",
+                                               "ngo-un-jobs-kenya", "jobs-abroad-safely-kenya")})   # date each full-length guide was last edited
 
 
 def static_pages():
