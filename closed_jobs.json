@@ -34,6 +34,13 @@
   "k": "Finance",
   "closed": "2026-10-24"
  },
+ "accounts-receivables-prideinn-hotels-resorts-camp-3a64db": {
+  "t": "Accounts Receivables",
+  "c": "PrideInn Hotels, Resorts & Camp",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-08"
+ },
  "administration-front-office-intern-the-green-belt-movement-9f32a9": {
   "t": "Administration & Front Office Intern",
   "c": "The Green Belt Movement",
@@ -244,6 +251,13 @@
   "k": "Sales",
   "closed": "2026-10-24"
  },
+ "customer-experience-associate-yard-operations-peach-cars-ke-2b03a4": {
+  "t": "Customer Experience Associate – Yard Operations",
+  "c": "Peach Cars KE",
+  "l": "Other Kenya",
+  "k": "Sales",
+  "closed": "2026-11-08"
+ },
  "customer-experience-executive-liberty-life-assurance-kenya-9af869": {
   "t": "Customer Experience Executive",
   "c": "Liberty Life Assurance Kenya",
@@ -320,6 +334,13 @@
   "l": "Nairobi",
   "k": "Tech",
   "closed": "2026-10-27"
+ },
+ "data-manager-kenya-medical-research-institute-kemri-2237d6": {
+  "t": "Data Manager",
+  "c": "Kenya Medical Research Institute (KEMRI)",
+  "l": "Kisumu",
+  "k": "Health",
+  "closed": "2026-11-08"
  },
  "debt-collection-agent-administration-mogo-finance-c387c6": {
   "t": "Debt Collection Agent (Administration)",
@@ -426,6 +447,13 @@
   "k": "Other",
   "closed": "2026-10-24"
  },
+ "executive-driver-metropolitan-hospital-a55fcd": {
+  "t": "Executive Driver",
+  "c": "Metropolitan Hospital",
+  "l": "Other Kenya",
+  "k": "Logistics",
+  "closed": "2026-11-08"
+ },
  "finance-assistant-mazido-ca813b": {
   "t": "Finance Assistant",
   "c": "MAZIDO",
@@ -517,6 +545,13 @@
   "k": "Tech",
   "closed": "2026-10-24"
  },
+ "it-software-specialist-yellow-pages-kenya-530264": {
+  "t": "IT Software Specialist",
+  "c": "Yellow Pages Kenya",
+  "l": "Other Kenya",
+  "k": "Tech",
+  "closed": "2026-11-08"
+ },
  "it-specialist-eidu-1dc21c": {
   "t": "IT Specialist",
   "c": "EIDU",
@@ -544,6 +579,13 @@
   "l": "Other Kenya",
   "k": "Finance",
   "closed": "2026-11-02"
+ },
+ "job-openings-at-united-nations-environment-programme-unep-un-fe427e": {
+  "t": "Job Openings at United Nations Environment Programme (UNEP)",
+  "c": "United Nations Environment Programme (UNEP)",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-08"
  },
  "jobs-at-platinum-outsourcing-and-logistics-platinum-outsourc-821f1e": {
   "t": "Jobs at Platinum Outsourcing and Logistics",
@@ -741,6 +783,13 @@
   "k": "Health",
   "closed": "2026-10-19"
  },
+ "quality-controller-peoplelink-consultants-ltd-bcc45e": {
+  "t": "Quality Controller",
+  "c": "Peoplelink Consultants Ltd",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-08"
+ },
  "receiving-and-quality-control-officer-bollard-consulting-lim-93ded4": {
   "t": "Receiving and Quality Control Officer",
   "c": "Bollard Consulting Limited",
@@ -839,6 +888,13 @@
   "k": "Finance",
   "closed": "2026-10-24"
  },
+ "sales-representative-hihome-62073e": {
+  "t": "Sales Representative",
+  "c": "Hihome",
+  "l": "Nairobi",
+  "k": "Sales",
+  "closed": "2026-11-08"
+ },
  "sama-ai-101-training-programme-sama-e4d7ae": {
   "t": "Sama AI 101 Training Programme",
   "c": "Sama",
@@ -887,6 +943,13 @@
   "l": "Other Kenya",
   "k": "Other",
   "closed": "2026-10-24"
+ },
+ "solution-architect-kcb-bank-kenya-0d0be5": {
+  "t": "Solution Architect",
+  "c": "KCB Bank Kenya",
+  "l": "Other Kenya",
+  "k": "Tech",
+  "closed": "2026-11-08"
  },
  "spa-cleaning-attendant-marriott-international-dfaae3": {
   "t": "Spa Cleaning Attendant",
