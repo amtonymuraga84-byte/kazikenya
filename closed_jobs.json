@@ -76,6 +76,20 @@
   "k": "Other",
   "closed": "2026-10-24"
  },
+ "associate-field-manager-call-center-givedirectly-94b2b7": {
+  "t": "Associate Field Manager – Call Center",
+  "c": "GiveDirectly",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-09"
+ },
+ "available-vacancies-at-president-s-award-kenya-pa-k-presiden-1a911b": {
+  "t": "Available Vacancies at President's Award-Kenya (PA-K)",
+  "c": "President's Award-Kenya (PA-K)",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-09"
+ },
  "be-our-content-creator-and-discover-nairobi-worldpackers-dmvph9": {
   "t": "Be our content creator and discover Nairobi !",
   "c": "Worldpackers",
@@ -342,6 +356,13 @@
   "k": "Health",
   "closed": "2026-11-08"
  },
+ "data-protection-officer-dpo-bank-of-africa-kenya-limited-ca03c9": {
+  "t": "Data Protection Officer (DPO)",
+  "c": "Bank of Africa Kenya Limited",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-09"
+ },
  "debt-collection-agent-administration-mogo-finance-c387c6": {
   "t": "Debt Collection Agent (Administration)",
   "c": "Mogo Finance",
@@ -517,6 +538,13 @@
   "k": "Other",
   "closed": "2026-11-05"
  },
+ "human-resource-officer-freedom-airline-5ae656": {
+  "t": "Human Resource Officer",
+  "c": "Freedom Airline",
+  "l": "Nairobi",
+  "k": "Other",
+  "closed": "2026-11-09"
+ },
  "ict-intern-micro-enterprises-support-programme-trust-mespt-5fbd9d": {
   "t": "ICT Intern",
   "c": "Micro Enterprises Support Programme Trust (MESPT)",
@@ -608,6 +636,13 @@
   "k": "Tech",
   "closed": "2026-11-01"
  },
+ "junior-software-engineer-science-lab-limited-18cd68": {
+  "t": "Junior Software Engineer",
+  "c": "Science Lab Limited",
+  "l": "Other Kenya",
+  "k": "Tech",
+  "closed": "2026-11-09"
+ },
  "junior-store-clerk-jacaranda-nairobi-hotel-c1a5ce": {
   "t": "Junior Store Clerk",
   "c": "Jacaranda Nairobi Hotel",
@@ -643,6 +678,13 @@
   "k": "Tech",
   "closed": "2026-10-27"
  },
+ "marketing-specialist-forward-push-4efebb": {
+  "t": "Marketing Specialist",
+  "c": "Forward Push",
+  "l": "Remote",
+  "k": "Sales",
+  "closed": "2026-11-09"
+ },
  "meal-assistant-nandi-save-the-children-f29828": {
   "t": "MEAL Assistant - Nandi",
   "c": "Save the Children",
@@ -671,6 +713,13 @@
   "k": "Tech",
   "closed": "2026-11-01"
  },
+ "multiple-positions-at-ride-trend-ride-trend-f954f4": {
+  "t": "Multiple Positions at Ride & Trend",
+  "c": "Ride & Trend",
+  "l": "Other Kenya",
+  "k": "Sales",
+  "closed": "2026-11-09"
+ },
  "multiple-positions-at-st-paul-s-hospital-kitengela-st-paul-s-e2ddb1": {
   "t": "Multiple Positions at St. Paul's Hospital Kitengela",
   "c": "St. Paul's Hospital Kitengela",
@@ -698,6 +747,13 @@
   "l": "Nairobi",
   "k": "Tech",
   "closed": "2026-10-27"
+ },
+ "nutrition-intern-action-against-hunger-772af8": {
+  "t": "Nutrition Intern",
+  "c": "Action Against Hunger",
+  "l": "Other Kenya",
+  "k": "Health",
+  "closed": "2026-11-09"
  },
  "office-assistant-avsi-foundation-f006f8": {
   "t": "Office Assistant",
@@ -740,6 +796,13 @@
   "l": "Nairobi",
   "k": "Other",
   "closed": "2026-10-24"
+ },
+ "part-time-enumerator-village-enterprise-3487b0": {
+  "t": "Part-Time Enumerator",
+  "c": "Village Enterprise",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-09"
  },
  "petrol-station-attendant-peoplelink-consultants-ltd-26d31a": {
   "t": "Petrol Station Attendant",
@@ -964,6 +1027,13 @@
   "l": "Other Kenya",
   "k": "Logistics",
   "closed": "2026-10-19"
+ },
+ "swahili-language-specialist-freelance-ai-trainer-meridial-27da89": {
+  "t": "Swahili Language Specialist – Freelance AI Trainer",
+  "c": "Meridial",
+  "l": "Remote",
+  "k": "Tech",
+  "closed": "2026-11-09"
  },
  "teacher-assistant-bus-assistant-chantilly-schools-0df3be": {
   "t": "Teacher Assistant / Bus Assistant",
