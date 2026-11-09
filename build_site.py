@@ -584,7 +584,7 @@ def static_pages():
         "If someone claiming to be from RemoteKazi asks you for money, it is a scam.</p>"
         "<p>RemoteKazi is run from Nairobi, Kenya. Read more <a href='/about/'>about us</a>.</p>"))
     write("/privacy/", page("Privacy Policy | RemoteKazi", "How RemoteKazi handles visitor data, cookies and advertising.", "/privacy/",
-        f"<h1>Privacy Policy</h1><p class='meta'>Last updated {date.today().isoformat()}</p>"
+        f"<h1>Privacy Policy</h1><p class='meta'>Last updated {PAGES_UPDATED}</p>"
         "<p>This policy explains what information RemoteKazi collects and how it is used, in line with the Kenya Data Protection Act, 2019.</p>"
         "<h2>What we collect</h2><p>We do not ask visitors to create accounts. We collect basic, aggregated visit data "
         "(pages viewed, device type, approximate location) through privacy-friendly analytics. If you email us, we keep your message and address to reply.</p>"
@@ -596,7 +596,7 @@ def static_pages():
         "<h2>Your rights</h2><p>You may ask what data we hold about you, and request correction or deletion, by emailing "
         f"<a href='mailto:{E(CONTACT_EMAIL)}'>{E(CONTACT_EMAIL)}</a>.</p>"))
     write("/terms/", page("Terms of Use | RemoteKazi", "Terms for using RemoteKazi.", "/terms/",
-        f"<h1>Terms of Use</h1><p class='meta'>Last updated {date.today().isoformat()}</p>"
+        f"<h1>Terms of Use</h1><p class='meta'>Last updated {PAGES_UPDATED}</p>"
         "<p>RemoteKazi is an information service. Listings come from third parties, we are not the employer, and we cannot guarantee "
         "that any job is genuine, available or accurate.</p><ul><li>Verify each employer before sharing personal information or applying.</li>"
         "<li>Never pay money to get a job or interview.</li><li>Sponsored listings and ads are labelled.</li>"
@@ -701,7 +701,7 @@ def post_desc(meta, body):
 def hidden_post_slugs():
     """Posts marked "hidden: yes": their old addresses are sent to /blog/ so shared links don't break."""
     out = []
-    for f in Path("posts").glob("*.md"):
+    for f in sorted(Path("posts").glob("*.md")):
         m = re.search(r"^hidden:\s*(yes|true|1)\s*$", f.read_text(encoding="utf-8").split("\n---", 1)[0], re.M | re.I)
         if m:
             out.append(slugify(f.stem))
