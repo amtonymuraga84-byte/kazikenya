@@ -10,6 +10,7 @@ import html
 import json
 import os
 import re
+import sys
 from datetime import date, datetime, timedelta
 
 import anthropic
@@ -226,8 +227,11 @@ def main():
         return (today - datetime.fromisoformat(j["posted"]).date()).days <= MAX_AGE_DAYS
     jobs = [j for j in jobs if alive(j)]
 
-    new = skipped = risky = 0
+    new = skipped = risky = failed = 0
+    key_error = None                    # set if the Anthropic key is expired/invalid/out of credit
     for fetch in SOURCES:
+        if key_error:
+            break
         try:
             batch = list(fetch())
         except Exception as e:
@@ -248,8 +252,17 @@ def main():
             n_src += 1
             try:
                 c = clean(job)
+            except (anthropic.AuthenticationError, anthropic.PermissionDeniedError) as e:
+                seen.discard(jid)       # not processed: retry it on the next run
+                key_error = e
+                break
             except Exception as e:
+                seen.discard(jid)       # not processed: retry it on the next run
+                failed += 1
                 print(f"Cleanup failed for {url}: {e}")
+                if "credit balance" in str(e).lower():
+                    key_error = e
+                    break
                 continue
             if not c.get("keep") or c.get("detail") == "none":
                 skipped += 1
@@ -270,7 +283,12 @@ def main():
         json.dump(jobs, f, ensure_ascii=False, indent=1)
     with open(SEEN, "w") as f:
         json.dump(sorted(seen), f)
-    print(f"Added {new}, filtered out {skipped}, total live {len(jobs)}")
+    print(f"Added {new}, filtered out {skipped}, failed {failed}, total live {len(jobs)}")
+    if key_error:
+        # Fail the step so GitHub marks the run red and emails you. The workflow still
+        # rebuilds the site (old listings are removed) because later steps run anyway.
+        print(f"::error::Anthropic API key problem, no new jobs were added: {key_error}")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
