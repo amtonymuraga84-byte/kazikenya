@@ -293,6 +293,13 @@
   "k": "Finance",
   "closed": "2026-11-01"
  },
+ "customer-service-champion-choux-bakery-9cbf95": {
+  "t": "Customer Service Champion",
+  "c": "Choux Bakery",
+  "l": "Other Kenya",
+  "k": "Sales",
+  "closed": "2026-11-10"
+ },
  "customer-service-executive-autoxpress-limited-d626ca": {
   "t": "Customer Service Executive",
   "c": "AutoXpress Limited",
@@ -439,6 +446,13 @@
   "l": "Other Kenya",
   "k": "Logistics",
   "closed": "2026-11-02"
+ },
+ "driver-world-vision-kenya-d7d6c7": {
+  "t": "Driver",
+  "c": "World Vision Kenya",
+  "l": "Other Kenya",
+  "k": "Logistics",
+  "closed": "2026-11-10"
  },
  "drivers-jimcab-services-ltd-0d04ac": {
   "t": "Drivers",
@@ -615,6 +629,13 @@
   "k": "Other",
   "closed": "2026-11-08"
  },
+ "job-vacancies-at-county-government-of-kitui-multiple-positio-c003a6": {
+  "t": "Job Vacancies at County Government of Kitui – Multiple Positions",
+  "c": "County Government of Kitui",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-10"
+ },
  "jobs-at-platinum-outsourcing-and-logistics-platinum-outsourc-821f1e": {
   "t": "Jobs at Platinum Outsourcing and Logistics",
   "c": "Platinum Outsourcing & Logistics (E.A) Ltd",
@@ -727,6 +748,13 @@
   "k": "Health",
   "closed": "2026-11-01"
  },
+ "multiple-positions-at-the-canopy-hotel-the-canopy-hotel-74e564": {
+  "t": "Multiple Positions at The Canopy Hotel",
+  "c": "The Canopy Hotel",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-10"
+ },
  "multiple-positions-at-the-grand-oak-atlas-the-grand-oak-atla-a4d9ca": {
   "t": "Multiple Positions at The Grand Oak Atlas",
   "c": "The Grand Oak Atlas",
@@ -825,6 +853,13 @@
   "k": "Logistics",
   "closed": "2026-11-06"
  },
+ "program-accountant-international-livestock-research-institut-ff73dd": {
+  "t": "Program Accountant",
+  "c": "International Livestock Research Institute (ILRI)",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-10"
+ },
  "project-lead-functional-excellence-care-63818e": {
   "t": "Project Lead – Functional Excellence",
   "c": "CARE",
@@ -888,6 +923,13 @@
   "k": "Other",
   "closed": "2026-10-23"
  },
+ "relationship-manager-minet-kenya-93884e": {
+  "t": "Relationship Manager",
+  "c": "Minet Kenya",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-10"
+ },
  "remote-accounting-specialist-transition-support-accounting-a-4c7095": {
   "t": "Remote Accounting Specialist (Transition Support – Accounting & Administration)",
   "c": "Remote Raven",
@@ -922,6 +964,13 @@
   "l": "Remote",
   "k": "Other",
   "closed": "2026-10-24"
+ },
+ "remote-image-annotators-cloudfactory-eb04be": {
+  "t": "Remote Image Annotators",
+  "c": "CloudFactory",
+  "l": "Remote",
+  "k": "Health",
+  "closed": "2026-11-10"
  },
  "remote-mid-level-customer-support-specialist-bamboo-works-f7a7f9": {
   "t": "Remote Mid Level Customer Support Specialist",
