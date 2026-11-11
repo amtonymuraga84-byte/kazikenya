@@ -104,6 +104,13 @@
   "k": "Finance",
   "closed": "2026-10-24"
  },
+ "billing-officer-cerba-lancet-kenya-4877e2": {
+  "t": "Billing Officer",
+  "c": "Cerba Lancet Kenya",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-11"
+ },
  "cabin-crew-emirates-4d7869": {
   "t": "Cabin Crew",
   "c": "Emirates",
@@ -187,6 +194,13 @@
   "l": "Nairobi",
   "k": "Finance",
   "closed": "2026-11-01"
+ },
+ "clinical-nurse-medical-surgical-ward-4-positions-aga-khan-ho-a872b1": {
+  "t": "Clinical Nurse, Medical/Surgical Ward (4 Positions)",
+  "c": "Aga Khan Hospital, Mombasa",
+  "l": "Mombasa",
+  "k": "Health",
+  "closed": "2026-11-11"
  },
  "clinical-nutritionist-fertility-point-e42e28": {
   "t": "Clinical Nutritionist",
@@ -524,6 +538,13 @@
   "k": "Finance",
   "closed": "2026-10-26"
  },
+ "graduate-trainees-kreston-km-7e632c": {
+  "t": "Graduate Trainees",
+  "c": "Kreston KM",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-11"
+ },
  "head-of-engineering-lemon-io-e25e74": {
   "t": "Head of Engineering",
   "c": "Lemon.io",
@@ -811,6 +832,13 @@
   "k": "Other",
   "closed": "2026-11-05"
  },
+ "operations-expert-with-python-for-ai-supply-chain-task-desig-ff0cb2": {
+  "t": "Operations Expert with Python for AI Supply Chain Task Design",
+  "c": "Toptal",
+  "l": "Remote",
+  "k": "Logistics",
+  "closed": "2026-11-11"
+ },
  "p1-teachers-appleton-schools-08d89f": {
   "t": "P1 Teachers",
   "c": "Appleton Schools",
@@ -873,6 +901,13 @@
   "l": "Other Kenya",
   "k": "Tech",
   "closed": "2026-11-05"
+ },
+ "project-officer-kakuma-ascend-project-village-enterprise-95f385": {
+  "t": "Project Officer – Kakuma (ASCEND Project)",
+  "c": "Village Enterprise",
+  "l": "Kakuma",
+  "k": "Other",
+  "closed": "2026-11-11"
  },
  "quality-assurance-officer-2-positions-biodeal-laboratories-l-f01689": {
   "t": "Quality Assurance Officer (2 Positions)",
