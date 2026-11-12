@@ -83,6 +83,13 @@
   "k": "Other",
   "closed": "2026-11-09"
  },
+ "at-your-service-agent-telephone-operator-marriott-internatio-2efee8": {
+  "t": "At Your Service Agent – Telephone Operator",
+  "c": "Marriott International",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-12"
+ },
  "available-vacancies-at-president-s-award-kenya-pa-k-presiden-1a911b": {
   "t": "Available Vacancies at President's Award-Kenya (PA-K)",
   "c": "President's Award-Kenya (PA-K)",
@@ -131,6 +138,13 @@
   "l": "Other Kenya",
   "k": "Finance",
   "closed": "2026-10-24"
+ },
+ "call-center-manager-oya-microcredit-4d5533": {
+  "t": "Call Center Manager",
+  "c": "OYA Microcredit",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-12"
  },
  "call-center-team-lead-mogo-finance-6fad6f": {
   "t": "Call Center Team Lead",
@@ -208,6 +222,13 @@
   "l": "Other Kenya",
   "k": "Health",
   "closed": "2026-10-24"
+ },
+ "cloud-engineer-apa-life-assurance-company-ltd-d697c9": {
+  "t": "Cloud Engineer",
+  "c": "APA Life Assurance Company Ltd",
+  "l": "Other Kenya",
+  "k": "Tech",
+  "closed": "2026-11-12"
  },
  "collection-officer-tenakata-4ff726": {
   "t": "Collection Officer",
@@ -362,6 +383,13 @@
   "l": "Other Kenya",
   "k": "Finance",
   "closed": "2026-11-06"
+ },
+ "customer-support-specialist-remember-the-milk-8622ab": {
+  "t": "Customer Support Specialist",
+  "c": "Remember The Milk",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-12"
  },
  "customs-regulatory-affairs-coordinator-m-f-africa-global-log-dmvncv": {
   "t": "Customs & Regulatory Affairs Coordinator M/F",
@@ -531,6 +559,20 @@
   "k": "Other",
   "closed": "2026-10-24"
  },
+ "front-desk-receptionist-3rd-park-hospital-544525": {
+  "t": "Front Desk Receptionist",
+  "c": "3rd Park Hospital",
+  "l": "Nairobi",
+  "k": "Health",
+  "closed": "2026-11-12"
+ },
+ "google-ads-media-buyer-growth-agency-via-jobgether-4a43a6": {
+  "t": "Google Ads Media Buyer",
+  "c": "Growth Agency (via Jobgether)",
+  "l": "Remote",
+  "k": "Sales",
+  "closed": "2026-11-12"
+ },
  "graduate-trainee-programme-standard-bank-group-90eb74": {
   "t": "Graduate Trainee Programme",
   "c": "Standard Bank Group",
@@ -664,6 +706,13 @@
   "k": "Logistics",
   "closed": "2026-11-03"
  },
+ "junior-accountant-odoo-9ea69d": {
+  "t": "Junior Accountant",
+  "c": "Odoo",
+  "l": "Other Kenya",
+  "k": "Finance",
+  "closed": "2026-11-12"
+ },
  "junior-digital-marketer-oracom-group-c32c59": {
   "t": "Junior Digital Marketer",
   "c": "Oracom Group",
@@ -740,6 +789,13 @@
   "l": "Other Kenya",
   "k": "Health",
   "closed": "2026-11-04"
+ },
+ "medical-virtual-assistant-vital-virtuals-global-hr-solutions-c0467a": {
+  "t": "Medical Virtual Assistant",
+  "c": "Vital Virtuals Global HR Solutions LLC",
+  "l": "Remote",
+  "k": "Health",
+  "closed": "2026-11-12"
  },
  "mentors-and-mentor-supervisors-299-vacancies-ministry-of-lab-b45cfe": {
   "t": "Mentors and Mentor Supervisors (299 Vacancies)",
@@ -1090,6 +1146,13 @@
   "l": "Other Kenya",
   "k": "Other",
   "closed": "2026-10-24"
+ },
+ "social-worker-catholic-archdiocese-of-mombasa-b4bd3d": {
+  "t": "Social Worker",
+  "c": "Catholic Archdiocese of Mombasa",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-12"
  },
  "solution-architect-kcb-bank-kenya-0d0be5": {
   "t": "Solution Architect",
