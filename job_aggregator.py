@@ -71,6 +71,7 @@ def fetch_jvn():
     base = "https://jobvacanciesnow.com"
     try:
         r = requests.get(base + "/wp-json/wp/v2/job-listings?per_page=20", headers=HEADERS, timeout=30)
+        print(f"[jvn] REST status {r.status_code}, type {r.headers.get('content-type', '')[:40]}")
         data = r.json() if r.ok else None
         if isinstance(data, list) and data:
             for j in data:
@@ -80,7 +81,9 @@ def fetch_jvn():
     except Exception as e:
         print(f"[jvn] REST failed: {e}")
     for u in (base + "/?feed=job_feed", base + "/feed/?post_type=job_listing"):
-        entries = feedparser.parse(u).entries
+        fp = feedparser.parse(u, agent=HEADERS["User-Agent"])
+        entries = fp.entries
+        print(f"[jvn] {u} -> status {fp.get('status')}, {len(entries)} entries")
         if entries:
             for e in entries:
                 yield {"src": "JobVacanciesNow", "title": e.title, "company": "", "location": "Kenya",
@@ -199,9 +202,13 @@ JSON keys:
 
 
 def clean(job):
-    msg = client.messages.create(model=MODEL, max_tokens=700, messages=[{"role": "user", "content": PROMPT.format(
+    msg = client.messages.create(model=MODEL, max_tokens=4000, messages=[{"role": "user", "content": PROMPT.format(
         title=job["title"], company=job["company"], location=job["location"], text=job["text"][:3500])}])
-    raw = re.sub(r"^```(?:json)?|```$", "", msg.content[0].text.strip(), flags=re.M).strip()
+    # The reply can start with a "thinking" block, so read the text block(s) rather than content[0]
+    text = "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
+    if not text.strip():
+        raise ValueError(f"no text in reply (stop_reason={msg.stop_reason})")
+    raw = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.M).strip()
     return json.loads(raw)
 
 
