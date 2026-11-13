@@ -398,6 +398,13 @@
   "k": "Tech",
   "closed": "2026-10-27"
  },
+ "data-collectors-jhpiego-d44ce3": {
+  "t": "Data Collectors",
+  "c": "Jhpiego",
+  "l": "Other Kenya",
+  "k": "Health",
+  "closed": "2026-11-13"
+ },
  "data-manager-kenya-medical-research-institute-kemri-2237d6": {
   "t": "Data Manager",
   "c": "Kenya Medical Research Institute (KEMRI)",
@@ -713,6 +720,13 @@
   "k": "Finance",
   "closed": "2026-11-12"
  },
+ "junior-data-scientist-pezesha-81cc44": {
+  "t": "Junior Data Scientist",
+  "c": "Pezesha",
+  "l": "Other Kenya",
+  "k": "Tech",
+  "closed": "2026-11-13"
+ },
  "junior-digital-marketer-oracom-group-c32c59": {
   "t": "Junior Digital Marketer",
   "c": "Oracom Group",
@@ -811,6 +825,13 @@
   "k": "Tech",
   "closed": "2026-11-01"
  },
+ "multiple-positions-at-laikipia-county-government-laikipia-co-9993ba": {
+  "t": "Multiple Positions at Laikipia County Government",
+  "c": "Laikipia County Government",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-13"
+ },
  "multiple-positions-at-ride-trend-ride-trend-f954f4": {
   "t": "Multiple Positions at Ride & Trend",
   "c": "Ride & Trend",
@@ -866,6 +887,13 @@
   "l": "Other Kenya",
   "k": "Other",
   "closed": "2026-10-24"
+ },
+ "office-assistant-hcs-affiliates-group-5e1ae9": {
+  "t": "Office Assistant",
+  "c": "HCS Affiliates Group",
+  "l": "Other Kenya",
+  "k": "Other",
+  "closed": "2026-11-13"
  },
  "officer-it-platform-support-operations-ncba-group-18485f": {
   "t": "Officer, IT Platform Support Operations",
