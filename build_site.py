@@ -14,7 +14,7 @@ from pathlib import Path
 
 # ===== EDIT THESE =====
 SITE_URL = "https://remotekazi.com"  # change to your own domain, no trailing slash
-CONTACT_EMAIL = "hello@remotekazi.com"   # forwards to amtonymuraga84@gmail.com via Cloudflare Email Routing
+CONTACT_EMAIL = "hello@remotekazi.com"   # forwards to the owner's private inbox via Cloudflare Email Routing
 WHATSAPP_URL = "https://whatsapp.com/channel/0029Vb9Ag48EFeXcKNbsZ137"
 TELEGRAM_URL = ""      # e.g. https://t.me/yourchannel            (leave empty to hide)
 CF_BEACON_TOKEN = ""   # Cloudflare > Web Analytics > your site > token (leave empty to disable)
@@ -54,7 +54,15 @@ def snip(text, n=155):
     t = re.sub(r"\s+", " ", text or "").strip()
     if len(t) <= n:
         return t
-    return t[:n].rsplit(" ", 1)[0].rstrip(",;:-–") + "…"
+    # prefer ending on a full sentence when one finishes late enough to keep the description useful
+    cut = max(t.rfind(". ", 0, n), t.rfind("! ", 0, n), t.rfind("? ", 0, n))
+    if cut >= 90:
+        return t[:cut + 1]
+    words = t[:n].rsplit(" ", 1)[0].rstrip(",;:-–").split(" ")
+    # don't end on a dangling joining word ("...tutors and…")
+    while len(words) > 5 and words[-1].lower() in {"and", "or", "the", "of", "to", "for", "a", "an", "with", "in", "on", "from", "at", "by", "as"}:
+        words.pop()
+    return " ".join(words).rstrip(",;:-–") + "…"
 
 
 def slugify(s):
@@ -403,7 +411,10 @@ def build_landings(jobs, matched):
                   {"@type": "ListItem", "position": 1, "name": "Jobs", "item": SITE_URL + "/"},
                   {"@type": "ListItem", "position": 2, "name": L["short"], "item": SITE_URL + path}]}}
         robots = "" if L["slug"] in live else '<meta name="robots" content="noindex,follow">'
-        desc = (f'{n} current openings. ' if n else "") + re.sub("<[^>]+>", "", L["intro"])
+        intro_txt = re.sub(r"\s+", " ", re.sub("<[^>]+>", " ", L["intro"])).strip()
+        first = re.split(r"(?<=[.!?])\s", intro_txt, maxsplit=1)[0]
+        lead = f'{n} current opening{"s" if n != 1 else ""}, updated daily. ' if n else "New listings added daily. "
+        desc = lead + snip(first, 155 - len(lead))
         write(path, page(f'{L["name"]} – {month} Vacancies | RemoteKazi', snip(desc), path, body,
                          robots + f'<script type="application/ld+json">{json.dumps(ld)}</script>'))
     return live
@@ -708,8 +719,18 @@ def hidden_post_slugs():
     return out
 
 
+def unlink_hidden_posts(body_html, hidden):
+    """Turn links to hidden posts into plain text, so live articles don't link through a redirect to /blog/."""
+    if not hidden:
+        return body_html
+    pat = re.compile(r'<a [^>]*href="(?:' + re.escape(SITE_URL) + r')?/blog/(' +
+                     "|".join(re.escape(h) for h in hidden) + r')/?(?:\.html)?"[^>]*>(.*?)</a>', re.S)
+    return pat.sub(lambda m: m.group(2), body_html)
+
+
 def load_posts():
     posts = []
+    hidden = hidden_post_slugs()
     for f in sorted(Path("posts").glob("*.md")):
         if f.name.startswith("_"):
             continue
@@ -744,7 +765,7 @@ def load_posts():
                       "caption": meta.get("image_caption", ""), "credit": meta.get("image_credit", ""),
                       "desc": post_desc(meta, body),
                       "tag": meta.get("tag", "Career tips"), "image": img if img.startswith("http") else "",
-                      "mins": max(1, round(words / 200)), "html": md_to_html(body)})
+                      "mins": max(1, round(words / 200)), "html": unlink_hidden_posts(md_to_html(body), hidden)})
     return sorted(posts, key=lambda p: p["date"], reverse=True)
 
 
