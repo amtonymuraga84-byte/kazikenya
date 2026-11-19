@@ -229,7 +229,7 @@ def main():
     def alive(j):
         if j.get("deadline") and j["deadline"] < today.isoformat():
             return False
-        if j.get("src") == "Direct":     # jobs you add by hand last until their deadline
+        if j.get("src") == "Direct" and j.get("deadline"):   # hand-added jobs with a deadline last until it
             return True
         return (today - datetime.fromisoformat(j["posted"]).date()).days <= MAX_AGE_DAYS
     jobs = [j for j in jobs if alive(j)]

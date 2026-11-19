@@ -857,6 +857,10 @@ def main():
         if m.get("deadline") and m["deadline"] < date.today().isoformat():
             by_id.pop(m.get("id"), None)                # past its deadline
             continue
+        if not m.get("deadline") and m.get("posted") and \
+                (date.today() - date.fromisoformat(m["posted"][:10])).days > MAX_AGE_DAYS:
+            by_id.pop(m.get("id"), None)                # no deadline: expires MAX_AGE_DAYS after posting, like feed jobs
+            continue
         m.setdefault("k", "Other"); m.setdefault("y", "Not stated"); m.setdefault("p", "")
         m.setdefault("deadline", ""); m.setdefault("f", 0); m["src"] = "Direct"
         m.setdefault("posted", date.today().isoformat())
