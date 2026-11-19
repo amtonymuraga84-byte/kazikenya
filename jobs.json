@@ -1,5 +1,37 @@
 [
  {
+  "id": "b0d412c5f67f0086",
+  "t": "Senior dbt Developer (Analytics Engineer)",
+  "c": "Proxify AB",
+  "l": "Remote",
+  "k": "Tech",
+  "y": "Not stated",
+  "p": "",
+  "x": "Proxify AB, headquartered in Sweden, is hiring a remote Senior dbt Developer to own clients' dbt architecture and turn raw enterprise data into tested, documented models in cloud data warehouses. The role calls for 3+ years of production dbt experience, advanced SQL, dimensional modeling, Git-based CI/CD, and Python, with Snowflake, BigQuery or Databricks experience. Duties include optimizing slow models, setting up data quality tests, maintaining documentation and lineage, and running code reviews.",
+  "u": "https://weworkremotely.com/remote-jobs/proxify-ab-senior-dbt-developer-analytics-engineer",
+  "src": "WeWorkRemotely",
+  "deadline": "",
+  "posted": "2026-11-19",
+  "f": 0,
+  "slug": "senior-dbt-developer-analytics-engineer-proxify-ab-b0d412"
+ },
+ {
+  "id": "4bf7326fdc32d372",
+  "t": "Senior Fullstack Developer (React.js / Node.js)",
+  "c": "Proxify AB",
+  "l": "Remote",
+  "k": "Tech",
+  "y": "Not stated",
+  "p": "",
+  "x": "Proxify, headquartered in Sweden, is hiring a Senior Fullstack Developer with React.js and Node.js skills for one of its clients. The role needs 5+ years of experience, backend work with Node.js and microservices, SQL and MongoDB databases, and intermediate-advanced English. Working in the CET timezone (+/- 3 hours) is a nice-to-have.",
+  "u": "https://weworkremotely.com/remote-jobs/proxify-ab-senior-fullstack-developer-react-js-node-js-6",
+  "src": "WeWorkRemotely",
+  "deadline": "",
+  "posted": "2026-11-19",
+  "f": 0,
+  "slug": "senior-fullstack-developer-react-js-node-js-proxify-ab-4bf732"
+ },
+ {
   "id": "d2eb7a31e3b11483",
   "t": "Expert Talent Pool Physical AI",
   "c": "Clera",
@@ -382,21 +414,5 @@
   "posted": "2026-11-14",
   "f": 0,
   "slug": "brazilian-portuguese-audio-transcription-adjudicator-welocal-6f9ad0"
- },
- {
-  "id": "c985d2aea34573fb",
-  "t": "Sales Development Representative (UK B2B Outbound)",
-  "c": "D2B",
-  "l": "Remote",
-  "k": "Sales",
-  "y": "Contract",
-  "p": "25,000 ZAR to 30,000 ZAR",
-  "x": "Remote independent contractor role for a South Africa-headquartered cybersecurity company, working UK business hours. The representative runs phone-first outbound prospecting to UK security decision-makers and books qualified meetings for account executives. The work uses HubSpot CRM and parallel dialling tools, with a target of 10 qualified held meetings per month after ramp-up.",
-  "u": "https://weworkremotely.com/remote-jobs/d2b-sales-development-representative-uk-b2b-outbound-remote",
-  "src": "WeWorkRemotely",
-  "deadline": "",
-  "posted": "2026-11-13",
-  "f": 0,
-  "slug": "sales-development-representative-uk-b2b-outbound-d2b-c985d2"
  }
 ]
