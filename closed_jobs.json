@@ -139,6 +139,13 @@
   "k": "Finance",
   "closed": "2026-11-11"
  },
+ "brazilian-portuguese-audio-transcription-adjudicator-welocal-6f9ad0": {
+  "t": "Brazilian Portuguese Audio Transcription Adjudicator",
+  "c": "Welocalize",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-11-20"
+ },
  "cabin-crew-emirates-4d7869": {
   "t": "Cabin Crew",
   "c": "Emirates",
@@ -327,6 +334,13 @@
   "l": "Remote",
   "k": "Other",
   "closed": "2026-11-16"
+ },
+ "creative-marketing-project-coordinator-capslock-b9cc8e": {
+  "t": "Creative Marketing Project Coordinator",
+  "c": "CapsLock",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-11-20"
  },
  "credit-analysts-digital-credit-absa-bank-limited-067ebb": {
   "t": "Credit Analysts – Digital Credit",
@@ -530,6 +544,13 @@
   "l": "Other Kenya",
   "k": "Sales",
   "closed": "2026-10-24"
+ },
+ "director-solutions-engineering-rhondos-inc-47ded7": {
+  "t": "Director, Solutions Engineering",
+  "c": "RHONDOS Inc",
+  "l": "Remote",
+  "k": "Tech",
+  "closed": "2026-11-20"
  },
  "dispatch-clerk-moko-home-living-87268a": {
   "t": "Dispatch Clerk",
@@ -1322,6 +1343,13 @@
   "k": "Tech",
   "closed": "2026-11-05"
  },
+ "seo-digital-marketing-specialist-pavago-cafd70": {
+  "t": "SEO & Digital Marketing Specialist",
+  "c": "Pavago",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-11-20"
+ },
  "service-engineer-earth-moving-awp-aerial-work-platform-machi-dmvnna": {
   "t": "Service Engineer Earth Moving /AWP (Aerial Work Platform Machinery)",
   "c": "AWP (Aerial Work Platform Machinery)",
@@ -1357,6 +1385,13 @@
   "k": "Other",
   "closed": "2026-11-12"
  },
+ "software-engineer-ai-tooling-supabase-409c18": {
+  "t": "Software Engineer, AI Tooling",
+  "c": "Supabase",
+  "l": "Remote",
+  "k": "Tech",
+  "closed": "2026-11-20"
+ },
  "solution-architect-kcb-bank-kenya-0d0be5": {
   "t": "Solution Architect",
   "c": "KCB Bank Kenya",
@@ -1370,6 +1405,13 @@
   "l": "Other Kenya",
   "k": "Other",
   "closed": "2026-11-04"
+ },
+ "spanish-audio-transcription-adjudicator-welocalize-023a70": {
+  "t": "Spanish Audio Transcription Adjudicator",
+  "c": "Welocalize",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-11-20"
  },
  "station-manager-luqman-petroleum-612a9c": {
   "t": "Station Manager",
