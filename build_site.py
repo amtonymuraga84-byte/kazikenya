@@ -33,7 +33,7 @@ MAX_AGE_DAYS = 5    # keep in step with job_aggregator.py
 CLOSED_KEEP_DAYS = 90
 CLOSED_FILE = "closed_jobs.json"
 SHOW_AD_PLACEHOLDERS = False   # keep False until you paste real ad code into the ad boxes
-ADSENSE_CLIENT = ""   # your AdSense publisher ID, e.g. "ca-pub-1234567890123456". Adds the AdSense code to every page and writes ads.txt
+ADSENSE_CLIENT = "ca-pub-3200712866273722"   # your AdSense publisher ID, e.g. "ca-pub-1234567890123456". Adds the AdSense code to every page and writes ads.txt
 # Old addresses that should send visitors (and Google) to a newer page. Kept here because _redirects is rebuilt on every run.
 EXTRA_REDIRECTS = [
 ]
