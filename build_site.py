@@ -60,7 +60,8 @@ def snip(text, n=155):
         return t[:cut + 1]
     words = t[:n].rsplit(" ", 1)[0].rstrip(",;:-–").split(" ")
     # don't end on a dangling joining word ("...tutors and…")
-    while len(words) > 5 and words[-1].lower() in {"and", "or", "the", "of", "to", "for", "a", "an", "with", "in", "on", "from", "at", "by", "as"}:
+    while len(words) > 5 and words[-1].lower() in {"and", "or", "the", "of", "to", "for", "a", "an", "with", "in", "on", "from", "at", "by", "as",
+                                                     "its", "their", "his", "her", "our", "your", "into", "that", "which", "who", "is", "are", "be"}:
         words.pop()
     return " ".join(words).rstrip(",;:-–") + "…"
 
