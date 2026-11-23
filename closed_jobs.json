@@ -146,6 +146,20 @@
   "k": "Other",
   "closed": "2026-11-20"
  },
+ "business-development-manager-bbe-marketing-inc-faf24d": {
+  "t": "Business Development Manager",
+  "c": "BBE Marketing Inc",
+  "l": "Remote",
+  "k": "Sales",
+  "closed": "2026-11-23"
+ },
+ "business-development-specialist-prospex-crm-37c0c7": {
+  "t": "Business Development Specialist",
+  "c": "Prospex CRM",
+  "l": "Remote",
+  "k": "Sales",
+  "closed": "2026-11-23"
+ },
  "cabin-crew-emirates-4d7869": {
   "t": "Cabin Crew",
   "c": "Emirates",
@@ -334,6 +348,20 @@
   "l": "Remote",
   "k": "Other",
   "closed": "2026-11-16"
+ },
+ "creative-design-team-lead-ai-performance-marketing-capslock-f1de50": {
+  "t": "Creative Design Team Lead (AI & Performance Marketing)",
+  "c": "CapsLock",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-11-23"
+ },
+ "creative-marketing-project-coordinator-capslock-033e74": {
+  "t": "Creative Marketing Project Coordinator",
+  "c": "CapsLock",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-11-23"
  },
  "creative-marketing-project-coordinator-capslock-b9cc8e": {
   "t": "Creative Marketing Project Coordinator",
@@ -545,6 +573,13 @@
   "k": "Sales",
   "closed": "2026-10-24"
  },
+ "director-of-content-strategy-wevote-2f2c9c": {
+  "t": "Director of Content Strategy",
+  "c": "WeVote",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-11-23"
+ },
  "director-solutions-engineering-rhondos-inc-47ded7": {
   "t": "Director, Solutions Engineering",
   "c": "RHONDOS Inc",
@@ -705,6 +740,13 @@
   "l": "Remote",
   "k": "Tech",
   "closed": "2026-11-03"
+ },
+ "head-of-technology-sanctuary-computer-garden3d-cf51ee": {
+  "t": "Head of Technology",
+  "c": "Sanctuary Computer (garden3d)",
+  "l": "Remote",
+  "k": "Tech",
+  "closed": "2026-11-23"
  },
  "household-survey-enumerator-trees-for-the-future-trees-998770": {
   "t": "Household Survey Enumerator",
@@ -1042,6 +1084,20 @@
   "k": "Education",
   "closed": "2026-11-05"
  },
+ "online-english-writing-and-analysis-course-developer-all-lev-bd3a1e": {
+  "t": "Online English Writing and Analysis Course Developer - All Levels",
+  "c": "Jadeclass Education",
+  "l": "Remote",
+  "k": "Education",
+  "closed": "2026-11-23"
+ },
+ "online-english-writing-and-analysis-teacher-all-levels-jadec-f99b00": {
+  "t": "Online English Writing and Analysis Teacher - All Levels",
+  "c": "Jadeclass Education",
+  "l": "Remote",
+  "k": "Education",
+  "closed": "2026-11-23"
+ },
  "operations-and-human-resource-manager-minority-africa-a972ab": {
   "t": "Operations and Human Resource Manager",
   "c": "Minority Africa",
@@ -1315,6 +1371,20 @@
   "k": "Tech",
   "closed": "2026-11-18"
  },
+ "senior-devops-engineer-epam-systems-ef7d69": {
+  "t": "Senior DevOps Engineer",
+  "c": "EPAM Systems",
+  "l": "Remote",
+  "k": "Tech",
+  "closed": "2026-11-23"
+ },
+ "senior-devops-platform-engineer-gcp-gomining-9cf40f": {
+  "t": "Senior DevOps / Platform Engineer - GCP",
+  "c": "GoMining",
+  "l": "Remote",
+  "k": "Tech",
+  "closed": "2026-11-23"
+ },
  "senior-english-tutor-uk-curriculum-sehyog-academy-52b4a0": {
   "t": "Senior English Tutor (UK Curriculum)",
   "c": "SEHYOG Academy",
@@ -1391,6 +1461,13 @@
   "l": "Other Kenya",
   "k": "Other",
   "closed": "2026-10-24"
+ },
+ "social-media-manager-for-x-coinstats-a8294d": {
+  "t": "Social Media Manager for X",
+  "c": "CoinStats",
+  "l": "Remote",
+  "k": "Other",
+  "closed": "2026-11-23"
  },
  "social-studies-instructor-american-straight-a-academy-e22352": {
   "t": "Social Studies Instructor",

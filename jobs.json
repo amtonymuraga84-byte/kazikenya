@@ -1,5 +1,39 @@
 [
  {
+  "id": "fdda89026df80620",
+  "t": "Senior Security Operations Manager",
+  "c": "Carrot",
+  "l": "Remote",
+  "k": "Tech",
+  "y": "Not stated",
+  "p": "",
+  "x": "Carrot, a global fertility and family care platform, is hiring a hands-on security leader to run security operations and guide safe adoption of AI tools. The role covers the incident lifecycle, SIEM detections and automation, management of the managed security provider, and security of corporate systems and collaboration AI tools. It involves working with IT, Legal, Privacy and Engineering in a healthcare environment.",
+  "u": "https://remoteOK.com/remote-jobs/remote-sr-security-operations-manager-carrot-1137930",
+  "src": "RemoteOK",
+  "deadline": "",
+  "posted": "2026-11-23",
+  "f": 0,
+  "slug": "senior-security-operations-manager-carrot-fdda89",
+  "dup_of": ""
+ },
+ {
+  "id": "306d40d5fe7288fc",
+  "t": "Manager, Product Design",
+  "c": "Carrot",
+  "l": "Remote",
+  "k": "Tech",
+  "y": "Not stated",
+  "p": "",
+  "x": "Carrot, a global fertility and family care platform, is hiring a Manager, Product Design to lead a team of senior product designers building member-facing products. The role is player-coach, split roughly equally between hands-on design work (including design system direction) and coaching the team. Duties include leading design initiatives from strategy to launch, giving craft feedback, driving adoption of AI tools, and managing designer performance.",
+  "u": "https://remoteOK.com/remote-jobs/remote-manager-product-design-carrot-1137927",
+  "src": "RemoteOK",
+  "deadline": "",
+  "posted": "2026-11-23",
+  "f": 0,
+  "slug": "manager-product-design-carrot-306d40",
+  "dup_of": ""
+ },
+ {
   "id": "40fbe5a8cda32603",
   "t": "Corporate Counsel, Commercial",
   "c": "Carrot",
@@ -13,7 +47,8 @@
   "deadline": "",
   "posted": "2026-11-22",
   "f": 0,
-  "slug": "corporate-counsel-commercial-carrot-40fbe5"
+  "slug": "corporate-counsel-commercial-carrot-40fbe5",
+  "dup_of": ""
  },
  {
   "id": "2cf7037b6bebc8b9",
@@ -29,7 +64,8 @@
   "deadline": "",
   "posted": "2026-11-22",
   "f": 0,
-  "slug": "private-practice-enablement-specialist-pst-healthie-2cf703"
+  "slug": "private-practice-enablement-specialist-pst-healthie-2cf703",
+  "dup_of": ""
  },
  {
   "id": "7b243de5f4080ba9",
@@ -45,7 +81,8 @@
   "deadline": "",
   "posted": "2026-11-22",
   "f": 0,
-  "slug": "affiliate-manager-okx-7b243d"
+  "slug": "affiliate-manager-okx-7b243d",
+  "dup_of": ""
  },
  {
   "id": "3c1f15c1a86d43ee",
@@ -61,7 +98,8 @@
   "deadline": "",
   "posted": "2026-11-21",
   "f": 0,
-  "slug": "senior-product-architect-storyblok-3c1f15"
+  "slug": "senior-product-architect-storyblok-3c1f15",
+  "dup_of": "senior-product-architect-storyblok-27d653"
  },
  {
   "id": "52ecd12641a23f65",
@@ -77,7 +115,8 @@
   "deadline": "",
   "posted": "2026-11-21",
   "f": 0,
-  "slug": "intake-and-discharge-clinician-talkspace-52ecd1"
+  "slug": "intake-and-discharge-clinician-talkspace-52ecd1",
+  "dup_of": ""
  },
  {
   "id": "f1fa5ed94f0d9557",
@@ -93,7 +132,8 @@
   "deadline": "",
   "posted": "2026-11-21",
   "f": 0,
-  "slug": "growth-engineer-ritual-f1fa5e"
+  "slug": "growth-engineer-ritual-f1fa5e",
+  "dup_of": ""
  },
  {
   "id": "273284d5090e06f3",
@@ -109,7 +149,8 @@
   "deadline": "",
   "posted": "2026-11-21",
   "f": 0,
-  "slug": "frontend-engineer-ritual-273284"
+  "slug": "frontend-engineer-ritual-273284",
+  "dup_of": ""
  },
  {
   "id": "de5ea4d076a8bc45",
@@ -125,7 +166,8 @@
   "deadline": "",
   "posted": "2026-11-20",
   "f": 0,
-  "slug": "software-engineer-ai-coding-tasks-askable-de5ea4"
+  "slug": "software-engineer-ai-coding-tasks-askable-de5ea4",
+  "dup_of": ""
  },
  {
   "id": "27d653c20c0c8cc5",
@@ -141,7 +183,8 @@
   "deadline": "",
   "posted": "2026-11-20",
   "f": 0,
-  "slug": "senior-product-architect-storyblok-27d653"
+  "slug": "senior-product-architect-storyblok-27d653",
+  "dup_of": ""
  },
  {
   "id": "b0d412c5f67f0086",
@@ -157,7 +200,8 @@
   "deadline": "",
   "posted": "2026-11-19",
   "f": 0,
-  "slug": "senior-dbt-developer-analytics-engineer-proxify-ab-b0d412"
+  "slug": "senior-dbt-developer-analytics-engineer-proxify-ab-b0d412",
+  "dup_of": ""
  },
  {
   "id": "4bf7326fdc32d372",
@@ -173,7 +217,8 @@
   "deadline": "",
   "posted": "2026-11-19",
   "f": 0,
-  "slug": "senior-fullstack-developer-react-js-node-js-proxify-ab-4bf732"
+  "slug": "senior-fullstack-developer-react-js-node-js-proxify-ab-4bf732",
+  "dup_of": ""
  },
  {
   "id": "d2eb7a31e3b11483",
@@ -189,7 +234,8 @@
   "deadline": "",
   "posted": "2026-11-18",
   "f": 0,
-  "slug": "expert-talent-pool-physical-ai-clera-d2eb7a"
+  "slug": "expert-talent-pool-physical-ai-clera-d2eb7a",
+  "dup_of": ""
  },
  {
   "id": "2d13b4ce629658a2",
@@ -205,7 +251,8 @@
   "deadline": "",
   "posted": "2026-11-18",
   "f": 0,
-  "slug": "ai-creative-engineer-social-media-elvoro-2d13b4"
+  "slug": "ai-creative-engineer-social-media-elvoro-2d13b4",
+  "dup_of": ""
  },
  {
   "id": "e09e63b2af499263",
@@ -221,7 +268,8 @@
   "deadline": "",
   "posted": "2026-11-18",
   "f": 0,
-  "slug": "senior-seo-specialist-wellness-clinic-marketing-e09e63"
+  "slug": "senior-seo-specialist-wellness-clinic-marketing-e09e63",
+  "dup_of": ""
  },
  {
   "id": "b249752c2ce5fe75",
@@ -237,182 +285,24 @@
   "deadline": "",
   "posted": "2026-11-18",
   "f": 0,
-  "slug": "remote-quantitative-finance-analyst-turing-enterprise-inc-b24975"
+  "slug": "remote-quantitative-finance-analyst-turing-enterprise-inc-b24975",
+  "dup_of": ""
  },
  {
-  "id": "ef7d69199a178a8b",
-  "t": "Senior DevOps Engineer",
-  "c": "EPAM Systems",
-  "l": "Remote",
-  "k": "Tech",
-  "y": "Not stated",
-  "p": "",
-  "x": "EPAM Systems is hiring a Senior DevOps Engineer to build cloud solutions on Azure or AWS, run Docker and Kubernetes platforms, and set up CI/CD pipelines and automation scripts. Candidates need 3+ years of Azure or AWS experience, Infrastructure as Code skills such as Terraform, monitoring tool experience, and B2 English.",
-  "u": "https://weworkremotely.com/remote-jobs/epam-systems-senior-devops-engineer",
-  "src": "WeWorkRemotely",
-  "deadline": "",
-  "posted": "2026-11-17",
-  "f": 0,
-  "slug": "senior-devops-engineer-epam-systems-ef7d69"
- },
- {
-  "id": "9cf40f8340d6a5bc",
-  "t": "Senior DevOps / Platform Engineer - GCP",
-  "c": "GoMining",
-  "l": "Remote",
-  "k": "Tech",
-  "y": "Not stated",
-  "p": "",
-  "x": "GoMining, headquartered in Cyprus, is hiring a Senior DevOps / Platform Engineer to build and run its cloud platform with a focus on GCP and Kubernetes. Duties include Terraform infrastructure as code, CI/CD and GitOps pipelines, observability, incident troubleshooting, security controls and cost optimization. Candidates need strong hands-on experience with production infrastructure, GCP, Terraform, Kubernetes, Linux, networking, and Bash and Python automation.",
-  "u": "https://weworkremotely.com/remote-jobs/gomining-senior-devops-platform-engineer-gcp",
-  "src": "WeWorkRemotely",
-  "deadline": "",
-  "posted": "2026-11-17",
-  "f": 0,
-  "slug": "senior-devops-platform-engineer-gcp-gomining-9cf40f"
- },
- {
-  "id": "2f2c9ce709f7885a",
-  "t": "Director of Content Strategy",
-  "c": "WeVote",
-  "l": "Remote",
+  "id": "dd8d466af643",
+  "t": "Kenya Defence Forces (KDF) Recruitment 2026",
+  "c": "Kenya Defence Forces",
+  "l": "Other Kenya",
   "k": "Other",
   "y": "Not stated",
   "p": "",
-  "x": "WeVote, a nonpartisan civic technology nonprofit, is looking for a volunteer Director of Content Strategy to lead its content vision across digital channels. The role covers editorial planning, messaging frameworks, audience growth, content performance analysis and leading volunteer writers and editors. Applicants need 3+ years in content strategy, communications, digital marketing or a related field.",
-  "u": "https://weworkremotely.com/remote-jobs/wevote-director-of-content-strategy",
-  "src": "WeWorkRemotely",
-  "deadline": "",
-  "posted": "2026-11-17",
+  "x": "The Kenya Defence Forces is recruiting in several categories, including general service officer cadets, specialist officers, general duty recruits and tradesmen and women. Applicants must be Kenyan citizens who meet the age, KCSE or diploma, medical and physical requirements in the official advert, and applications for cadets, specialists and tradesmen and women are submitted online. Recruitment is free, so never pay anyone to be considered.",
+  "u": "https://recruit.mod.go.ke",
+  "src": "Direct",
+  "deadline": "2026-12-12",
+  "posted": "2026-11-22",
   "f": 0,
-  "slug": "director-of-content-strategy-wevote-2f2c9c"
- },
- {
-  "id": "f1de5035e26102df",
-  "t": "Creative Design Team Lead (AI & Performance Marketing)",
-  "c": "CapsLock",
-  "l": "Remote",
-  "k": "Other",
-  "y": "Not stated",
-  "p": "",
-  "x": "CapsLock, a global IT marketing company headquartered in Tallinn, is hiring a Creative Design Team Lead to grow a team of 3 AI-driven Creative Designers to 6. The role covers creative direction, production flow and quality control, and running the creative testing loop for performance ad creatives. It requires 5+ years of experience leading creative or design teams in digital marketing.",
-  "u": "https://weworkremotely.com/remote-jobs/capslock-creative-design-team-lead-ai-performance-marketing-2",
-  "src": "WeWorkRemotely",
-  "deadline": "",
-  "posted": "2026-11-17",
-  "f": 0,
-  "slug": "creative-design-team-lead-ai-performance-marketing-capslock-f1de50"
- },
- {
-  "id": "033e74b0c917c47c",
-  "t": "Creative Marketing Project Coordinator",
-  "c": "CapsLock",
-  "l": "Remote",
-  "k": "Other",
-  "y": "Not stated",
-  "p": "",
-  "x": "CapsLock, a global IT marketing company serving B2C clients, is hiring a Creative Marketing Project Coordinator to run its creative pipeline of video ads, images and ad copy. The role involves turning requests into ClickUp tasks, coordinating 15–25 creative and media buying team members, checking final assets before launch, and keeping logs and status reports. It also involves using AI tools and automation to scale the workflow to 100–350 tasks per month.",
-  "u": "https://weworkremotely.com/remote-jobs/capslock-creative-marketing-project-coordinator-1",
-  "src": "WeWorkRemotely",
-  "deadline": "",
-  "posted": "2026-11-17",
-  "f": 0,
-  "slug": "creative-marketing-project-coordinator-capslock-033e74"
- },
- {
-  "id": "a8294dfe24718543",
-  "t": "Social Media Manager for X",
-  "c": "CoinStats",
-  "l": "Remote",
-  "k": "Other",
-  "y": "Not stated",
-  "p": "",
-  "x": "CoinStats, a crypto portfolio tracker, is hiring a social media manager focused on X to build its voice in the crypto community through replies, trend monitoring and content creation. The remote role can be full-time or part-time and is open to mid-level and senior candidates anywhere in the world. Applicants must submit a CV, a cover letter of up to 250 words, and a portfolio link.",
-  "u": "https://weworkremotely.com/remote-jobs/coinstats-social-media-manager-for-x",
-  "src": "WeWorkRemotely",
-  "deadline": "",
-  "posted": "2026-11-17",
-  "f": 0,
-  "slug": "social-media-manager-for-x-coinstats-a8294d"
- },
- {
-  "id": "bd3a1e8e6b936590",
-  "t": "Online English Writing and Analysis Course Developer - All Levels",
-  "c": "Jadeclass Education",
-  "l": "Remote",
-  "k": "Education",
-  "y": "Not stated",
-  "p": "360 USD per newly developed lesson; 75 USD per 90-minute teaching lesson",
-  "x": "Jadeclass Education wants a remote course developer and teacher for its English Writing and Analysis courses, which serve students aged 6-16 in groups of up to eight. The role involves building a full course of 15 lessons to company standards and teaching it online on ClassIn, with classes on Friday evenings, Saturdays and Sundays from late February to late June 2027. Applications must include a video introduction, and pay goes out through Wise.",
-  "u": "https://weworkremotely.com/remote-jobs/jadeclass-education-online-english-writing-and-analysis-course-developer-all-levels",
-  "src": "WeWorkRemotely",
-  "deadline": "",
-  "posted": "2026-11-17",
-  "f": 0,
-  "slug": "online-english-writing-and-analysis-course-developer-all-lev-bd3a1e"
- },
- {
-  "id": "37c0c743d8e07202",
-  "t": "Business Development Specialist",
-  "c": "Prospex CRM",
-  "l": "Remote",
-  "k": "Sales",
-  "y": "Not stated",
-  "p": "",
-  "x": "Prospex CRM, headquartered in Egypt, is hiring a remote outbound Business Development Specialist to sell recruitment services. The work involves daily cold calls, cold email campaigns and LinkedIn outreach to decision-makers, booking qualified meetings and keeping the CRM updated. Candidates need prior recruitment agency sales or BD experience, strong cold calling skills and fluent English.",
-  "u": "https://weworkremotely.com/remote-jobs/prospex-crm-business-development-specialist-1",
-  "src": "WeWorkRemotely",
-  "deadline": "",
-  "posted": "2026-11-17",
-  "f": 0,
-  "slug": "business-development-specialist-prospex-crm-37c0c7"
- },
- {
-  "id": "f99b00a23540c8e3",
-  "t": "Online English Writing and Analysis Teacher - All Levels",
-  "c": "Jadeclass Education",
-  "l": "Remote",
-  "k": "Education",
-  "y": "Not stated",
-  "p": "75-100 USD per class",
-  "x": "JadeClass Education Singapore is hiring teachers to deliver live online English classes to groups of eight students aged 6-16 on the ClassIn platform. Lessons are prepared by the company's design team, and classes run on Friday evenings, Saturdays and Sundays (UTC+8). Pay is $100 per 90-minute new lesson and $75 per repeated lesson, paid monthly through Wise, and applicants must include a video introduction.",
-  "u": "https://weworkremotely.com/remote-jobs/jadeclass-education-online-english-writing-and-analysis-teacher-all-levels",
-  "src": "WeWorkRemotely",
-  "deadline": "",
-  "posted": "2026-11-17",
-  "f": 0,
-  "slug": "online-english-writing-and-analysis-teacher-all-levels-jadec-f99b00"
- },
- {
-  "id": "cf51ee79f27ce234",
-  "t": "Head of Technology",
-  "c": "Sanctuary Computer (garden3d)",
-  "l": "Remote",
-  "k": "Tech",
-  "y": "Not stated",
-  "p": "",
-  "x": "garden3d, a worker-owned creative collective, is hiring a Head of Technology to lead engineering across Sanctuary Computer and its other brands. The person will set the engineering standard, build the engineering culture and work closely with the founder and president. The posting says candidates can be based anywhere, with hiring open across timezones.",
-  "u": "https://weworkremotely.com/remote-jobs/sanctuary-computer-head-of-technology-1",
-  "src": "WeWorkRemotely",
-  "deadline": "",
-  "posted": "2026-11-17",
-  "f": 0,
-  "slug": "head-of-technology-sanctuary-computer-garden3d-cf51ee"
- },
- {
-  "id": "faf24d8eb0e1670e",
-  "t": "Business Development Manager",
-  "c": "BBE Marketing Inc",
-  "l": "Remote",
-  "k": "Sales",
-  "y": "Not stated",
-  "p": "",
-  "x": "BBE Marketing Inc, headquartered in Hurst, Texas, is hiring a remote Business Development Manager for outbound-heavy work with entertainment industry representatives in music, sports, film/TV and digital media. Duties include high-volume email and social media outreach, consistent follow-ups, and tracking contacts and conversations in HubSpot or a similar CRM. Candidates need excellent written and spoken English and strong organisation. Spanish fluency and HubSpot familiarity are a plus.",
-  "u": "https://weworkremotely.com/remote-jobs/bbe-marketing-inc-business-development-manager-2",
-  "src": "WeWorkRemotely",
-  "deadline": "",
-  "posted": "2026-11-17",
-  "f": 0,
-  "slug": "business-development-manager-bbe-marketing-inc-faf24d"
+  "slug": "kenya-defence-forces-kdf-recruitment-2026-kenya-defence-forc-dd8d46",
+  "dup_of": ""
  }
 ]
