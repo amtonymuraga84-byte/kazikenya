@@ -1,6 +1,6 @@
 ---
 title: How to Verify KCSE and Degree Certificates in Kenya Before You Apply for a Job
-date: 2026-11-24
+date: 2026-11-23
 updated: 2026-11-23
 author: RemoteKazi Team
 tag: Guides
