@@ -188,7 +188,8 @@ def job_page(j, all_jobs):
     else:
         ld["jobLocation"] = {"@type": "Place", "address": {"@type": "PostalAddress", "addressLocality": j["l"],
                                                            "addressCountry": "KE"}}
-    rel = [r for r in all_jobs if r["k"] == j["k"] and r["id"] != j["id"]][:4]
+    rel = [r for r in all_jobs if r["k"] == j["k"] and r["id"] != j["id"] and not r.get("dup_of")
+           and r["slug"] != j.get("dup_of") and r.get("dup_of") != j["slug"]][:4]
     relh = "".join(f'<li><a href="/jobs/{r["slug"]}/">{E(r["t"])}</a> · {E(r["c"])} · {E(r["l"])}</li>' for r in rel)
     cat = next((L for L in LANDINGS if L["kind"] == "category" and L["match"](j)), None)
     crumb = f'<a href="/{cat["slug"]}/">{E(j["k"])}</a>' if cat else E(j["k"])
@@ -208,7 +209,7 @@ def job_page(j, all_jobs):
             + '<p><a href="/#jobs">← Back to all jobs</a></p>')
     write(path, page(f'{j["t"]} at {j["c"]} ({j["l"]}) | RemoteKazi', snip(j["x"]), path, body,
                      (f'<script type="application/ld+json">{json.dumps(ld).replace("</", "<\\/")}</script>'
-                      if len(j["x"]) >= 150 else '<meta name="robots" content="noindex,follow">')))
+                      if len(j["x"]) >= 150 and not j.get("dup_of") else '<meta name="robots" content="noindex,follow">')))
     # Google needs a complete description; a listing with almost no detail is thin content, so it is kept out of search
 
 
@@ -761,6 +762,8 @@ def load_posts():
             upd = date.fromisoformat(meta.get("updated", ""))
         except ValueError:
             upd = None
+        if upd and upd <= when:                # an "updated" date on or before publishing is meaningless (and invalid dateModified)
+            upd = None
         posts.append({"slug": slugify(f.stem), "title": title, "date": when, "updated": upd,
                       "author": meta.get("author", "RemoteKazi Team"), "summary": meta.get("summary", ""),
                       "caption": meta.get("image_caption", ""), "credit": meta.get("image_credit", ""),
@@ -873,6 +876,14 @@ def main():
     ordered = sorted(jobs, key=lambda j: (not j.get("f"), -datetime.fromisoformat(j["posted"]).toordinal()))
     for j in jobs:
         j["slug"] = f"{slugify(j['t'] + '-' + j['c'])}-{j['id'][:6]}"
+    # the same job often arrives from two feeds; keep the most detailed copy indexable and mark the others
+    # as duplicates (still live, but noindex and out of the sitemap) so Google never sees duplicate pages
+    best = {}
+    for j in sorted(jobs, key=lambda j: -len(j["x"])):
+        best.setdefault((slugify(j["t"]), slugify(j["c"])), j["slug"])
+    for j in jobs:
+        primary = best[(slugify(j["t"]), slugify(j["c"]))]
+        j["dup_of"] = "" if primary == j["slug"] else primary
     # remember jobs that were on the site last time but are gone now, before their pages are deleted
     live_slugs = {j["slug"] for j in jobs}
     try:
@@ -926,7 +937,7 @@ def main():
     sm += [(f"/{n}/", PAGES_UPDATED) for n in ("about", "contact", "privacy", "terms")]
     sm += [(f"/guides/{s}/", PAGES_UPDATED) for s in GUIDES]
     sm += [(f"/{L['slug']}/", matched[L['slug']][0]["posted"]) for L in LANDINGS if L["slug"] in live]
-    sm += [(f"/jobs/{j['slug']}/", j["posted"]) for j in jobs if len(j["x"]) >= 150]
+    sm += [(f"/jobs/{j['slug']}/", j["posted"]) for j in jobs if len(j["x"]) >= 150 and not j.get("dup_of")]
     sm += [(f"/blog/{p['slug']}/", (p["updated"] or p["date"]).isoformat()) for p in posts]
     urls = [u for u, _ in sm]
     write("/sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
