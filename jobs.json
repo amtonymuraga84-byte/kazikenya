@@ -167,7 +167,7 @@
   "posted": "2026-11-21",
   "f": 0,
   "slug": "senior-product-architect-storyblok-3c1f15",
-  "dup_of": "senior-product-architect-storyblok-27d653"
+  "dup_of": ""
  },
  {
   "id": "52ecd12641a23f65",
@@ -218,40 +218,6 @@
   "posted": "2026-11-21",
   "f": 0,
   "slug": "frontend-engineer-ritual-273284",
-  "dup_of": ""
- },
- {
-  "id": "de5ea4d076a8bc45",
-  "t": "Software Engineer, AI Coding Tasks",
-  "c": "Askable",
-  "l": "Remote",
-  "k": "Tech",
-  "y": "Not stated",
-  "p": "US$400-US$1,000 per task",
-  "x": "Experienced software engineers turn a real change from a codebase they know into a difficult coding task used to measure and train AI models. Pay is per task that passes review, and the work is remote from any location at about 10 hours a week. Applicants need 2+ years of professional experience, merged open-source code or an eligible private codebase, strength in a language such as Python, TypeScript, Go, Rust, Java or C++, and skill with Docker, Linux, Git and testing.",
-  "u": "https://remoteOK.com/remote-jobs/remote-software-engineer-ai-coding-tasks-askable-1137808",
-  "src": "RemoteOK",
-  "deadline": "",
-  "posted": "2026-11-20",
-  "f": 0,
-  "slug": "software-engineer-ai-coding-tasks-askable-de5ea4",
-  "dup_of": ""
- },
- {
-  "id": "27d653c20c0c8cc5",
-  "t": "Senior Product Architect",
-  "c": "Storyblok",
-  "l": "Remote",
-  "k": "Tech",
-  "y": "Not stated",
-  "p": "",
-  "x": "Storyblok, a headless CMS company, is hiring a Senior Product Architect to own the technical architecture, platform vision and scalability of its products. The role involves setting architectural guardrails, leading architecture reviews and working with Product, Security, DevOps and Data teams. It requires 7+ years in software architecture or system design for large-scale distributed cloud applications, with deep cloud-native expertise (AWS preferred). The company is fully remote and offers a home office package, a monthly remote work stipend, 25 days of annual leave and a personal development fund.",
-  "u": "https://weworkremotely.com/remote-jobs/storyblok-senior-product-architect",
-  "src": "WeWorkRemotely",
-  "deadline": "",
-  "posted": "2026-11-20",
-  "f": 0,
-  "slug": "senior-product-architect-storyblok-27d653",
   "dup_of": ""
  }
 ]
